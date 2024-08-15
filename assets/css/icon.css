@@ -1,0 +1,69 @@
+.icon {
+  display: inline-block;
+  width: var(--icon-size, 20px);
+  height: var(--icon-size, 20px);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  line-height: 1;
+  filter: var(--icon-filter, #5a6a85);
+}
+
+/* Color */
+.text-white-icon {
+  --icon-filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+    saturate(7500%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.icon-size-24px {
+  --icon-size: 24px;
+}
+
+.icon-size-32px {
+  --icon-size: 32px;
+}
+
+/* Lock */
+.icon-lock {
+  background-image: url("../images/icons/lock.svg");
+}
+
+/* Email */
+.icon-mail {
+  background-image: url("../images/icons/mail.svg");
+}
+
+/* Eye */
+.icon-eye {
+  background-image: url("../images/icons/eye.svg");
+}
+
+/* User Circle */
+.icon-user-circle {
+  background-image: url("../images/icons/user-circle.svg");
+}
+
+/* Dashboard */
+.icon-dashboard {
+  background-image: url("../images/icons/view-structure-up.svg");
+}
+
+/* Finance */
+.icon-finance {
+  background-image: url("../images/icons/stats-up-square.svg");
+}
+
+/* Report */
+.icon-report {
+  background-image: url("../images/icons/page-search.svg");
+}
+
+/* Note Color */
+.icon-note-color {
+  background-image: url("../images/icons/note-color.svg");
+}
+
+/* Note Color */
+.icon-notification-empty {
+  background-image: url("../images/icons/notification-empty.svg");
+}

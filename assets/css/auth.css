@@ -1,0 +1,17 @@
+.text-neutral-500 {
+  color: #7c8fac !important;
+}
+
+.icon-left {
+  left: 10px;
+  color: #6c757d;
+}
+
+.icon-right {
+  right: 10px;
+  color: #6c757d;
+}
+
+.form-control {
+  padding: 0.594rem 2.3rem !important;
+}
