@@ -7,12 +7,32 @@
   background-position: center;
   line-height: 1;
   filter: var(--icon-filter, #5a6a85);
+  z-index: 10;
 }
 
 /* Color */
 .text-white-icon {
   --icon-filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
     saturate(7500%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+.text-danger-icon {
+  --icon-filter: brightness(0) saturate(100%) invert(61%) sepia(100%)
+    saturate(9600%) hue-rotate(-4deg) brightness(95%) contrast(100%);
+}
+
+.text-success-icon {
+  --icon-filter: brightness(0) saturate(100%) invert(47%) sepia(81%)
+    saturate(3100%) hue-rotate(165deg) brightness(92%) contrast(95%);
+}
+
+/* Size */
+.icon-size-16px {
+  --icon-size: 16px;
+}
+
+.icon-size-18px {
+  --icon-size: 18px;
 }
 
 .icon-size-24px {
@@ -58,12 +78,124 @@
   background-image: url("../images/icons/page-search.svg");
 }
 
+/* Arrow Up */
+.icon-arrow-up {
+  background-image: url("../images/icons/chevUp.svg");
+}
+
+/* Arrow Left */
+.icon-arrow-left {
+  background-image: url("../images/icons/chevUp.svg");
+  rotate: -90deg;
+}
+
+/* Arrow right */
+.icon-arrow-right {
+  background-image: url("../images/icons/chevRight.svg");
+}
+
+/* Arrow Down */
+.icon-arrow-down {
+  background-image: url("../images/icons/chevDown.svg");
+}
+
 /* Note Color */
 .icon-note-color {
   background-image: url("../images/icons/note-color.svg");
 }
 
-/* Note Color */
+/* Notification */
 .icon-notification-empty {
   background-image: url("../images/icons/notification-empty.svg");
+}
+
+/* Ai */
+.icon-ai {
+  background-image: url("../images/icons/icon-ai.svg");
+}
+
+/* Call Down */
+.icon-call-down {
+  background-image: url("../images/icons/callDown.svg");
+}
+
+/* Call Up */
+.icon-call-up {
+  background-image: url("../images/icons/callUp.svg");
+}
+
+/* Minus */
+.icon-minus {
+  background-image: url("../images/icons/minus.svg");
+}
+
+/* Compare */
+.icon-compare {
+  background-image: url("../images/icons/git-compare.svg");
+}
+
+/* Merge */
+.icon-merge {
+  background-image: url("../images/icons/horizontal-merge.svg");
+}
+
+/* Arrow Left Circle */
+.icon-arrow-left-circle {
+  background-image: url("../images/icons/arrow-circle-left.svg");
+}
+
+/* Arrow Right Circle */
+.icon-arrow-right-circle {
+  background-image: url("../images/icons/arrow-circle-left.svg");
+  transform: rotate(180deg);
+}
+
+/* Close Circle */
+.icon-close-circle {
+  background-image: url("../images/icons/close-circle.svg");
+}
+
+/* User Color */
+.icon-user-color {
+  background-image: url("../images/icons/user-color.svg");
+}
+
+/* Inbox Color */
+.icon-inbox-color {
+  background-image: url("../images/icons/inbox-color.svg");
+}
+
+/* Company Color */
+.icon-company-color {
+  background-image: url("../images/icons/company-color.svg");
+}
+
+/* Minimize */
+.icon-minimize {
+  background-image: url("../images/icons/minimize.svg");
+}
+
+/* Expand */
+.icon-expand {
+  background-image: url("../images/icons/expand.svg");
+}
+
+/* calendar */
+.icon-calendar {
+  background-image: url("../images/icons/calendar.svg");
+}
+
+/* Grid */
+.icon-grid {
+  background-image: url("../images/icons/Grid.svg");
+}
+
+/* search */
+.icon-search {
+  background-image: url("../images/icons/Search.svg");
+}
+
+/* Close Fill */
+.icon-close-fill {
+  background-image: url("../images/icons/closeFill.svg");
 }

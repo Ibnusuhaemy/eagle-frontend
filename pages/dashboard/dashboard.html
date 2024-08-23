@@ -18,11 +18,15 @@
         <!-- Local Assets -->
         <link rel="stylesheet" href="../../assets/css/global.css">
         <link rel="stylesheet" href="../../assets/css/dashboard.css">
+        <link rel="stylesheet" href="../../assets/css/auth.css">
 
-    <body>
-        <div class="d-flex bg-primary-100">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+    <body class="bg-primary-100">
+        <div class="d-flex w-100">
             <!-- Sidebar -->
-            <aside class="min-vh-100 w-275px bg-white p-4">
+            <aside class="min-vh-100 w-275px bg-white p-4 position-fixed">
                 <ul class="navbar-nav gap-2 mb-1">
                     <li class="nav-item">
                         <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active " href="#">
@@ -31,7 +35,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2" href="#">
+                        <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2" href="financial.html">
                             <i class="icon icon-finance icon-size-24px"></i>
                             <span class="fw-semibold fs-14px text-secondary">Financials Overview</span>
                         </a>
@@ -61,22 +65,276 @@
                 </div>
             </aside>
 
-            <!-- Navbar -->
-            <div class="w-dashboard">
-                <nav class="navbar navbar-expand-lg bg-white">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="#">Navbar</a>     
+            <div class="ml-dashboard">
+                <!-- Navbar -->
+                <nav class="navbar fixed-top navbar-aside navbar-expand-lg bg-white w-dashboard shadow-sm">
+                    <div class="container-fluid">   
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto gap-32">
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">
-                                        asdasd
-                                    </a>
-                                </li> -->
-                                <li class="nav-item">
-                                    <div class="d-flex align-items-center">
-                                        <div class="position-relative">
-                                            <i class="icon icon-notification-empty icon-size-24px"></i>
+                            
+                            <ul class="navbar-nav me-auto gap-4 nav__dahsboard text__hidden__responsive">
+                                <li class="nav-item d-flex align-items-center">
+                                    <div class="nav-link">
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-primary dropdown-toggle-report fs-14px fw-semibold" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                Run July Report
+                                            </button>
+
+                                            <div class="dropdown-menu p-2">
+                                                <div class="d-flex flex-column gap-2">
+
+                                                    <!-- Nav Tabs -->
+                                                    <ul class="nav nav-pills nav-report mb-3 border border-1 p-1 rounded-3" id="pills-tab" role="tablist">
+                                                        
+                                                        <!-- Month -->
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link nav-link-report active-report" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab" aria-controls="pills-month" aria-selected="true">
+                                                                Month
+                                                            </button>
+                                                        </li>
+
+                                                        <!-- Quarter -->
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link nav-link-report" id="pills-quarter-tab" data-bs-toggle="pill" data-bs-target="#pills-quarter" type="button" role="tab" aria-controls="pills-quarter" aria-selected="false">
+                                                                Quarter
+                                                            </button>
+                                                        </li>
+
+                                                        <!-- Year -->
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link nav-link-report" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab" aria-controls="pills-year" aria-selected="false">
+                                                                Year
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+
+                                                    <!-- Tabs Content -->
+                                                    <div class="tab-content px-1" id="pills-tabContent">
+
+                                                        <!-- Tabs Data Month -->
+                                                        <div class="tab-pane fade show active-tabs" id="pills-month" role="tabpanel" aria-labelledby="pills-month-tab" tabindex="0">
+                                                            <div class="d-flex flex-column gap-1">
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs active-report-tabs">
+                                                                        July
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        June
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        May
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        April
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        March
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        February
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        January
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Tabs Data Quarter -->
+                                                        <div class="tab-pane fade" id="pills-quarter" role="tabpanel" aria-labelledby="pills-quarter-tab" tabindex="0">
+                                                            <div class="d-flex flex-column gap-1">
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs active-report-tabs">
+                                                                        Q 1
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        Q 2
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        Q 3
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        Q 4
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Tabs Data Year -->
+                                                        <div class="tab-pane fade" id="pills-year" role="tabpanel" aria-labelledby="pills-year-tab" tabindex="0">
+                                                            <div class="d-flex flex-column gap-1">
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs active-report-tabs">
+                                                                        2024
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        2023
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        2022
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        2021
+                                                                    </button>
+                                                                </div>
+
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        2020
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Run Report -->
+                                                    <div class="d-flex flex-column gap-1">
+                                                        <hr class="line-report" />
+
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-12">
+                                                                <button type="button" class="btn fs-14px fw-semibold text-neutral-400 px-3 py-2">cancel</button>
+                                                            </div>
+                                                            <div class="col-md-6 col-12">
+                                                                <button type="submit" class="btn btn-primary fs-14px fw-semibold">Run Report</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item d-flex align-items-center">
+                                    <div class="nav-link">
+                                        <button class="btn btn-outline-primary fs-12px fw-semibold py-2 px-3 d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#askEagleModal">
+                                            <i class="icon icon-ai icon-size-24px"></i>
+                                            Ask Eagle.ai
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <ul class="navbar-nav ms-auto gap-4 nav__dahsboard">
+                                <li class="nav-item d-flex align-items-center">
+                                    <div class="nav-link">
+                                        <div class="dropdown-center">
+                                            <div class="d-flex align-items-center gap-3 dropdown-toggle-user" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                <div class="position-relative d-flex align-items-center">
+                                                    <i class="icon icon-notification-empty icon-size-24px"></i>
+
+                                                    <div class="position-absolute top-0 start-100 rounded-circle bg-white p-1 translate-middle ">
+                                                        <div class="rounded-circle bg-primary p-1"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="dropdown-menu dropdown-user shadow" aria-labelledby="profileDropdown">
+                                                <div class="d-flex flex-column gap-20">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h6 class="fs-18px fw-semibold text-neutral-base mb-0">User Profile</h6>
+
+                                                        <span class="badge rounded-pill text-bg-primary px-3 py-2">5 new</span>
+                                                    </div>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="avatar-container h-48px w-48px bg-primary-200">
+                                                            <img src="../../assets/images/avatars/avatar3.png" alt="Logo" class="avatar-image">
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Roman Joined the Team!</span>
+                                                            <span class="fs-12px text-neutral-400">Congratulate him</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="avatar-container h-48px w-48px bg-primary-200">
+                                                            <img src="../../assets/images/avatars/avatar4.png" alt="Logo" class="avatar-image">
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">New message</span>
+                                                            <span class="fs-12px text-neutral-400">Salma sent you new message</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="avatar-container h-48px w-48px bg-primary-200">
+                                                            <img src="../../assets/images/avatars/avatar5.png" alt="Logo" class="avatar-image">
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Bianca setup payment</span>
+                                                            <span class="fs-12px text-neutral-400">Check your earnings</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="avatar-container h-48px w-48px bg-primary-200">
+                                                            <img src="../../assets/images/avatars/avatar6.png" alt="Logo" class="avatar-image">
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Jolly completed tasks</span>
+                                                            <span class="fs-12px text-neutral-400">Assign her new tasks</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <button type="button" class="btn btn-outline-primary fs-14px fw-semibold">View all notifictions</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item d-flex align-items-center">
+                                    <div class="nav-link">
+                                        <div class="position-relative d-flex align-items-center">
+                                            <i class="icon icon-mail icon-size-24px"></i>
 
                                             <div class="position-absolute top-0 start-100 rounded-circle bg-white p-1 translate-middle ">
                                                 <div class="rounded-circle bg-primary p-1"></div>
@@ -85,12 +343,78 @@
                                     </div>
                                 </li>
                                 <li class="nav-item">
-                                    <div class="d-flex align-items-center">
-                                        <div class="position-relative">
-                                            <i class="icon icon-mail icon-size-24px"></i>
+                                    <div class="nav-link">
+                                        <div class="dropdown">
+                                            <div class="d-flex align-items-center gap-3 dropdown-toggle-user" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                <div class="avatar-container h-32px w-32px">
+                                                    <img src="../../assets/images/avatars/avatar2.png" alt="Logo" class="avatar-image">
+                                                </div>
+                                                <span class="fw-semibold fs-14px">Elite International Investment LLC</span>
+                                            </div>
 
-                                            <div class="position-absolute top-0 start-100 rounded-circle bg-white p-1 translate-middle ">
-                                                <div class="rounded-circle bg-primary p-1"></div>
+                                            <div class="dropdown-menu dropdown-user dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                                                <div class="d-flex flex-column gap-20">
+                                                    <h6 class="fs-18px fw-semibold text-neutral-base">User Profile</h6>
+
+                                                    <div class="d-flex gap-3">
+                                                        <div>
+                                                            <div class="h-80px w-80px overflow-hidden rounded-circle">
+                                                                <img src="../../assets/images/avatars/avatar2.png" alt="avatar_images" class="img-fluid rounded-circle" style="object-fit: cover; object-position: center; width: 100%; height: 100%;">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <p class="fw-semibold mb-0">Elite International Investment LLC</p>
+                                                            <span class="fs-12px d-flex align-items-center gap-2 text-neutral-400">
+                                                                <i class="icon icon-mail icon-size-18px"></i>
+                                                                info@eliteint.com
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr class="line-report" />
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="p-custom-12 bg-primary-200 rounded-2 d-flex justify-content-center align-items-center">
+                                                            <i class="icon icon-user-color icon-size-24px"></i>
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Profile</span>
+                                                            <span class="fs-12px text-neutral-400">Account settings</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="p-custom-12 bg-primary-200 rounded-2 d-flex justify-content-center align-items-center">
+                                                            <i class="icon icon-inbox-color icon-size-24px"></i>
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Inbox</span>
+                                                            <span class="fs-12px text-neutral-400">Messages & Emails</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="p-custom-12 bg-primary-200 rounded-2 d-flex justify-content-center align-items-center">
+                                                            <i class="icon icon-company-color icon-size-24px"></i>
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Company</span>
+                                                            <span class="fs-12px text-neutral-400">List of Your Companies</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <button type="button" class="btn btn-outline-primary fs-14px fw-semibold">Logout</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -100,16 +424,1892 @@
                     </div>
                 </nav>
             </div>
+
+            <!-- Content -->
+            <main class="mt-dashboard p-custom-7">
+                <div class="row gap-40">
+
+                    <!-- Year to Date Summary -->
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between align-items-center gap-3 w-100">
+                                <h5 class="fw-semibold mb-0">Year to Date Summary</h5>
+                                
+                                <button class="showHideChart bg-white h-32px w-32px border-0 rounded-circle d-flex justify-content-center align-items-center" data-target="#dateSummaryGraphs">
+                                    <i class="icon icon-arrow-up icon-size-24px"></i>
+                                </button>
+                            </div>
+
+                            <div id="dateSummaryGraphs" class="col-lg-12 mt-custom-22 transition-height">
+                                <div class="row">
+
+                                    <!-- Card Revenue -->
+                                    <div class="col-2">
+                                        <div class="bg-white p-custom-7 rounded-12px">
+                                            <div class="d-flex flex-column gap-1">
+                                                <span class="fw-semibold fs-14px text-secondary">Revenue</span>
+                                                <h3 class="fw-semibold text-danger">$678,2K</h3>
+
+                                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                                    <!-- Card Name -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">Year ago</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">$2.5M</span>
+                                                    </div>
+
+                                                    <!-- Status -->
+                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                    <i class="icon icon-call-down icon-size-24px text-danger-icon"></i>
+                                                    </div>
+
+                                                    <!-- % Change -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">% Change</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">-75.86%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Expenses -->
+                                    <div class="col-2">
+                                        <div class="bg-white p-custom-7 rounded-12px">
+                                            <div class="d-flex flex-column gap-1">
+                                                <span class="fw-semibold fs-14px text-secondary">Expenses</span>
+                                                <h3 class="fw-semibold text-danger">$38,9K</h3>
+
+                                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                                    <!-- Card Name -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">Year ago</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">$43.2</span>
+                                                    </div>
+
+                                                    <!-- Status -->
+                                                     <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                        <i class="icon icon-call-down icon-size-24px text-danger-icon"></i>
+                                                     </div>
+
+                                                    <!-- % Change -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">% Change</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">-14.76%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Net Profit -->
+                                    <div class="col-2">
+                                        <div class="bg-white p-custom-7 rounded-12px">
+                                            <div class="d-flex flex-column gap-1">
+                                                <span class="fw-semibold fs-14px text-secondary">Net Profit</span>
+                                                <h3 class="fw-semibold text-success">$22,2K</h3>
+
+                                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                                    <!-- Card Name -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">Year ago</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">$47.8K</span>
+                                                    </div>
+
+                                                    <!-- Status -->
+                                                     <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                        <i class="icon icon-call-up icon-size-24px text-success-icon"></i>
+                                                     </div>
+
+                                                    <!-- % Change -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">% Change</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">-51.86%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card A/R -->
+                                    <div class="col-2">
+                                        <div class="bg-white p-custom-7 rounded-12px">
+                                            <div class="d-flex flex-column gap-1">
+                                                <span class="fw-semibold fs-14px text-secondary">A/R</span>
+                                                <h3 class="fw-semibold text-neutral-base">$0</h3>
+
+                                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                                    <!-- Card Name -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">Year ago</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">N/A</span>
+                                                    </div>
+
+                                                    <!-- Status -->
+                                                     <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                        <i class="icon icon-minus icon-size-24px"></i>
+                                                     </div>
+
+                                                    <!-- % Change -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">% Change</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">N/A</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Assets -->
+                                    <div class="col-2">
+                                        <div class="bg-white p-custom-7 rounded-12px">
+                                            <div class="d-flex flex-column gap-1">
+                                                <span class="fw-semibold fs-14px text-secondary">Assets</span>
+                                                <h3 class="fw-semibold text-success">$67,4K</h3>
+
+                                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                                    <!-- Card Name -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">Year ago</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">$48.2K</span>
+                                                    </div>
+
+                                                    <!-- Status -->
+                                                     <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                        <i class="icon icon-call-up icon-size-24px text-success-icon"></i>
+                                                     </div>
+
+                                                    <!-- % Change -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">% Change</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">29.53%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Bank -->
+                                    <div class="col-2">
+                                        <div class="bg-white p-custom-7 rounded-12px">
+                                            <div class="d-flex flex-column gap-1">
+                                                <span class="fw-semibold fs-14px text-secondary">Bank</span>
+                                                <h3 class="fw-semibold text-danger">$678,2K</h3>
+
+                                                <div class="d-flex gap-2 justify-content-between align-items-center">
+                                                    <!-- Card Name -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">Year ago</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">$48.2</span>
+                                                    </div>
+
+                                                    <!-- Status -->
+                                                     <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                        <i class="icon icon-call-down icon-size-24px text-danger-icon"></i>
+                                                     </div>
+
+                                                    <!-- % Change -->
+                                                    <div class="d-flex flex-column">
+                                                        <p class="mb-0 fs-12px text-neutral-400">% Change</p>
+                                                        <span class="fs-12px fw-semibold text-neutral-base">-63.55%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Financial Snapshot -->
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between align-items-center gap-3 w-100">
+                                <div class="d-flex align-items-center gap-32">
+                                    <h5 class="fw-semibold mb-0">Financial Snapshot</h5>
+
+                                    <div class="d-flex align-items-center gap-12">
+
+                                        <!-- Button Year to Last Month -->
+                                        <div class="dropdown">
+                                            <a class="btn btn-light dropdown-toggle-fs-ytlm fs-14px fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Year to Last Month
+                                            </a>
+
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Button Compare -->
+                                        <button class="btn btn-primary fs-14px fw-semibold d-flexalign-items-center">
+                                            <i class="icon icon-compare text-white-icon icon-size-24px"></i>
+                                            Compare
+                                        </button>
+
+                                        <!-- Button Merge -->
+                                        <button class="btn btn-outline-primary fs-14px fw-semibold py-2 px-3 d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#mergeModal">
+                                            <i class="icon icon-merge icon-size-24px text-primary-icon"></i>
+                                            Merge
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <button class="showHideChart bg-white h-32px w-32px border-0 rounded-circle d-flex justify-content-center align-items-center" data-target="#financialSnapshotGraphs">
+                                    <i class="icon icon-arrow-up icon-size-24px"></i>
+                                </button>
+                            </div>
+
+                            <div id="financialSnapshotGraphs" class="col-lg-12 mt-custom-22 transition-height">
+                                <div class="row row-gap-4">
+
+                                    <!-- Total Sales -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                            <h6 class="text-neutral-400 fw-semibold mb-0">Total Sales</h6>
+                                            <span class="fw-semibold text-neutral-base fs-4 mt-1">$509,820.5</span>
+
+                                            <div class="mt-custom-12">
+                                                <canvas id="totalSales"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Total Cost -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                            <h6 class="text-neutral-400 fw-semibold mb-0">Total Cost</h6>
+                                            <span class="fw-semibold text-neutral-base fs-4 mt-1">$474,320.71</span>
+
+                                            <div class="mt-custom-12">
+                                                <canvas id="totalCost"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Gross Profit -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                            <h6 class="text-neutral-400 fw-semibold mb-0">Gross Profit</h6>
+                                            <span class="fw-semibold text-neutral-base fs-4 mt-1">$35,543.13</span>
+
+                                            <div class="mt-custom-12">
+                                                <canvas id="grossProfit"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Total Expenses -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                            <h6 class="text-neutral-400 fw-semibold mb-0">Total Expenses</h6>
+                                            <span class="fw-semibold text-neutral-base fs-4 mt-1">$35,543.13</span>
+
+                                            <div class="mt-custom-12">
+                                                <canvas id="totalExpenses"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Net Profit -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                            <h6 class="text-neutral-400 fw-semibold mb-0">Net Profit</h6>
+                                            <span class="fw-semibold text-neutral-base fs-4 mt-1">$12,032.71</span>
+
+                                            <div class="mt-custom-12">
+                                                <canvas id="netProfit"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Bank Total -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                            <h6 class="text-warning fw-semibold mb-0">Bank Total</h6>
+                                            <span class="fw-semibold text-warning fs-4 mt-1">$18,943.13</span>
+
+                                            <div class="mt-custom-12">
+                                                <canvas id="bankTotal"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Summary Graphs -->
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between align-items-center gap-3 w-100">
+                                <h5 class="fw-semibold mb-0">Summary Graphs</h5>
+                                
+                                <button class="showHideChart bg-white h-32px w-32px border-0 rounded-circle d-flex justify-content-center align-items-center" data-target="#summaryGraphs">
+                                    <i class="icon icon-arrow-up icon-size-24px"></i>
+                                </button>
+                            </div>
+
+                            <div id="summaryGraphs" class="col-lg-12 mt-custom-22 transition-height">
+                                <div class="row row-gap-3">
+
+                                    <!-- A/R Doughnut Chart -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm h-100 d-flex flex-column gap-12 justify-content-between">
+                                            <span class="fw-semibold text-neutral-base fs-5 mt-1">A/R</span>
+
+                                            <canvas id="arDoughnutChart"></canvas>
+
+                                            <div class="d-flex gap-4 justify-content-center align-items-center">
+                                                <i class="icon icon-arrow-left-circle icon-size-32px"></i>
+                                                <i class="icon icon-arrow-right-circle icon-size-32px"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Expenses Doughnut Chart -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm h-100 d-flex flex-column gap-12 justify-content-between">
+                                            <span class="fw-semibold text-neutral-base fs-5 mt-1">Expenses</span>
+
+                                            <canvas id="expensesDoughnutChart"></canvas>
+
+                                            <div class="d-flex gap-4 justify-content-center align-items-center">
+                                                <i class="icon icon-arrow-left-circle icon-size-32px"></i>
+                                                <i class="icon icon-arrow-right-circle icon-size-32px"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Burn Rate Line Chart -->
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm h-100 d-flex flex-column gap-12 justify-content-between">
+                                            <div class="d-flex flex-row gap-2 align-items-center mt-1 fw-semibold ">
+                                                <span class="text-neutral-base fs-5">Burn Rate</span>
+                                                <span class="badge text-bg-primary-light fs-5">3%</span>
+                                            </div>
+
+                                            <canvas id="burnRate"></canvas>
+
+                                            <div class="d-flex gap-4 justify-content-center align-items-center">
+                                                <i class="icon icon-arrow-left-circle icon-size-32px"></i>
+                                                <i class="icon icon-arrow-right-circle icon-size-32px"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Profit & Lost Chart -->
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between align-items-center gap-3 w-100">
+                                <h5 class="fw-semibold mb-0">Profit & Lost Chart</h5>
+                                
+                                <button class="showHideChart bg-white h-32px w-32px border-0 rounded-circle d-flex justify-content-center align-items-center" data-target="#profitandLostGraphs">
+                                    <i class="icon icon-arrow-up icon-size-24px"></i>
+                                </button>
+                            </div>
+
+                            <div id="profitandLostGraphs" class="col-lg-12 mt-custom-22 transition-height">
+                                <div class="row row-gap-3">
+
+                                    <!-- Revenue updates Bar Chart -->
+                                    <div class="col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                            <div class="d-flex justify-content-between gap-2">
+                                                <div class="d-flex flex-column gap-1">
+                                                    <span class="fw-semibold text-neutral-base fs-5 mt-1">Revenue updates</span>
+                                                    <span class="fw-regular fs-14px text-neutral-400">Overview of Profit</span>
+                                                </div>
+
+                                                <div>
+                                                    <select class="form-select-custom fs-14px fw-semibold text-neutral-400" aria-label="Default select example">
+                                                        <option value="month">Last Month</option>
+                                                        <option value="year">This Year</option>
+                                                        <option value="week">Last Week</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-custom-32">
+                                                <canvas id="revenueBarChart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Breakeven Analysis Bar Chart -->
+                                    <div class="col-md-6 col-12">
+                                        <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                            <div class="d-flex justify-content-between gap-2">
+                                                <div class="d-flex flex-column gap-1">
+                                                    <span class="fw-semibold text-neutral-base fs-5 mt-1">Breakeven Analysis</span>
+                                                    <span class="fw-regular fs-14px text-neutral-400">Overview of Profit</span>
+                                                </div>
+
+                                                <div>
+                                                    <select class="form-select-custom fs-14px fw-semibold text-neutral-400" aria-label="Default select example">
+                                                        <option value="year">This Year</option>
+                                                        <option value="month">Last Month</option>
+                                                        <option value="week">Last Week</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="mt-custom-32 row">
+                                                <div class="col-9 h-100">
+                                                    <canvas id="breakevenChart"></canvas>
+                                                </div>
+
+                                                <div class="col-3 d-flex flex-column gap-4">
+                                                    
+                                                    <!-- Revenue -->
+                                                    <div class="d-flex flex-row gap-2">
+                                                        <div class="mt-1">
+                                                            <div class="p-1 rounded-circle border border-primary border-2 bg-white position-relative">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px text-neutral-400">Revenue</span>
+                                                            <h6 class="fw-semibold fs-18px">$418,820</h6>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Total Costs -->
+                                                    <div class="d-flex flex-row gap-2">
+                                                        <div class="mt-1">
+                                                            <div class="p-1 rounded-circle border border-warning border-2 bg-white position-relative">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px text-neutral-400">Total Costs</span>
+                                                            <h6 class="fw-semibold fs-18px">$242,948</h6>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Breakeven Point -->
+                                                    <div class="d-flex flex-row gap-2">
+                                                        <div class="mt-1">
+                                                            <div class="p-1 rounded-circle border border-dark border-2 bg-white position-relative">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px text-neutral-400">Breakeven Point</span>
+                                                            <h6 class="fw-semibold fs-18px">$170,210</h6>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Margin of Safety -->
+                                                    <div class="d-flex flex-row gap-2">
+                                                        <div class="mt-1">
+                                                            <div class="p-1 rounded-circle border border-light border-2">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px text-neutral-400">Margin of Safety</span>
+                                                            <h6 class="fw-semibold fs-18px">$247,071</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12 mt-4">
+                                                    <div class="d-flex justify-content-center mt-2">
+                                                        <div class="d-flex align-items-center me-4">
+                                                            <div class="label-color bg-primary"></div>
+                                                            <span class="label-text">Revenue</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center me-4">
+                                                            <div class="label-color" style="background-color: #FFAE1F;"></div>
+                                                            <span class="label-text">Variable Costs</span>
+                                                        </div>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="label-color" style="background-color: #5A6A85;"></div>
+                                                            <span class="label-text">Fixed Costs</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Financials -->
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-between align-items-center gap-3 w-100">
+                                <h5 class="fw-semibold mb-0">Financials</h5>
+                                
+                                <button class="showHideChart bg-white h-32px w-32px border-0 rounded-circle d-flex justify-content-center align-items-center" data-target="#financialsData">
+                                    <i class="icon icon-arrow-up icon-size-24px"></i>
+                                </button>
+                            </div>
+
+                            <div id="financialsData" class="col-lg-12 mt-custom-22 transition-height">
+                                <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                    
+                                    <div class="d-flex flex-column justify-content-between gap-2">
+
+                                        <!-- Nav Tabs -->
+                                        <ul class="nav nav-pills mb-3 gap-3" id="pills-tab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link nav-link-profit active-profit" id="pills-profit-tab" data-bs-toggle="pill" data-bs-target="#pills-profit" type="button" role="tab" aria-controls="pills-profit" aria-selected="true">
+                                                    <i class="icon icon-company-color icon-size-32px"></i>
+                                                    Profit & Lost
+                                                </button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link nav-link-profit" id="pills-balance-tab" data-bs-toggle="pill" data-bs-target="#pills-balance" type="button" role="tab" aria-controls="pills-balance" aria-selected="false">
+                                                    <i class="icon icon-company-color icon-size-32px"></i>
+                                                    Balance Sheet
+                                                </button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link nav-link-profit" id="pills-trends-tab" data-bs-toggle="pill" data-bs-target="#pills-trends" type="button" role="tab" aria-controls="pills-trends" aria-selected="false">
+                                                    <i class="icon icon-company-color icon-size-32px"></i>
+                                                    Trends
+                                                </button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link nav-link-profit" id="pills-ratio-tab" data-bs-toggle="pill" data-bs-target="#pills-ratio" type="button" role="tab" aria-controls="pills-ratio" aria-selected="false">
+                                                    <i class="icon icon-company-color icon-size-32px"></i>
+                                                    Ratios
+                                                </button>
+                                            </li>
+                                        </ul>
+
+                                        <!-- Data Tabs -->
+                                        <div class="tab-content" id="pills-tabContent">
+
+                                            <!-- Tabs Profit & Lost  -->
+                                            <div class="tab-pane fade show active-profit-tabs" id="pills-profit" role="tabpanel" aria-labelledby="pills-profit-tab" tabindex="0">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr class="table-header">
+                                                            <th class="icon-cell d-flex align-items-center gap-12">
+
+                                                                <div class="d-flex align-item-center gap-2">
+                                                                    <button id="expand-all" class="btn btn-primary rounded-circle p-0" title="Expand All">
+                                                                        <i class="icon icon-expand icon-size-24px text-white-icon"></i>
+                                                                    </button>
+
+                                                                    <button id="collapse-all" class="btn btn-primary btn-custom-grey bg-primary-200 rounded-circle p-0" title="Collapse All">
+                                                                        <i class="icon icon-minimize icon-size-24px"></i>
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                            </th>
+                                                            <th width="10%" class="text-start text-neutral-400">May</th>
+                                                            <th width="10%" class="text-start text-neutral-400">June</th>
+                                                            <th width="10%" class="text-start text-neutral-400">Total</th>
+                                                            <th width="10%" class="text-start text-neutral-400">Change %</th>
+                                                            <th width="10%" class="text-start text-neutral-400">Change $</th>
+                                                            <th width="5%" class="text-center"></th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        <!-- Table Expand -->
+                                                        <tr class="expandable">
+                                                            <td class="d-flex flex-row align-items-center gap-12">
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-arrow-up"></i>
+                                                                    </div>
+                                                                </div>
+
+                                                                <strong>Income</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">$71,487</td>
+                                                            <td class="fw-semibold">$80,279</td>
+                                                            <td class="fw-semibold">$509,968</td>
+                                                            <td class="fw-semibold change-positive">12.38%</td>
+                                                            <td class="fw-semibold change-positive">$8,434</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Amazon Sales</td>
+                                                            <td>$27,042</td>
+                                                            <td>$80,279</td>
+                                                            <td>$485,573</td>
+                                                            <td class="change-positive">196.87%</td>
+                                                            <td class="change-positive">$53,238</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Sales</td>
+                                                            <td>$0</td>
+                                                            <td>$44,394</td>
+                                                            <td>$44,394</td>
+                                                            <td class="change-negative">-100%</td>
+                                                            <td class="change-negative">-$44,394</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Expand -->
+                                                        <tr class="expandable">
+                                                            <td class="d-flex flex-row align-items-center gap-12">
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-arrow-up"></i>
+                                                                    </div>
+                                                                </div>
+
+                                                                <strong>Cost of Goods Sold</strong>
+                                                            </td>
+                                                            <td class="fw-semibold ">$96,123</td>
+                                                            <td class="fw-semibold ">$80,827</td>
+                                                            <td class="fw-semibold ">$474,968</td>
+                                                            <td class="fw-semibold change-negative">-15.91%</td>
+                                                            <td class="fw-semibold change-negative">-$15,296</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Cost of Goods Sold</td>
+                                                            <td>$96,123</td>
+                                                            <td>$80,827</td>
+                                                            <td>$474,968</td>
+                                                            <td class="change-negative">-15.91%</td>
+                                                            <td class="change-negative">-$15,296</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Shipping</td>
+                                                            <td>$0</td>
+                                                            <td>$0</td>
+                                                            <td>$3,000</td>
+                                                            <td class="change-neutral">0%</td>
+                                                            <td class="change-neutral">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Neutral -->
+                                                        <tr class="neutral-table">
+                                                            <td class="ps-5">
+                                                                <strong>Gross Profit</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">-$24,488</td>
+                                                            <td class="fw-semibold">-$548</td>
+                                                            <td class="fw-semibold">$35,547</td>
+                                                            <td class="fw-semibold change-positive">97.78%</td>
+                                                            <td class="fw-semibold change-positive">$24.139</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Expand -->
+                                                        <tr class="expandable">
+                                                            <td class="d-flex flex-row align-items-center gap-12">
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-arrow-up"></i>
+                                                                    </div>
+                                                                </div>
+
+                                                                <strong>Expenses</strong>
+                                                            </td>
+                                                            <td class="fw-semibold ">$7,045</td>
+                                                            <td class="fw-semibold ">$4,537</td>
+                                                            <td class="fw-semibold ">$34,968</td>
+                                                            <td class="fw-semibold change-negative">-35.91%</td>
+                                                            <td class="fw-semibold change-negative">-$2.500</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Automobile Expense Gas</td>
+                                                            <td>$0</td>
+                                                            <td>$0</td>
+                                                            <td>$25</td>
+                                                            <td class="change-negative">0%</td>
+                                                            <td class="change-negative">0%</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Bank Charges & Fees</td>
+                                                            <td>$3</td>
+                                                            <td>$3</td>
+                                                            <td>$137</td>
+                                                            <td class="change-neutral">0%</td>
+                                                            <td class="change-neutral">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Meals & Entertainment</td>
+                                                            <td>$0</td>
+                                                            <td>$0</td>
+                                                            <td>$699</td>
+                                                            <td class="change-neutral">0%</td>
+                                                            <td class="change-neutral">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Office Supplies & Software</td>
+                                                            <td>$82</td>
+                                                            <td>$82</td>
+                                                            <td>$507</td>
+                                                            <td class="change-negative">-0.05%</td>
+                                                            <td class="change-negative">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                        <!-- Table Expand -->
+                                                        <tr class="expandable">
+                                                            <td class="d-flex flex-row align-items-center gap-12">
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-arrow-up"></i>
+                                                                    </div>
+                                                                </div>
+
+                                                                <strong>Payroll Expenses</strong>
+                                                            </td>
+                                                            <td class="fw-semibold ">$4,485</td>
+                                                            <td class="fw-semibold ">$4,485</td>
+                                                            <td class="fw-semibold ">$25,667</td>
+                                                            <td class="fw-semibold change-negative">0%</td>
+                                                            <td class="fw-semibold change-negative">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Payroll Fees</td>
+                                                            <td>$0</td>
+                                                            <td>$0</td>
+                                                            <td>$490</td>
+                                                            <td class="change-negative">0%</td>
+                                                            <td class="change-negative">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Payroll Taxes</td>
+                                                            <td>$850</td>
+                                                            <td>$850</td>
+                                                            <td>$5,190</td>
+                                                            <td class="change-positive">0%</td>
+                                                            <td class="change-positive">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Wages & Salary</td>
+                                                            <td>$3,635</td>
+                                                            <td>$3,635</td>
+                                                            <td>$19,992</td>
+                                                            <td class="change-negative">0%</td>
+                                                            <td class="change-negative">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Neutral -->
+                                                        <tr class="neutral-table">
+                                                            <td class="gap-12 ps-5">
+
+                                                                <strong>Rent & Lease</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">$2,500</td>
+                                                            <td class="fw-semibold">$0</td>
+                                                            <td class="fw-semibold">$7,500</td>
+                                                            <td class="fw-semibold change-negative">-100%</td>
+                                                            <td class="fw-semibold change-negative">-$2,500</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Neutral -->
+                                                        <tr class="neutral-table">
+                                                            <td class="ps-4">
+                                                                <strong>Net Operating Income</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">-$37,757</td>
+                                                            <td class="fw-semibold">-$5,148</td>
+                                                            <td class="fw-semibold">$1,010</td>
+                                                            <td class="fw-semibold change-positive">-83.88%</td>
+                                                            <td class="fw-semibold change-positive">$26.339</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Neutral -->
+                                                        <tr class="neutral-table">
+                                                            <td class="ps-4">
+                                                                <strong>Rent & Lease</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">-$37,757</td>
+                                                            <td class="fw-semibold">-$5,148</td>
+                                                            <td class="fw-semibold">$1,010</td>
+                                                            <td class="fw-semibold change-positive">-83.88%</td>
+                                                            <td class="fw-semibold change-positive">$26.339</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <!-- Tabs Balance Sheet -->
+                                            <div class="tab-pane fade" id="pills-balance" role="tabpanel" aria-labelledby="pills-balance-tab" tabindex="0">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr class="table-header">
+                                                            <th class="icon-cell d-flex align-items-center gap-12">
+
+                                                                <div class="d-flex align-item-center gap-2">
+                                                                    <button id="expand-all" class="btn btn-primary rounded-circle p-0" title="Expand All">
+                                                                        <i class="icon icon-expand icon-size-24px text-white-icon"></i>
+                                                                    </button>
+
+                                                                    <button id="collapse-all" class="btn btn-primary btn-custom-grey bg-primary-200 rounded-circle p-0" title="Collapse All">
+                                                                        <i class="icon icon-minimize icon-size-24px"></i>
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                            </th>
+                                                            <th width="10%" class="text-start text-neutral-400">May</th>
+                                                            <th width="10%" class="text-start text-neutral-400">June</th>
+                                                            <th width="10%" class="text-start text-neutral-400">Total</th>
+                                                            <th width="10%" class="text-start text-neutral-400">Change %</th>
+                                                            <th width="10%" class="text-start text-neutral-400">Change $</th>
+                                                            <th width="5%" class="text-center"></th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                        <!-- Table Expand -->
+                                                        <tr class="expandable">
+                                                            <td class="d-flex flex-row align-items-center gap-12">
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-arrow-up"></i>
+                                                                    </div>
+                                                                </div>
+
+                                                                <strong>Income</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">$71,487</td>
+                                                            <td class="fw-semibold">$80,279</td>
+                                                            <td class="fw-semibold">$509,968</td>
+                                                            <td class="fw-semibold change-positive">12.38%</td>
+                                                            <td class="fw-semibold change-positive">$8,434</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Amazon Sales</td>
+                                                            <td>$27,042</td>
+                                                            <td>$80,279</td>
+                                                            <td>$485,573</td>
+                                                            <td class="change-positive">196.87%</td>
+                                                            <td class="change-positive">$53,238</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Sales</td>
+                                                            <td>$0</td>
+                                                            <td>$44,394</td>
+                                                            <td>$44,394</td>
+                                                            <td class="change-negative">-100%</td>
+                                                            <td class="change-negative">-$44,394</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Expand -->
+                                                        <tr class="expandable">
+                                                            <td class="d-flex flex-row align-items-center gap-12">
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-arrow-up"></i>
+                                                                    </div>
+                                                                </div>
+
+                                                                <strong>Cost of Goods Sold</strong>
+                                                            </td>
+                                                            <td class="fw-semibold ">$96,123</td>
+                                                            <td class="fw-semibold ">$80,827</td>
+                                                            <td class="fw-semibold ">$474,968</td>
+                                                            <td class="fw-semibold change-negative">-15.91%</td>
+                                                            <td class="fw-semibold change-negative">-$15,296</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Cost of Goods Sold</td>
+                                                            <td>$96,123</td>
+                                                            <td>$80,827</td>
+                                                            <td>$474,968</td>
+                                                            <td class="change-negative">-15.91%</td>
+                                                            <td class="change-negative">-$15,296</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Shipping</td>
+                                                            <td>$0</td>
+                                                            <td>$0</td>
+                                                            <td>$3,000</td>
+                                                            <td class="change-neutral">0%</td>
+                                                            <td class="change-neutral">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Neutral -->
+                                                        <tr class="neutral-table">
+                                                            <td class="ps-5">
+                                                                <strong>Gross Profit</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">-$24,488</td>
+                                                            <td class="fw-semibold">-$548</td>
+                                                            <td class="fw-semibold">$35,547</td>
+                                                            <td class="fw-semibold change-positive">97.78%</td>
+                                                            <td class="fw-semibold change-positive">$24.139</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Expand -->
+                                                        <tr class="expandable">
+                                                            <td class="d-flex flex-row align-items-center gap-12">
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-arrow-up"></i>
+                                                                    </div>
+                                                                </div>
+
+                                                                <strong>Expenses</strong>
+                                                            </td>
+                                                            <td class="fw-semibold ">$7,045</td>
+                                                            <td class="fw-semibold ">$4,537</td>
+                                                            <td class="fw-semibold ">$34,968</td>
+                                                            <td class="fw-semibold change-negative">-35.91%</td>
+                                                            <td class="fw-semibold change-negative">-$2.500</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Automobile Expense Gas</td>
+                                                            <td>$0</td>
+                                                            <td>$0</td>
+                                                            <td>$25</td>
+                                                            <td class="change-negative">0%</td>
+                                                            <td class="change-negative">0%</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Bank Charges & Fees</td>
+                                                            <td>$3</td>
+                                                            <td>$3</td>
+                                                            <td>$137</td>
+                                                            <td class="change-neutral">0%</td>
+                                                            <td class="change-neutral">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Meals & Entertainment</td>
+                                                            <td>$0</td>
+                                                            <td>$0</td>
+                                                            <td>$699</td>
+                                                            <td class="change-neutral">0%</td>
+                                                            <td class="change-neutral">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Office Supplies & Software</td>
+                                                            <td>$82</td>
+                                                            <td>$82</td>
+                                                            <td>$507</td>
+                                                            <td class="change-negative">-0.05%</td>
+                                                            <td class="change-negative">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        
+                                                        <!-- Table Expand -->
+                                                        <tr class="expandable">
+                                                            <td class="d-flex flex-row align-items-center gap-12">
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-arrow-up"></i>
+                                                                    </div>
+                                                                </div>
+
+                                                                <strong>Payroll Expenses</strong>
+                                                            </td>
+                                                            <td class="fw-semibold ">$4,485</td>
+                                                            <td class="fw-semibold ">$4,485</td>
+                                                            <td class="fw-semibold ">$25,667</td>
+                                                            <td class="fw-semibold change-negative">0%</td>
+                                                            <td class="fw-semibold change-negative">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Payroll Fees</td>
+                                                            <td>$0</td>
+                                                            <td>$0</td>
+                                                            <td>$490</td>
+                                                            <td class="change-negative">0%</td>
+                                                            <td class="change-negative">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-minus"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Payroll Taxes</td>
+                                                            <td>$850</td>
+                                                            <td>$850</td>
+                                                            <td>$5,190</td>
+                                                            <td class="change-positive">0%</td>
+                                                            <td class="change-positive">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="sub-row">
+                                                            <td class="pl-custom-60">Wages & Salary</td>
+                                                            <td>$3,635</td>
+                                                            <td>$3,635</td>
+                                                            <td>$19,992</td>
+                                                            <td class="change-negative">0%</td>
+                                                            <td class="change-negative">$0</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Neutral -->
+                                                        <tr class="neutral-table">
+                                                            <td class="gap-12 ps-5">
+
+                                                                <strong>Rent & Lease</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">$2,500</td>
+                                                            <td class="fw-semibold">$0</td>
+                                                            <td class="fw-semibold">$7,500</td>
+                                                            <td class="fw-semibold change-negative">-100%</td>
+                                                            <td class="fw-semibold change-negative">-$2,500</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-down text-danger-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Neutral -->
+                                                        <tr class="neutral-table">
+                                                            <td class="ps-4">
+                                                                <strong>Net Operating Income</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">-$37,757</td>
+                                                            <td class="fw-semibold">-$5,148</td>
+                                                            <td class="fw-semibold">$1,010</td>
+                                                            <td class="fw-semibold change-positive">-83.88%</td>
+                                                            <td class="fw-semibold change-positive">$26.339</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <!-- Table Neutral -->
+                                                        <tr class="neutral-table">
+                                                            <td class="ps-4">
+                                                                <strong>Rent & Lease</strong>
+                                                            </td>
+                                                            <td class="fw-semibold">-$37,757</td>
+                                                            <td class="fw-semibold">-$5,148</td>
+                                                            <td class="fw-semibold">$1,010</td>
+                                                            <td class="fw-semibold change-positive">-83.88%</td>
+                                                            <td class="fw-semibold change-positive">$26.339</td>
+                                                            <td>
+                                                                <div class="d-flex">
+                                                                    <div class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                        <i class="icon icon-call-up text-success-icon"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <!-- Tabs Trends -->
+                                            <div class="tab-pane fade" id="pills-trends" role="tabpanel" aria-labelledby="pills-trends-tab" tabindex="0">
+                                                <div class="row">
+                                                    
+                                                    <!-- Profit & Lost -->
+                                                    <div class="col-lg-4 pr-custom-7">
+                                                        <h5 class="fw-semibold fs-18px text-neutral-base mb-3">Profit & Lost</h5>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr class="table-header">
+                                                                    <th class="text-start text-neutral-400">
+                                                                        <div class="d-flex align-item-center gap-2">
+                                                                            <button id="expand-all" class="btn btn-primary rounded-circle p-0" title="Expand All">
+                                                                                <i class="icon icon-expand icon-size-24px text-white-icon"></i>
+                                                                            </button>
+
+                                                                            <button id="collapse-all" class="btn btn-primary btn-custom-grey bg-primary-200 rounded-circle p-0" title="Collapse All">
+                                                                                <i class="icon icon-minimize icon-size-24px"></i>
+                                                                            </button>
+
+                                                                            <span class="ms-2">Accounts</span>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th class="text-start text-neutral-400">Total</th>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody>
+
+                                                                <!-- Table Expand -->
+                                                                <tr class="expandable">
+                                                                    <td class="d-flex flex-row align-items-center gap-12">
+                                                                        <div class="d-flex">
+                                                                            <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                <i class="icon icon-arrow-up"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <strong>Income</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold">$4,096,745</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Amazon Sales</td>
+                                                                    <td>$3,684,042</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Amazon Transfer Account</td>
+                                                                    <td>$367,456</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Sales</td>
+                                                                    <td>$44,394</td>
+                                                                </tr>
+
+                                                                <!-- Table Expand -->
+                                                                <tr class="expandable">
+                                                                    <td class="d-flex flex-row align-items-center gap-12">
+                                                                        <div class="d-flex">
+                                                                            <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                <i class="icon icon-arrow-up"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <strong>Cost of Goods Sold</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold ">$96,123</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Cost of Goods Sold</td>
+                                                                    <td>$96,123</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Shipping</td>
+                                                                    <td>$0</td>
+                                                                </tr>
+
+                                                                <!-- Table Neutral -->
+                                                                <tr class="neutral-table">
+                                                                    <td class="ps-5">
+                                                                        <strong>Gross Profit</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold">-$24,488</td>
+                                                                </tr>
+
+                                                                <!-- Table Expand -->
+                                                                <tr class="expandable">
+                                                                    <td class="d-flex flex-row align-items-center gap-12">
+                                                                        <div class="d-flex">
+                                                                            <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                <i class="icon icon-arrow-up"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <strong>Expenses</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold ">$7,045</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Automobile Expense Gas</td>
+                                                                    <td>$0</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Bank Charges & Fees</td>
+                                                                    <td>$3</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Meals & Entertainment</td>
+                                                                    <td>$0</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Office Supplies & Software</td>
+                                                                    <td>$82</td>
+                                                                </tr>
+                                                                
+                                                                <!-- Table Expand -->
+                                                                <tr class="expandable">
+                                                                    <td class="d-flex flex-row align-items-center gap-12">
+                                                                        <div class="d-flex">
+                                                                            <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                <i class="icon icon-arrow-up"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <strong>Payroll Expenses</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold ">$4,485</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Payroll Fees</td>
+                                                                    <td>$0</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Payroll Taxes</td>
+                                                                    <td>$850</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Wages & Salary</td>
+                                                                    <td>$3,635</td>
+                                                                </tr>
+
+                                                                <!-- Table Neutral -->
+                                                                <tr class="neutral-table">
+                                                                    <td class="gap-12 ps-5">
+
+                                                                        <strong>Rent & Lease</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold">$2,500</td>
+                                                                </tr>
+
+                                                                <!-- Table Neutral -->
+                                                                <tr class="neutral-table">
+                                                                    <td class="ps-4">
+                                                                        <strong>Net Operating Income</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold">-$37,757</td>
+                                                                </tr>
+
+                                                                <!-- Table Neutral -->
+                                                                <tr class="neutral-table">
+                                                                    <td class="ps-4">
+                                                                        <strong>Rent & Lease</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold">-$37,757</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    
+                                                    <!-- Balance Sheet -->
+                                                    <div class="col-lg-4">
+                                                        <h5 class="fw-semibold fs-18px text-neutral-base mb-3">Balance Sheet</h5>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr class="table-header">
+                                                                    <th class="text-start text-neutral-400">
+                                                                        <div class="d-flex align-item-center gap-2">
+                                                                            <button id="expand-all" class="btn btn-primary rounded-circle p-0" title="Expand All">
+                                                                                <i class="icon icon-expand icon-size-24px text-white-icon"></i>
+                                                                            </button>
+
+                                                                            <button id="collapse-all" class="btn btn-primary btn-custom-grey bg-primary-200 rounded-circle p-0" title="Collapse All">
+                                                                                <i class="icon icon-minimize icon-size-24px"></i>
+                                                                            </button>
+
+                                                                            <span class="ms-2">Accounts</span>
+                                                                        </div>
+                                                                    </th>
+                                                                    <th class="text-start text-neutral-400">June 2024</th>
+                                                                </tr>
+                                                            </thead>
+
+                                                            <tbody>
+
+                                                                <!-- Table Expand -->
+                                                                <tr class="expandable">
+                                                                    <td class="d-flex flex-row align-items-center gap-12">
+                                                                        <div class="d-flex">
+                                                                            <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                <i class="icon icon-arrow-up"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <strong>Income</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold">$4,096,745</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Amazon Sales</td>
+                                                                    <td>$3,684,042</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Amazon Transfer Account</td>
+                                                                    <td>$367,456</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Sales</td>
+                                                                    <td>$44,394</td>
+                                                                </tr>
+
+                                                                <!-- Table Expand -->
+                                                                <tr class="expandable">
+                                                                    <td class="d-flex flex-row align-items-center gap-12">
+                                                                        <div class="d-flex">
+                                                                            <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                <i class="icon icon-arrow-up"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <strong>Cost of Goods Sold</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold ">$96,123</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Cost of Goods Sold</td>
+                                                                    <td>$96,123</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Shipping</td>
+                                                                    <td>$0</td>
+                                                                </tr>
+
+                                                                <!-- Table Neutral -->
+                                                                <tr class="neutral-table">
+                                                                    <td class="ps-5">
+                                                                        <strong>Gross Profit</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold">-$24,488</td>
+                                                                </tr>
+
+                                                                <!-- Table Expand -->
+                                                                <tr class="expandable">
+                                                                    <td class="d-flex flex-row align-items-center gap-12">
+                                                                        <div class="d-flex">
+                                                                            <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                <i class="icon icon-arrow-up"></i>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <strong>Expenses</strong>
+                                                                    </td>
+                                                                    <td class="fw-semibold ">$7,045</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Automobile Expense Gas</td>
+                                                                    <td>$0</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Bank Charges & Fees</td>
+                                                                    <td>$3</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Meals & Entertainment</td>
+                                                                    <td>$0</td>
+                                                                </tr>
+                                                                <tr class="sub-row">
+                                                                    <td class="pl-custom-60">Office Supplies & Software</td>
+                                                                    <td>$82</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                    <!-- Historic Chart of Selected Accounts Overview of Profit -->
+                                                    <div class="col-lg-4">
+                                                        <div class="p-3 rounded-3" style="background-color: #F2F6FA;">
+                                                            <span class="fs-18px fw-semibold text-neutral-base">
+                                                                Historic Chart of Selected Accounts Overview of Profit
+                                                            </span>
+
+                                                            <div class="mt-5">
+                                                                 <canvas id="historicChart"></canvas>
+
+                                                                 <div class="col-12 mt-4">
+                                                                    <div class="d-flex justify-content-center mt-2">
+                                                                        <div class="d-flex align-items-center me-4">
+                                                                            <div class="label-color bg-primary"></div>
+                                                                            <span class="label-text">Income</span>
+                                                                        </div>
+                                                                        <div class="d-flex align-items-center me-4">
+                                                                            <div class="label-color" style="background-color: #19DFAA;"></div>
+                                                                            <span class="label-text">Bank Accounts</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Tabs Ratios -->
+                                            <div class="tab-pane fade" id="pills-ratio" role="tabpanel" aria-labelledby="pills-ratio-tab" tabindex="0">
+                                                <div class="row justify-content-between row-gap-5">
+
+                                                    <!-- Data Ratios 1 -->
+                                                    <div class="col-md-6 col-12 d-flex flex-column gap-4 px-custom-28">
+                                                        <div>
+                                                            <h5 class="fs-18px fw-semibold text-neutral-base">
+                                                                Current Ratio: <span class="text-neutral-500">Current Assets/Current Liabilities</span>
+                                                            </h5>
+
+                                                            <div class="mt-1">
+                                                                <p class="mb-0 text-neutral-400 fs-14px ">
+                                                                    The current is a liquidity ratio that measures a company’s abilities to cover it’s short term obligations with it’s current assets.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex gap-4 w-100 align-items-center justify-content-center">
+                                                            <div class="badge text-bg-light px-3 py-2 d-flex flex-column justify-content-center align-items-center">
+                                                                <span class="fs-14px fw-normal">May, 2024</span>
+                                                                <span class="fw-semibold fs-18px">
+                                                                    0.20%
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="badge text-bg-light px-3 py-2 d-flex flex-column justify-content-center align-items-center">
+                                                                <span class="fs-14px fw-normal">May, 2024</span>
+                                                                <span class="fw-semibold fs-18px">
+                                                                    0.20%
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                        <canvas id="ratiosChart"></canvas>
+
+                                                    </div>
+
+                                                    <!-- Data Ratios 2 -->
+                                                    <div class="col-md-6 col-12 d-flex flex-column gap-4 px-custom-28">
+                                                        <div>
+                                                            <h5 class="fs-18px fw-semibold text-neutral-base">
+                                                                Current Ratio: <span class="text-neutral-500">Current Assets/Current Liabilities</span>
+                                                            </h5>
+
+                                                            <div class="mt-1">
+                                                                <p class="mb-0 text-neutral-400 fs-14px ">
+                                                                    The current is a liquidity ratio that measures a company’s abilities to cover it’s short term obligations with it’s current assets.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex gap-4 w-100 align-items-center justify-content-center">
+                                                            <div class="badge text-bg-light px-3 py-2 d-flex flex-column justify-content-center align-items-center">
+                                                                <span class="fs-14px fw-normal">May, 2024</span>
+                                                                <span class="fw-semibold fs-18px">
+                                                                    0.20%
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="badge text-bg-light px-3 py-2 d-flex flex-column justify-content-center align-items-center">
+                                                                <span class="fs-14px fw-normal">May, 2024</span>
+                                                                <span class="fw-semibold fs-18px">
+                                                                    0.20%
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                        <canvas id="ratiosChart2"></canvas>
+
+                                                    </div>
+
+                                                    <!-- Data Ratios 3 -->
+                                                    <div class="col-md-6 col-12 d-flex flex-column gap-4 px-custom-28">
+                                                        <div>
+                                                            <h5 class="fs-18px fw-semibold text-neutral-base">
+                                                                Current Ratio: <span class="text-neutral-500">Current Assets/Current Liabilities</span>
+                                                            </h5>
+
+                                                            <div class="mt-1">
+                                                                <p class="mb-0 text-neutral-400 fs-14px ">
+                                                                    The current is a liquidity ratio that measures a company’s abilities to cover it’s short term obligations with it’s current assets.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="d-flex gap-4 w-100 align-items-center justify-content-center">
+                                                            <div class="badge text-bg-light px-3 py-2 d-flex flex-column justify-content-center align-items-center">
+                                                                <span class="fs-14px fw-normal">May, 2024</span>
+                                                                <span class="fw-semibold fs-18px">
+                                                                    0.20%
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="badge text-bg-light px-3 py-2 d-flex flex-column justify-content-center align-items-center">
+                                                                <span class="fs-14px fw-normal">May, 2024</span>
+                                                                <span class="fw-semibold fs-18px">
+                                                                    0.20%
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                        <canvas id="ratiosChart3"></canvas>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- Modal Merge -->
+        <div class="modal fade" id="mergeModal" tabindex="-1" aria-labelledby="mergeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="bg-white w-100 py-4 px-custom-40 rounded-12px">
+                        <!-- Close Button -->
+                        <div class="position-relative">
+                            <div class="position-absolute top-0 end-0">
+                                <div class="p-1">
+                                    <i class="icon icon-close-circle icon-size-24px" data-bs-dismiss="modal" aria-label="Close" style="cursor: pointer;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Combined Financials</span>
+                        <h6 class="text-neutral-400 fw-semibold mb-0">Year to Last Month</h6>
+                        
+                        <div class="mt-custom-32">
+                            <canvas id="multiLineChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Ask Eagle.ai-->
+        <div class="modal fade" id="askEagleModal" tabindex="-1" aria-labelledby="askEagleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="bg-white w-100 py-custom-12 px-3 rounded-12px">
+
+                        <div class="d-flex flex-column gap-3">
+
+                            <!-- Welcome Label -->
+                            <div id="welcome-label" class="p-custom-12 d-flex flex-column gap-12 border border-1 rounded-12px position-relative">
+
+                                <div class="d-flex gap-12 align-items-center w-100">
+                                    <i class="icon icon-ai icon-size-24px"></i>
+                                    <h6 class="fw-semibold text-primary mb-0">Welcome Elite International Investment LLC!</h6>
+                                </div>
+                                
+                                <div class="d-flex gap-12 align-items-center">
+                                    <span class="badge fs-12px fw-semibold text-bg-light p-custom-12">What does our Expenses spend look like so far this year?</span>
+                                    <span class="badge fs-12px fw-semibold text-bg-light p-custom-12">What was net profit las month?</span>
+                                    <span class="badge fs-12px fw-semibold text-bg-light p-custom-12">What is my Cost of Goods Sold this month</span>
+                                </div>
+                                
+                                <div class="d-flex gap-12 align-items-center">
+                                    <span class="badge fs-12px fw-semibold text-bg-light p-custom-12">How much did we spend on Amazon charges this month?</span>
+                                    <span class="badge fs-12px fw-semibold text-bg-light p-custom-12">Is there any correlation between my sales and advertising?</span>
+                                </div>
+                                
+                                <div class="position-absolute top-0 end-0">
+                                    <div class="p-1">
+                                        <i class="icon icon-close-circle icon-size-24px" style="cursor: pointer;"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="scrollable-container">
+                                <div class="d-flex flex-column gap-3">
+                                    <div class="chat-ai d-flex justify-content-end">
+                                        <div>
+                                            <div class="chat-time fw-semibold fs-12px text-neutral-400">
+                                                Aug 5, 2024 16:01 • <span class="fw-bold text-neutral-base  ">Elite Int</span>
+                                                <div class="avatar-container w-24px h-24px">
+                                                    <img src="../../assets/images/avatars/avatar1.png" alt="Logo" class="avatar-image">
+                                                </div>
+                                            </div>
+                                            <div class="chat-bubble user">
+                                                How much does our Expenses spend look like so far this year?
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="chat-ai d-flex">
+                                        <div>
+                                            <div class="chat-time fw-semibold fs-12px text-neutral-400">
+                                                <div class="avatar-container w-24px h-24px">
+                                                    <img src="../../assets/images/avatars/avatar1.png" alt="Logo" class="avatar-image">
+                                                </div>
+                                                <span class="fw-bold text-neutral-base  ">Eagle Bot</span> • Aug 5, 2024 16:02
+                                            </div>
+                                            <div class="chat-bubble bot">
+                                                Expense dataset information the total amount of $787,500.86 an average monthly amount of $393,750.43, and details about the largest amount in June ($545,306.31) and the smallest amount in July ($242,194.54).
+
+                                                <div class="d-flex w-100 justify-content-center">
+                                                    <canvas class="mt-2 w-275px h-275px" id="aiDoughnutChart"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-2 d-flex justify-content-center">
+                                        <button type="button" class="btn btn-secondary btn-clear-history">
+                                            Clear History
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="position-relative input-group">
+                                <input type="email" class="form-control_padding fw-semibold" id="email" placeholder="Ask Eagle.ai or search">
+                                <i class="icon icon-ai position-absolute top-50 start-ap1 translate-middle-y"></i>
+
+                                <button class="btn btn-primary" type="button" id="inputGroupFileAddon04">
+                                    <i class="icon icon-arrow-up icon-size-24px text-white-icon" style="transform: rotate(90deg);"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Bootstrap -->
         <script src="../../assets/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+        <!-- jQuery -->
+        <!-- <script src="../../assets/js/jquery.slim.min.js"></script> -->
+        <script src="../../assets/js/jquery.min.js"></script>
+
         <!-- Select2 -->
-        <script src="../../assets/js/jquery.slim.min.js"></script>
         <script src="../../assets/vendor/select2/dist/js/select2.full.min.js" ></script>
+        
+        <!-- CartJS -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 
         <!-- Local Assets -->
         <script src="../../assets/js/select2.js" ></script>
+        <script src="../../assets/js/dashboard.js" ></script>
+        <script src="../../assets/js/global.js" ></script>
+        
+        <!-- Chart -->
+        <script src="../../assets/js/lineChart.js" ></script>
+        <script src="../../assets/js/doughnutChart.js" ></script>
+        <script src="../../assets/js/barChart.js" ></script>
+        <script src="../../assets/js/breakevenChart.js" ></script>
+        <script src="../../assets/js/multiLineChart.js" ></script>
+        <script src="../../assets/js/multiLineChart2.js" ></script>
+        
     </body>
 </html>
