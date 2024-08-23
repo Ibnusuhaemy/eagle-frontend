@@ -1,5 +1,32 @@
 $(document).ready(function () {
-  const initializeChart = (canvasId, labels, data, format, gridY = true) => {
+  const allCharts = [];
+  const bgColor = [
+    "#4474FD",
+    "#19DFAA",
+    "#7DD5F9",
+    "#FDB43A",
+    "#F73A5C",
+    "#FF6F61",
+    "#6B8E23",
+    "#FFD700",
+    "#00CED1",
+    "#FF4500",
+    "#ADFF2F",
+    "#FF1493",
+    "#4B0082",
+    "#FF6347",
+    "#3CB371",
+    "#8A2BE2",
+  ];
+
+  const initializeChart = (
+    canvasId,
+    labels,
+    data,
+    format,
+    gridY = true,
+    linkLegend = false
+  ) => {
     const formatValue = (value) => {
       switch (format) {
         case "K":
@@ -18,43 +45,30 @@ $(document).ready(function () {
       return;
     }
 
+    const datasets = data.map((item, index) => ({
+      label: item.label,
+      data: item.data,
+      borderColor: bgColor[index],
+      backgroundColor: "transparent",
+      borderWidth: 2,
+      pointBackgroundColor: "#FFF",
+      pointBorderColor: bgColor[index],
+      pointRadius: 5,
+      pointHoverRadius: 7,
+      tension: 0.4,
+    }));
+
     const ctx = canvas.getContext("2d");
-    return new Chart(ctx, {
+    const chart = new Chart(ctx, {
       type: "line",
       data: {
         labels: labels,
-        datasets: [
-          {
-            label: data.labelIncome,
-            data: data.income,
-            borderColor: "#4474FD",
-            backgroundColor: "transparent",
-            borderWidth: 2,
-            pointBackgroundColor: "#FFF",
-            pointBorderColor: "#4474FD",
-            pointRadius: 5,
-            pointHoverRadius: 7,
-            tension: 0.4,
-          },
-          {
-            label: data.labelAccounts,
-            data: data.bankAccounts,
-            borderColor: "#19DFAA",
-            backgroundColor: "transparent",
-            borderWidth: 2,
-            pointBackgroundColor: "#FFF",
-            pointBorderColor: "#19DFAA",
-            pointRadius: 5,
-            pointHoverRadius: 7,
-            tension: 0.4,
-          },
-        ],
+        datasets: datasets,
       },
       options: {
         plugins: {
           legend: {
-            display: false,
-            position: "top",
+            display: false, // Hide default legend
           },
         },
         scales: {
@@ -135,7 +149,35 @@ $(document).ready(function () {
       responsive: true,
       maintainAspectRatio: false,
     });
+
+    if (linkLegend) {
+      allCharts.push(chart);
+    }
   };
+
+  function toggleDatasetVisibility(datasetIndex) {
+    allCharts.forEach((chart) => {
+      const meta = chart.getDatasetMeta(datasetIndex);
+      meta.hidden =
+        meta.hidden === null ? !chart.data.datasets[datasetIndex].hidden : null;
+      chart.update();
+    });
+  }
+
+  function createLegend() {
+    const legendContainer = document.getElementById("chart_legend");
+    legendContainer.innerHTML = ""; // Clear any existing content
+    const legendItems = [];
+
+    allCharts[0].data.datasets.forEach((dataset, index) => {
+      const legendItem = document.createElement("div");
+      legendItem.innerHTML = `<div class="d-flex align-items-center"><div class="label-color" style="background-color: ${dataset.borderColor};"></div><span class="label-text"> ${dataset.label}</span></div>`;
+      legendItem.style.cursor = "pointer";
+      legendItem.onclick = () => toggleDatasetVisibility(index);
+      legendItems.push(legendItem);
+      legendContainer.appendChild(legendItem);
+    });
+  }
 
   // Example data
   const chartData1 = {
@@ -154,18 +196,22 @@ $(document).ready(function () {
       "My 24",
       "Jn 24",
     ],
-    data: {
-      labelIncome: "Income",
-      income: [
-        300000, 400000, 500000, 600000, 800000, 1000000, 1300000, 1500000,
-        1400000, 1200000, 1000000, 1700000, 1600000,
-      ],
-      labelAccounts: "Bank Accounts",
-      bankAccounts: [
-        200000, 300000, 350000, 500000, 400000, 300000, 600000, 700000, 800000,
-        600000, 500000, 700000, 900000,
-      ],
-    },
+    data: [
+      {
+        label: "Income",
+        data: [
+          300000, 400000, 500000, 600000, 800000, 1000000, 1300000, 1500000,
+          1400000, 1200000, 1000000, 1700000, 1600000,
+        ],
+      },
+      {
+        label: "Bank Accounts",
+        data: [
+          200000, 300000, 350000, 500000, 400000, 300000, 600000, 700000,
+          800000, 600000, 500000, 700000, 900000,
+        ],
+      },
+    ],
   };
 
   const chartData2 = {
@@ -177,37 +223,153 @@ $(document).ready(function () {
       "May 2024",
       "Jun 2024",
     ],
-    data: {
-      labelIncome: "Line 1",
-      income: [0.4, 0.5, 0.55, 0.6, 0.65, 0.7],
-      labelAccounts: "Line 2",
-      bankAccounts: [0.3, 0.45, 0.35, 0.5, 0.4, 0.6],
-    },
+    data: [
+      {
+        label: "Income",
+        data: [0.4, 0.5, 0.55, 0.6, 0.65, 0.7],
+      },
+      {
+        label: "Bank Accounts",
+        data: [0.3, 0.45, 0.35, 0.5, 0.4, 0.6],
+      },
+    ],
   };
 
   const chartData3 = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    data: {
-      labelIncome: "Line 1",
-      income: [100000, 200000, 800000, 180000, 430000, 678000],
-      labelAccounts: "Line 2",
-      bankAccounts: [0, 150000, 400000, 210000, 670000, 100000],
-    },
-    gridY: false,
+    data: [
+      {
+        label: "This Year Revenue",
+        data: [100000, 200000, 800000, 180000, 430000, 678000],
+      },
+      {
+        label: "Last Year Revenue",
+        data: [0, 150000, 400000, 210000, 670000, 100000],
+      },
+    ],
   };
 
   // Initialize multiple charts
-  initializeChart("historicChart", chartData1.labels, chartData1.data, "M");
+  initializeChart(
+    "historicChart",
+    chartData1.labels,
+    chartData1.data,
+    "M",
+    true,
+    true
+  );
   initializeChart("ratiosChart", chartData2.labels, chartData2.data, "%");
   initializeChart("ratiosChart2", chartData2.labels, chartData2.data, "%");
-
+  initializeChart("ratiosChart3", chartData2.labels, chartData2.data, "%");
 
   // Financial Data
-  initializeChart("financialData1", chartData3.labels, chartData3.data, "K", chartData3.gridY);
-  initializeChart("financialData2", chartData3.labels, chartData3.data, "K", chartData3.gridY);
-  initializeChart("financialData3", chartData3.labels, chartData3.data, "K", chartData3.gridY);
-  initializeChart("financialData4", chartData3.labels, chartData3.data, "K", chartData3.gridY);
-  initializeChart("financialData5", chartData3.labels, chartData3.data, "K", chartData3.gridY);
-  initializeChart("financialData6", chartData3.labels, chartData3.data, "K", chartData3.gridY);
-  initializeChart("financialData7", chartData3.labels, chartData3.data, "K", chartData3.gridY);
+  initializeChart(
+    "financialData1",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "financialData2",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "financialData3",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "financialData4",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "financialData5",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "financialData6",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "financialData7",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+
+  // Compare Data
+  initializeChart(
+    "totalSalesCompare",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "totalCostCompare",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "grossProfitCompare",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "totalExpensesCompare",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "netProfitCompare",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+  initializeChart(
+    "bankTotalCompare",
+    chartData3.labels,
+    chartData3.data,
+    "K",
+    false,
+    true
+  );
+
+  // Create single legend
+  createLegend();
 });

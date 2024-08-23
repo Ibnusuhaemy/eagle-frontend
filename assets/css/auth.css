@@ -16,3 +16,7 @@
 .form-control_padding {
   padding: 0.594rem 2.3rem !important;
 }
+
+.form-control_padding_left {
+  padding: 0.594rem 0.594rem 0.594rem 2.3rem !important;
+}

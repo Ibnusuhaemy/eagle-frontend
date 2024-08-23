@@ -71,16 +71,40 @@ $(document).ready(function () {
   });
 
   // Toggle
-  $(".custom-switch input[type='checkbox']").change(function () {
-    const $this = $(this);
-    const $parent = $this.closest(".custom-switch");
+  $(document).ready(function () {
+    // Tab switch event
+    $('button[data-bs-toggle="pill"]').on("shown.bs.tab", function (e) {
+      // Remove 'active_icon' class from all icons and reset their fill color
+      $('svg[id="icon_tabs"]').each(function () {
+        $(this).removeClass("active_icon").attr("fill", "#7C8FAC");
+      });
 
-    if ($this.is(":checked")) {
-      $parent.css("background-color", "#5d87ff");
-      $parent.find(".toggle-circle").css("transform", "translateX(16px)");
-    } else {
-      $parent.css("background-color", "#6e7a8a");
-      $parent.find(".toggle-circle").css("transform", "translateX(0)");
-    }
+      // Add 'active_icon' class to the active tab's icon and change its fill color
+      $(this)
+        .find('svg[id="icon_tabs"]')
+        .addClass("active_icon")
+        .attr("fill", "#4474FD");
+    });
+
+    // Initial color set for the active tab
+    $("button.nav-link.active-profit")
+      .find('svg[id="icon_tabs"]')
+      .addClass("active_icon")
+      .attr("fill", "#4474FD");
+
+    // Custom switch change event
+    $(".custom-switch input[type='checkbox']").change(function () {
+      const $this = $(this);
+      const $parent = $this.closest(".custom-switch");
+
+      if ($this.is(":checked")) {
+        $parent.css("background-color", "#5d87ff");
+        $parent.find(".toggle-circle").css("transform", "translateX(16px)");
+      } else {
+        $parent.css("background-color", "#6e7a8a");
+        $parent.find(".toggle-circle").css("transform", "translateX(0)");
+      }
+    });
   });
+
 });

@@ -1,5 +1,11 @@
 $(document).ready(function () {
-  const ctx = document.getElementById("breakevenChart").getContext("2d");
+  const canvas = document.getElementById("breakevenChart");
+  if (!canvas) {
+    return;
+  }
+
+  const ctx = canvas.getContext("2d");
+
   const data = {
     labels: ["$0", "$200K", "$400K", "$600K", "$800K"],
     datasets: [
@@ -104,5 +110,7 @@ $(document).ready(function () {
     type: "line",
     data: data,
     options: options,
+    responsive: true,
+    maintainAspectRatio: false,
   });
 });

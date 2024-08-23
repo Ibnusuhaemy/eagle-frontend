@@ -199,3 +199,8 @@
 .icon-close-fill {
   background-image: url("../images/icons/closeFill.svg");
 }
+
+/* Menu */
+.icon-menu {
+  background-image: url("../images/icons/menu.svg");
+}

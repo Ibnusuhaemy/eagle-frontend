@@ -28,6 +28,13 @@ $(document).ready(function () {
   const bulanTerakhir = getShortMonthNames();
 
   const createChart = (context, dataChart) => {
+    const canvas = document.getElementById(context);
+    if (!canvas) {
+      return;
+    }
+
+    const contextData = canvas.getContext("2d");
+
     const data = {
       labels: bulanTerakhir,
       datasets: [
@@ -46,7 +53,7 @@ $(document).ready(function () {
       ],
     };
 
-    return new Chart(context, {
+    return new Chart(contextData, {
       type: "line",
       data: data,
       options: {
@@ -81,6 +88,8 @@ $(document).ready(function () {
           },
         },
       },
+      responsive: true,
+      maintainAspectRatio: false,
     });
   };
 
@@ -95,23 +104,12 @@ $(document).ready(function () {
   // const dataChartBankTotal = [35, 29, 50, 51, 26, 45, 20];
   // const dataChartBurnRate = [85, 79, 90, 101, 86, 75, 90];
 
-  // Get chart contexts
-  const totalSales = document.getElementById("totalSales").getContext("2d");
-  const totalCost = document.getElementById("totalCost").getContext("2d");
-  const grossProfit = document.getElementById("grossProfit").getContext("2d");
-  const totalExpenses = document
-    .getElementById("totalExpenses")
-    .getContext("2d");
-  const netProfit = document.getElementById("netProfit").getContext("2d");
-  const bankTotal = document.getElementById("bankTotal").getContext("2d");
-  const burnRate = document.getElementById("burnRate").getContext("2d");
-
   // Create charts with different datasets
-  createChart(totalSales, dataChart);
-  createChart(totalCost, dataChart);
-  createChart(grossProfit, dataChart);
-  createChart(totalExpenses, dataChart);
-  createChart(netProfit, dataChart);
-  createChart(bankTotal, dataChart);
-  createChart(burnRate, dataChart);
+  createChart("totalSales", dataChart);
+  createChart("totalCost", dataChart);
+  createChart("grossProfit", dataChart);
+  createChart("totalExpenses", dataChart);
+  createChart("netProfit", dataChart);
+  createChart("bankTotal", dataChart);
+  createChart("burnRate", dataChart);
 });

@@ -19,6 +19,14 @@ $(document).ready(function () {
   ];
 
   const createChart = (context, dataChart, labels) => {
+    const canvas = document.getElementById(context);
+
+    if (!canvas) {
+      return;
+    }
+
+    const contextData = canvas.getContext("2d");
+
     const data = {
       labels: labels,
       datasets: [
@@ -33,7 +41,7 @@ $(document).ready(function () {
       ],
     };
 
-    const chart = new Chart(context, {
+    const chart = new Chart(contextData, {
       type: "bar",
       data: data,
       options: {
@@ -119,6 +127,8 @@ $(document).ready(function () {
           },
         },
       ],
+      responsive: true,
+      maintainAspectRatio: false,
     });
     return chart;
   };
@@ -140,10 +150,7 @@ $(document).ready(function () {
   const dataRevenue = [250, 200, 150, 170, 80, 60, 40, 70, 10];
 
   // Get ID
-  const revenueBarChart = document
-    .getElementById("revenueBarChart")
-    .getContext("2d");
 
   // Create Bar Chart
-  createChart(revenueBarChart, dataRevenue, dataLabelRevenue);
+  createChart("revenueBarChart", dataRevenue, dataLabelRevenue);
 });

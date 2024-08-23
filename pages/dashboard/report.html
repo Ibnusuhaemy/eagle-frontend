@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Eagle FrontEnd</title>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../assets/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+
+        <!-- Data Tables -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css" />
+
+        <!-- Icons -->
+        <link rel="stylesheet" href="../../assets/css/icon.css">
+
+        <!-- Local Assets -->
+        <link rel="stylesheet" href="../../assets/css/grid.css">
+        <link rel="stylesheet" href="../../assets/css/global.css">
+        <link rel="stylesheet" href="../../assets/css/dashboard.css">
+        <link rel="stylesheet" href="../../assets/css/dataTables.css">
+        <link rel="stylesheet" href="../../assets/css/auth.css">
+
+    <body class="bg-primary-100">
+        <div class="d-flex w-100">
+            <!-- Sidebar -->
+            <aside class="min-vh-100 bg-white p-4 position-fixed">
+                <div class="logo-sidebar d-flex align-items-center">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar-container w-35px h-35px">
+                            <img src="../../assets/images/logo/logo.png" alt="logo">
+                        </div>
+                        <span class="logo_name hidden-sm-down fw-bold fs-4">Eagle</span>
+                    </div>
+
+                    <div class="icon_humberger_sidebar" style="cursor: pointer;">
+                        <div class="d-flex align-item-center">
+                            <div class="d-flex alig-items-center">
+                                <i class="icon icon-menu icon-size-24px"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <ul class="navbar-nav gap-2 mb-1 mt-custom-32">
+                    <li class="nav-item">
+                        <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active " href="#">
+                            <i class="icon icon-dashboard text-white-icon icon-size-24px"></i>
+                            <span class="fw-semibold fs-14px text_sidebar">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2" href="financial.html">
+                            <i class="icon icon-finance icon-size-24px"></i>
+                            <span class="fw-semibold fs-14px text-secondary text_sidebar">Financials Overview</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2" href="report.html">
+                            <i class="icon icon-report icon-size-24px"></i>
+                            <span class="fw-semibold fs-14px text-secondary text_sidebar">My Report</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-3 run_report">
+                        <a class="nav-link p-2">
+                            <div class="bg-white d-flex align-items-center justify-content-center p-1 rounded-3">
+                                <i class="icon icon-note-color icon-size-24px"></i>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="mt-3 bg-primary-200 px-custom-14 pt-custom-18 pb-4 text_sidebar rounded-12px">
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="fs-6 fw-semibold">Financial <br/> Reports</p>
+                            <button class="btn btn-outline-primary fs-12px fw-semibold">Run July Report</button>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex justify-content-end">
+                                <div class="d-flex justify-content-center p-2 rounded-3 bg-white">
+                                    <i class="icon icon-note-color icon-size-24px"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="ml-dashboard mainContent">
+                <!-- Navbar -->
+                <nav class="navbar fixed-top navbar-aside navbar-expand-lg bg-white w-dashboard shadow-sm menuContent">
+                    <div class="container-fluid">   
+
+                        <div class="icon_humberger_navbar" style="cursor: pointer; margin-right: 24px;">
+                            <i class="icon icon-menu icon-size-24px"></i>
+                        </div>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            
+                            <ul class="navbar-nav me-auto nav__dahsboard text__hidden__responsive">
+                                <li class="nav-item d-flex align-items-center">
+                                    <div class="nav-link">
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-primary dropdown-toggle-report fs-14px fw-semibold" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                Run July Report
+                                            </button>
+
+                                            <div class="dropdown-menu p-2">
+                                                <div class="d-flex flex-column gap-2">
+
+                                                    <!-- Nav Tabs -->
+                                                    <ul class="nav nav-pills nav-report mb-3 border border-1 p-1 rounded-3" id="pills-tab" role="tablist">
+                                                        
+                                                        <!-- Month -->
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link nav-link-report active-report" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab" aria-controls="pills-month" aria-selected="true">
+                                                                Month
+                                                            </button>
+                                                        </li>
+
+                                                        <!-- Quarter -->
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link nav-link-report" id="pills-quarter-tab" data-bs-toggle="pill" data-bs-target="#pills-quarter" type="button" role="tab" aria-controls="pills-quarter" aria-selected="false">
+                                                                Quarter
+                                                            </button>
+                                                        </li>
+
+                                                        <!-- Year -->
+                                                        <li class="nav-item" role="presentation">
+                                                            <button class="nav-link nav-link-report" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab" aria-controls="pills-year" aria-selected="false">
+                                                                Year
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+
+                                                    <!-- Tabs Content -->
+                                                    <div class="tab-content px-1" id="pills-tabContent">
+
+                                                        <!-- Tabs Data Month -->
+                                                        <div class="tab-pane fade show active-tabs" id="pills-month" role="tabpanel" aria-labelledby="pills-month-tab" tabindex="0">
+                                                            <div class="d-flex flex-column gap-1">
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs active-report-tabs">
+                                                                        July
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        June
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        May
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        April
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        March
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        February
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        January
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Tabs Data Quarter -->
+                                                        <div class="tab-pane fade" id="pills-quarter" role="tabpanel" aria-labelledby="pills-quarter-tab" tabindex="0">
+                                                            <div class="d-flex flex-column gap-1">
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs active-report-tabs">
+                                                                        Q 1
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        Q 2
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        Q 3
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        Q 4
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Tabs Data Year -->
+                                                        <div class="tab-pane fade" id="pills-year" role="tabpanel" aria-labelledby="pills-year-tab" tabindex="0">
+                                                            <div class="d-flex flex-column gap-1">
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs active-report-tabs">
+                                                                        2024
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        2023
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        2022
+                                                                    </button>
+                                                                </div>
+                                                                
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        2021
+                                                                    </button>
+                                                                </div>
+
+                                                                <div>
+                                                                    <button class="rounded-2 nav-link nav-link-tabs">
+                                                                        2020
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Run Report -->
+                                                    <div class="d-flex flex-column gap-1">
+                                                        <hr class="line-report" />
+
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-12">
+                                                                <button type="button" class="btn fs-14px fw-semibold text-neutral-400 px-3 py-2">cancel</button>
+                                                            </div>
+                                                            <div class="col-md-6 col-12">
+                                                                <button type="submit" class="btn btn-primary fs-14px fw-semibold">Run Report</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item d-flex align-items-center">
+                                    <div class="nav-link">
+                                        <button class="btn btn-outline-primary fs-12px fw-semibold py-2 px-3 d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#askEagleModal">
+                                            <i class="icon icon-ai icon-size-24px"></i>
+                                            Ask Eagle.ai
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <ul class="navbar-nav ms-auto nav__dahsboard">
+                                <li class="nav-item d-flex align-items-center">
+                                    <div class="nav-link">
+                                        <div class="dropdown-center">
+                                            <div class="d-flex align-items-center gap-3 dropdown-toggle-user" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                <div class="position-relative d-flex align-items-center">
+                                                    <i class="icon icon-notification-empty icon-size-24px"></i>
+
+                                                    <div class="position-absolute top-0 start-100 rounded-circle bg-white p-1 translate-middle ">
+                                                        <div class="rounded-circle bg-primary p-1"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="dropdown-menu dropdown-user shadow" aria-labelledby="profileDropdown">
+                                                <div class="d-flex flex-column gap-20">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h6 class="fs-18px fw-semibold text-neutral-base mb-0">User Profile</h6>
+
+                                                        <span class="badge rounded-pill text-bg-primary px-3 py-2">5 new</span>
+                                                    </div>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="avatar-container h-48px w-48px bg-primary-200">
+                                                            <img src="../../assets/images/avatars/avatar3.png" alt="Logo" class="avatar-image">
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Roman Joined the Team!</span>
+                                                            <span class="fs-12px text-neutral-400">Congratulate him</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="avatar-container h-48px w-48px bg-primary-200">
+                                                            <img src="../../assets/images/avatars/avatar4.png" alt="Logo" class="avatar-image">
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">New message</span>
+                                                            <span class="fs-12px text-neutral-400">Salma sent you new message</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="avatar-container h-48px w-48px bg-primary-200">
+                                                            <img src="../../assets/images/avatars/avatar5.png" alt="Logo" class="avatar-image">
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Bianca setup payment</span>
+                                                            <span class="fs-12px text-neutral-400">Check your earnings</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="avatar-container h-48px w-48px bg-primary-200">
+                                                            <img src="../../assets/images/avatars/avatar6.png" alt="Logo" class="avatar-image">
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Jolly completed tasks</span>
+                                                            <span class="fs-12px text-neutral-400">Assign her new tasks</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <button type="button" class="btn btn-outline-primary fs-14px fw-semibold">View all notifictions</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item d-flex align-items-center">
+                                    <div class="nav-link">
+                                        <div class="position-relative d-flex align-items-center">
+                                            <i class="icon icon-mail icon-size-24px"></i>
+
+                                            <div class="position-absolute top-0 start-100 rounded-circle bg-white p-1 translate-middle ">
+                                                <div class="rounded-circle bg-primary p-1"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="nav-link">
+                                        <div class="dropdown">
+                                            <div class="d-flex align-items-center gap-3 dropdown-toggle-user" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                                <div class="avatar-container h-32px w-32px">
+                                                    <img src="../../assets/images/avatars/avatar2.png" alt="Logo" class="avatar-image">
+                                                </div>
+                                                <span class="fw-semibold fs-14px profile_name">Elite International Investment LLC</span>
+                                            </div>
+
+                                            <div class="dropdown-menu dropdown-user dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                                                <div class="d-flex flex-column gap-20">
+                                                    <h6 class="fs-18px fw-semibold text-neutral-base">User Profile</h6>
+
+                                                    <div class="d-flex gap-3">
+                                                        <div>
+                                                            <div class="h-80px w-80px overflow-hidden rounded-circle">
+                                                                <img src="../../assets/images/avatars/avatar2.png" alt="avatar_images" class="img-fluid rounded-circle" style="object-fit: cover; object-position: center; width: 100%; height: 100%;">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <p class="fw-semibold mb-0">Elite International Investment LLC</p>
+                                                            <span class="fs-12px d-flex align-items-center gap-2 text-neutral-400">
+                                                                <i class="icon icon-mail icon-size-18px"></i>
+                                                                info@eliteint.com
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr class="line-report" />
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="p-custom-12 bg-primary-200 rounded-2 d-flex justify-content-center align-items-center">
+                                                            <i class="icon icon-user-color icon-size-24px"></i>
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Profile</span>
+                                                            <span class="fs-12px text-neutral-400">Account settings</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="p-custom-12 bg-primary-200 rounded-2 d-flex justify-content-center align-items-center">
+                                                            <i class="icon icon-inbox-color icon-size-24px"></i>
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Inbox</span>
+                                                            <span class="fs-12px text-neutral-400">Messages & Emails</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <a href="#" class="d-flex gap-3 align-items-center">
+                                                        <!-- Icon -->
+                                                        <div class="p-custom-12 bg-primary-200 rounded-2 d-flex justify-content-center align-items-center">
+                                                            <i class="icon icon-company-color icon-size-24px"></i>
+                                                        </div>
+
+                                                        <!-- Text -->
+                                                        <div class="d-flex flex-column gap-1">
+                                                            <span class="fs-14px fw-semibold text-neutral-base">Company</span>
+                                                            <span class="fs-12px text-neutral-400">List of Your Companies</span>
+                                                        </div>
+                                                    </a>
+
+                                                    <button type="button" class="btn btn-outline-primary fs-14px fw-semibold">Logout</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Content -->
+                <main class="mt-dashboard p-custom-7">
+                    <section>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h5 class="fs-21px fw-semibold">Reports sent to users</h5>
+
+                            <div class="d-flex align-items-center gap-3">
+                                <button type="button" class="btn btn-primary">Download Reports</button>
+
+                                <div>
+                                    <div class="position-relative">
+                                        <input type="search" class="form-control form-control_padding_left search_reports" id="customSearch" placeholder="search">
+                                        <i class="icon icon-search position-absolute top-50 start-10 translate-middle-y icon-left"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-custom-12">
+                            <table id="myTable" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Users</th>
+                                        <th>Report</th>
+                                        <th>Create at</th>
+                                        <th>Sent at</th>
+                                        <th>Owner</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+                                    <tr>
+                                        <td>info@eliteinternational.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 16:05</td>
+                                        <td>07/01/2024 16:20</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>info@eliteinternational.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 16:05</td>
+                                        <td>07/01/2024 16:20</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>info@eliteinternational.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 16:05</td>
+                                        <td>07/01/2024 16:20</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>alperendogan@gmail.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 12:30</td>
+                                        <td>06/05/2024 12:35</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>alperendogan@gmail.com</td>
+                                        <td>June 2024 Report</td>
+                                        <td>07/01/2024 12:30</td>
+                                        <td>06/05/2024 12:35</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>alperendogan@gmail.com</td>
+                                        <td>June 2024 Report</td>
+                                        <td>07/01/2024 12:30</td>
+                                        <td>06/05/2024 12:35</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>info@eliteinternational.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 16:05</td>
+                                        <td>07/01/2024 16:20</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>info@eliteinternational.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 16:05</td>
+                                        <td>07/01/2024 16:20</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>info@eliteinternational.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 16:05</td>
+                                        <td>07/01/2024 16:20</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>alperendogan@gmail.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 12:30</td>
+                                        <td>06/05/2024 12:35</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>alperendogan@gmail.com</td>
+                                        <td>June 2024 Report</td>
+                                        <td>07/01/2024 12:30</td>
+                                        <td>06/05/2024 12:35</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>alperendogan@gmail.com</td>
+                                        <td>June 2024 Report</td>
+                                        <td>07/01/2024 12:30</td>
+                                        <td>06/05/2024 12:35</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>info@eliteinternational.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 16:05</td>
+                                        <td>07/01/2024 16:20</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>info@eliteinternational.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 16:05</td>
+                                        <td>07/01/2024 16:20</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>info@eliteinternational.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 16:05</td>
+                                        <td>07/01/2024 16:20</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>alperendogan@gmail.com</td>
+                                        <td>July 2024 Report</td>
+                                        <td>07/01/2024 12:30</td>
+                                        <td>06/05/2024 12:35</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>alperendogan@gmail.com</td>
+                                        <td>June 2024 Report</td>
+                                        <td>07/01/2024 12:30</td>
+                                        <td>06/05/2024 12:35</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>alperendogan@gmail.com</td>
+                                        <td>June 2024 Report</td>
+                                        <td>07/01/2024 12:30</td>
+                                        <td>06/05/2024 12:35</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-success px-4 py-2 fs-12px">
+                                                Send
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>scottmcdomay50@gmail.com</td>
+                                        <td>May 2024 Report</td>
+                                        <td>05/02/2024 11:00</td>
+                                        <td>05/02/2024 11:25</td>
+                                        <td>eliteinternational</td>
+                                        <td>
+                                            <span class="badge text-bg-danger px-4 py-2 fs-12px">
+                                                Failed
+                                            </span>
+                                        </td>
+                                    </tr>
+                                <tbody>
+                            </table>
+
+                            <div id="" class="d-flex justify-content-between pt-2 px-custom-60">
+                                <div class="dt-info" aria-live="polite" id="myTable_info" role="status">
+                                    Showing 10 out of 30 entries
+                                </div>
+                                <div class="dt-paging_custom paging_numbers">
+                                    <nav id="custom_pagination">
+
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- Bootstrap -->
+        <script src="../../assets/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- jQuery -->
+        <script src="../../assets/js/jquery.slim.min.js"></script>
+        <script src="../../assets/js/jquery.min.js"></script>
+        
+        <!-- Data Tables -->
+        <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+
+        <!-- Local Assets -->
+        <script src="../../assets/js/dashboard.js" ></script>
+        <script src="../../assets/js/global.js" ></script>
+
+        <script>            
+            $(document).ready(function() {
+                let table = new DataTable('#myTable', {
+                    responsive: true,
+                    lengthChange: false,
+                    info: false,
+                    searching: true,
+                    scrollX: true,
+                    autoWidth: false,
+                    dom: 't<"d-none"ip>',
+                    ordering: false,
+                    pagingType: "numbers",
+                    pageLength: 10,
+                });
+
+                function updateInfo() {
+                    let info = table.page.info();
+                    let pagination = $('#custom_pagination');
+
+                    $('#myTable_info').html(`Showing ${info.end} out of ${info.recordsTotal} entries`);
+
+                    pagination.empty();
+
+                    for (let i = 1; i <= info.pages; i++) {
+                        pagination.append(`<button class="dt-paging-button ${i === info.page + 1 ? 'current' : ''}" 
+                            role="link" type="button" aria-controls="myTable" data-dt-idx="${i-1}">${i}</button>`);
+                    }
+
+                    $('.dt-paging-button').on('click', function() {
+                        let pageIndex = $(this).data('dt-idx');
+                        table.page(pageIndex).draw(false);
+                    });
+                }
+
+                updateInfo();
+                
+                table.on('draw', function() {
+                    updateInfo();
+                });
+
+
+                $('#customSearch').on('keyup', function () {
+                    table.search(this.value).draw();
+                });
+            });
+        </script>
+    </body>
+</html>

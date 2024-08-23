@@ -267,27 +267,10 @@ $(document).ready(function () {
     expensesLabels,
     expensesCenterText
   );
-  renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
-
-  renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
-  renderChart(
-    expensesDoughnutContext,
-    expensesData,
-    expensesLabels,
-    expensesCenterText
-  );
 
   $(window).resize(function () {
     renderChart(arDoughnutContext1, arData, arLabels, arCenterText);
     renderChart(arDoughnutContext2, arData, arLabels, arCenterText);
     renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
-
-    renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
-    renderChart(
-      expensesDoughnutContext,
-      expensesData,
-      expensesLabels,
-      expensesCenterText
-    );
   });
 });

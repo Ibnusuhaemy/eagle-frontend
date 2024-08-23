@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
 :root {
   --base-padding: 4px;
 
@@ -25,6 +27,10 @@
   --neutral-300: #dfe5ef;
   --neutral-200: #eaeff4;
   --neutral-100: #f6f9fc;
+}
+
+* {
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 /* remove a link */
@@ -537,16 +543,6 @@ a {
   margin-right: calc(var(--base-padding) * 3.5) !important;
 }
 
-/* margin dashboard */
-.ml-dashboard {
-  margin-left: 275px !important;
-}
-
-.mt-dashboard {
-  margin-top: 104px !important;
-  width: 100%;
-}
-
 /* background color */
 .bg-primary-base {
   background-color: var(--primary-base) !important;
@@ -697,6 +693,21 @@ a {
 .text-bg-light {
   color: var(--neutral-500) !important;
   background-color: var(--primary-100) !important;
+}
+
+.text-bg-success {
+  color: var(--alert-success) !important;
+  background-color: var(--action-light-success) !important;
+}
+
+.text-bg-danger {
+  color: var(--alert-danger) !important;
+  background-color: var(--action-light-danger) !important;
+}
+
+.text-bg-warning {
+  color: var(--alert-warning) !important;
+  background-color: var(--action-light-warning) !important;
 }
 
 /* Absolute position */
