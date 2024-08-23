@@ -9,6 +9,14 @@ $(document).ready(function () {
     .getElementById("arDoughnutChart3")
     .getContext("2d");
 
+  const arDoughnutChartModal1 = document
+    .getElementById("arDoughnutChartModal1")
+    .getContext("2d");
+
+  const arDoughnutChartModal2 = document
+    .getElementById("arDoughnutChartModal2")
+    .getContext("2d");
+
   const expensesDoughnutContext = document
     .getElementById("expensesDoughnutChart")
     .getContext("2d");
@@ -268,6 +276,8 @@ $(document).ready(function () {
     expensesCenterText
   );
   renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
+  renderChart(arDoughnutChartModal1, arData, arLabels, arCenterText);
+  renderChart(arDoughnutChartModal2, arData, arLabels, arCenterText);
 
   renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
   renderChart(
@@ -281,6 +291,8 @@ $(document).ready(function () {
     renderChart(arDoughnutContext1, arData, arLabels, arCenterText);
     renderChart(arDoughnutContext2, arData, arLabels, arCenterText);
     renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
+    renderChart(arDoughnutChartModal11, arData, arLabels, arCenterText);
+    renderChart(arDoughnutChartModal12, arData, arLabels, arCenterText);
 
     renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
     renderChart(

@@ -20,3 +20,33 @@
 .form-control_padding_left {
   padding: 0.594rem 0.594rem 0.594rem 2.3rem !important;
 }
+
+.auth_width {
+  width: 100%;
+}
+
+.text-center-mobile {
+  text-align: center;
+}
+
+.footer-mobile {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .auth_width {
+    width: 75%;
+  }
+
+  .text-center-mobile {
+    text-align: start;
+  }
+}
+
+@media (min-width: 992px) {
+  .auth_width {
+    width: 50%;
+  }
+}
