@@ -24,6 +24,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
 
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    </head>
     <body class="bg-primary-100">
         <div class="d-flex w-100">            
             <!-- Navbar -->
@@ -1904,22 +1907,28 @@
                                                     <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm h-100 d-flex flex-column gap-12 justify-content-between">
                                                         <span class="fw-semibold text-neutral-base fs-5 mt-1">A/R</span>
 
-                                                        <div class="slider d-flex overflow-hidden" data-bs-toggle="modal" data-bs-target="#summaryeModal">
-                                                            <div class="slider-item" style="min-width: 100%;">
-                                                                <canvas id="arDoughnutChart1"></canvas>
+                                                    <!-- Swiper -->
+                                                        <div class="swiper-container swiper-container-ar" data-bs-toggle="modal" data-bs-target="#summaryeModal" style="cursor: pointer; height:100%">
+                                                            <div class="swiper-wrapper">
+                                                                <div class="swiper-slide">
+                                                                    <canvas id="arDoughnutChart1"></canvas>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <canvas id="arDoughnutChart2"></canvas>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <canvas id="arDoughnutChart3"></canvas>
+                                                                </div>
                                                             </div>
-                                                            <div class="slider-item" style="min-width: 100%;">
-                                                                <canvas id="arDoughnutChart2"></canvas>
-                                                            </div>
-                                                            <div class="slider-item" style="min-width: 100%;">
-                                                                <canvas id="arDoughnutChart3"></canvas>
-                                                            </div>
+
+                                                            <!-- <div class="swiper-pagination swiper-pagination-ar"></div> -->
                                                         </div>
 
-                                                        <div class="d-flex gap-4 justify-content-center align-items-center mt-3">
-                                                            <i id="prev" class="icon icon-arrow-left-circle icon-size-32px" style="cursor: pointer;"></i>
-                                                            <i id="next" class="icon icon-arrow-right-circle icon-size-32px" style="cursor: pointer;"></i>
+                                                        <div class="d-flex gap-4 justify-content-center align-items-center">
+                                                            <i class="icon icon-arrow-left-circle icon-size-32px swiper-button-prev-ar"></i>
+                                                            <i class="icon icon-arrow-right-circle icon-size-32px swiper-button-next-ar"></i>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                                 
@@ -1928,11 +1937,27 @@
                                                     <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm h-100 d-flex flex-column gap-12 justify-content-between">
                                                         <span class="fw-semibold text-neutral-base fs-5 mt-1">Expenses</span>
 
-                                                        <canvas id="expensesDoughnutChart"></canvas>
+                                                        <!-- Swiper -->
+                                                        <!-- <canvas id="expensesDoughnutChart"></canvas> -->
+                                                        <div class="swiper-container swiper-container-expenses" data-bs-toggle="modal" data-bs-target="#summaryeModal" style="cursor: pointer; height:100%">
+                                                            <div class="swiper-wrapper">
+                                                                <div class="swiper-slide">
+                                                                    <canvas id="expensesDoughnutChart"></canvas>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <canvas id="expensesDoughnutChart2"></canvas>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <canvas id="expensesDoughnutChart3"></canvas>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- <div class="swiper-pagination swiper-pagination-expenses"></div> -->
+                                                        </div>
 
                                                         <div class="d-flex gap-4 justify-content-center align-items-center">
-                                                            <i class="icon icon-arrow-left-circle icon-size-32px"></i>
-                                                            <i class="icon icon-arrow-right-circle icon-size-32px"></i>
+                                                            <i class="icon icon-arrow-left-circle icon-size-32px swiper-button-prev-expenses"></i>
+                                                            <i class="icon icon-arrow-right-circle icon-size-32px swiper-button-next-expenses"></i>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1945,12 +1970,27 @@
                                                             <span class="badge text-bg-primary-light fs-5">3%</span>
                                                         </div>
 
-                                                        <canvas id="burnRate"></canvas>
+                                                        <div class="swiper-container swiper-container-burnRate" data-bs-toggle="modal" data-bs-target="#summaryeModal" style="cursor: pointer; height:100%">
+                                                            <div class="swiper-wrapper d-flex">
+                                                                <div class="swiper-slide">
+                                                                    <canvas id="burnRate"></canvas>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <canvas id="burnRate2"></canvas>
+                                                                </div>
+                                                                <div class="swiper-slide">
+                                                                    <canvas id="burnRate3"></canvas>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- <div class="swiper-pagination swiper-pagination-burnRate"></div> -->
+                                                        </div>
 
                                                         <div class="d-flex gap-4 justify-content-center align-items-center">
-                                                            <i class="icon icon-arrow-left-circle icon-size-32px"></i>
-                                                            <i class="icon icon-arrow-right-circle icon-size-32px"></i>
+                                                            <i class="icon icon-arrow-left-circle icon-size-32px swiper-button-prev-burnRate"></i>
+                                                            <i class="icon icon-arrow-right-circle icon-size-32px swiper-button-next-burnRate"></i>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -3432,10 +3472,13 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
         
+        <!-- Slick -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
         <!-- Local Assets -->
         <script src="../../assets/js/select2.js" ></script>
         <script src="../../assets/js/dashboard.js" ></script>
+        <script src="../../assets/js/slider.js" ></script>
         <script src="../../assets/js/global.js" ></script>
         
         <!-- Chart -->
