@@ -13,14 +13,17 @@ $(document).ready(function () {
     var screenWidth = $(window).width();
 
     if (screenWidth < 576) {
-      $toggleButtonSidebar.show();
-      $toggleButtonNavbar.hide();
+      $toggleButtonSidebar.hide();
+      $toggleButtonNavbar.show();
       $sidebar.css("width", "275px");
       $content.css({
         width: "100%",
         "margin-left": "0px",
       });
-      $mainContent.css("width", "100%");
+      $mainContent.css({
+        width: "100%",
+        "margin-left": "0px",
+      });
       $logoSidebar.css("justify-content", "space-between");
       $textSidebar.show();
       $logoName.show();
