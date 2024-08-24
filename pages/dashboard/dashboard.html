@@ -855,12 +855,27 @@
                                                     <span class="badge text-bg-primary-light fs-5">3%</span>
                                                 </div>
 
-                                                <canvas id="burnRate"></canvas>
+                                                 <div class="swiper-container swiper-container-burnRate">
+                                                    <div class="swiper-wrapper d-flex">
+                                                        <div class="swiper-slide">
+                                                            <canvas id="burnRate"></canvas>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <canvas id="burnRate2"></canvas>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <canvas id="burnRate3"></canvas>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="swiper-pagination swiper-pagination-burnRate"></div>
+                                                </div>
 
                                                 <div class="d-flex gap-4 justify-content-center align-items-center">
                                                     <i class="icon icon-arrow-left-circle icon-size-32px"></i>
                                                     <i class="icon icon-arrow-right-circle icon-size-32px"></i>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -2518,6 +2533,20 @@
             });
 
             var swiperExpenses = new Swiper('.swiper-container-expenses', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination-expenses',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next-expenses',
+                    prevEl: '.swiper-button-prev-expenses',
+                },
+            });
+
+            var swiperExpenses = new Swiper('.swiper-container-burnRate', {
                 // Optional parameters
                 direction: 'horizontal',
                 loop: true,

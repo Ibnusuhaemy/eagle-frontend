@@ -52,12 +52,13 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
 }
 
 .swiper-container {
-  width: 100%; /* Mengatur lebar Swiper agar sesuai dengan kontainer */
-  height: 300px; /* Sesuaikan tinggi sesuai kebutuhan Anda */
-  overflow: hidden; /* Mencegah konten meluas keluar dari kontainer */
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
+
 .swiper-slide {
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   height: 100%;

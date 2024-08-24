@@ -111,5 +111,8 @@ $(document).ready(function () {
   createChart("totalExpenses", dataChart);
   createChart("netProfit", dataChart);
   createChart("bankTotal", dataChart);
+
   createChart("burnRate", dataChart);
+  createChart("burnRate2", dataChart);
+  createChart("burnRate3", dataChart);
 });
