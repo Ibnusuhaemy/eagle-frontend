@@ -1,0 +1,13 @@
+.pdf-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.custom-li {
+  background-color: var(--primary-base) !important;
+  --bs-btn-bg: #ffffff !important;
+  --bs-btn-border-color: var(--primary-base) !important;
+  --bs-btn-hover-color: #fff !important;
+  --bs-btn-hover-bg: var(--primary-300) !important;
+  --bs-btn-hover-border-color: #2f5ad2 !important;
+}
