@@ -595,6 +595,15 @@ aside {
   padding: 10px 0;
 }
 
+.tab-financial::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-financial {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 #dateSummaryGraphs {
   overflow-x: auto;
   overflow-y: hidden;
