@@ -67,7 +67,7 @@ $(document).ready(function () {
 
   function getResponsiveOptions(context, centerText) {
     const chartWidth = context.canvas.clientWidth;
-    const padding = chartWidth < 400 ? 75 : 40;
+    const padding = chartWidth < 400 ? 40 : 40;
     const fontSizeText = chartWidth < 400 ? 10 : 14;
     const fontSizeLabel = chartWidth < 400 ? 8 : 12;
     const lineLength = chartWidth < 400 ? 10 : 20;
