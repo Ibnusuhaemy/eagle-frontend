@@ -25,10 +25,6 @@ $(document).ready(function () {
       return;
     }
 
-    // Make the canvas responsive
-    canvas.style.width = "100%";
-    canvas.style.height = "100%";
-
     const contextData = canvas.getContext("2d");
 
     const data = {
@@ -49,6 +45,8 @@ $(document).ready(function () {
       type: "bar",
       data: data,
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             display: false,
@@ -67,8 +65,11 @@ $(document).ready(function () {
               maxRotation: 0,
               minRotation: 0,
               padding: 10,
-              font: {
-                size: 12,
+              font: function (context) {
+                const width = context.chart.width;
+                return {
+                  size: width < 400 ? 8 : 12,
+                };
               },
               callback: function () {
                 return "";
@@ -105,7 +106,7 @@ $(document).ready(function () {
               const labelText = label.split(" ");
               let line = "";
               let lines = [];
-              chart.ctx.font = "10px Arial";
+              chart.ctx.font = chart.width < 400 ? "8px Arial" : "10px Arial";
               const maxWidth = xAxis.width / chart.data.labels.length;
               for (let i = 0; i < labelText.length; i++) {
                 const testLine = line + labelText[i] + " ";
@@ -131,8 +132,6 @@ $(document).ready(function () {
           },
         },
       ],
-      responsive: true,
-      maintainAspectRatio: false, // Ensure the chart adapts to the container's aspect ratio
     });
     return chart;
   };

@@ -70,6 +70,14 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   gap: 8px;
 }
 
+.icon-tabs {
+  fill: var(--neutral-400);
+}
+.nav-link-profit.active-profit .icon-tabs,
+.nav-link-profit:hover .icon-tabs {
+  fill: var(--primary-base);
+}
+
 /* Dropdown Financial Snapshot Btn Year to Last Month */
 .dropdown-toggle-fs-ytlm::after {
   display: inline-block;
