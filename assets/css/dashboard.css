@@ -663,6 +663,25 @@ aside {
   gap: 20px !important;
 }
 
+.tab-revenue {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.tab-revenue::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-revenue {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.revenue-chart {
+  min-width: 557px;
+  width: 100%;
+}
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   .profile_name {
@@ -773,6 +792,15 @@ aside {
 
   .run_report {
     display: none;
+  }
+
+  .tab-revenue {
+    overflow-x: none;
+  }
+
+  .revenue-chart {
+    min-width: 100%;
+    width: 100%;
   }
 }
 
