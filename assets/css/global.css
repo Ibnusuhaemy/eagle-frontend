@@ -733,6 +733,37 @@ a {
   --bs-btn-disabled-border-color: var(--primary-base);
 }
 
+.aside {
+  position: absolute;
+  top: 0;
+  left: -275px; /* Initially hidden off-screen */
+  width: 275px;
+  height: 100%;
+  background-color: #333; /* Example background color */
+  transition: left 0.5s ease; /* Animation for sliding */
+  z-index: 999;
+}
+
+aside.expanded {
+  left: 0; /* Move the sidebar into view */
+}
+
+.backdrop {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998; /* Behind the sidebar */
+  transition: opacity 0.5s ease; /* Smooth backdrop transition */
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
 /* Custom class for smooth transitions */
 .transition-height {
   overflow: hidden;

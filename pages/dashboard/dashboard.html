@@ -659,15 +659,15 @@
                         <!-- Financial Snapshot -->
                         <div class="col-lg-12">
                             <div class="row">
-                                <div class="col-12 d-flex justify-content-between align-items-center gap-3">
+                                <div class="col-12 d-flex justify-content-between align-md-items-center gap-3">
                                     <div class="d-flex flex-lg-row flex-column  gap-32">
                                         <h5 class="fw-semibold mb-0">Financial Snapshot</h5>
 
-                                        <div class="d-flex align-items-center gap-12">
+                                        <div class="d-flex flex-column flex-md-row align-md-items-center gap-12">
 
                                             <!-- Button Year to Last Month -->
                                             <div class="dropdown">
-                                                <a class="btn btn-light dropdown-toggle-fs-ytlm fs-14px fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <a class="btn btn-light justify-content-between dropdown-toggle-fs-ytlm fs-14px fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                     Year to Last Month
                                                 </a>
 
@@ -678,17 +678,19 @@
                                                 </ul>
                                             </div>
 
-                                            <!-- Button Compare -->
-                                            <a class="btn btn-primary fs-14px fw-semibold d-flexalign-items-center" href="compare.html">
-                                                <i class="icon icon-compare text-white-icon icon-size-24px"></i>
-                                                Compare
-                                            </a>
+                                            <div class="d-flex align-items-center gap-12">
+                                                <!-- Button Compare -->
+                                                <a class="btn btn-primary fs-14px fw-semibold d-flexalign-items-center" href="compare.html">
+                                                    <i class="icon icon-compare text-white-icon icon-size-24px"></i>
+                                                    Compare
+                                                </a>
 
-                                            <!-- Button Merge -->
-                                            <button class="btn btn-outline-primary fs-14px fw-semibold py-2 px-3 d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#mergeModal">
-                                                <i class="icon icon-merge icon-size-24px text-primary-icon"></i>
-                                                Merge
-                                            </button>
+                                                <!-- Button Merge -->
+                                                <button class="btn btn-outline-primary fs-14px fw-semibold py-2 px-3 d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#mergeModal">
+                                                    <i class="icon icon-merge icon-size-24px text-primary-icon"></i>
+                                                    Merge
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                     
@@ -2500,6 +2502,7 @@
                 </div>
             </div>
         </div>
+        <div class="backdrop"></div>
 
         <!-- Bootstrap -->
         <script src="../../assets/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
