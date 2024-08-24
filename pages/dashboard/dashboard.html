@@ -20,16 +20,17 @@
         <link rel="stylesheet" href="../../assets/css/dashboard.css">
         <link rel="stylesheet" href="../../assets/css/auth.css">
         <link rel="stylesheet" href="../../assets/css/grid.css">
-
+        
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="../../assets/css/sidebar-responsive.css">
     </head>
 
     <body class="bg-primary-100">
         <div class="d-flex w-100">
             <!-- Sidebar -->
-            <aside class="min-vh-100 bg-white p-4 position-fixed">
+            <aside class="min-vh-100 bg-white p-4 position-fixed dashboard-side-trick">
                 <div class="logo-sidebar d-flex align-items-center">
-                    <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-3 dashboard-left-avatar">
                         <div class="avatar-container w-35px h-35px">
                             <img src="../../assets/images/logo/logo.png" alt="logo">
                         </div>
@@ -39,7 +40,8 @@
                     <div class="icon_humberger_sidebar" style="cursor: pointer;">
                         <div class="d-flex align-item-center">
                             <div class="d-flex alig-items-center">
-                                <i class="icon icon-menu icon-size-24px"></i>
+                                <i class="icon icon-menu icon-size-24px dashboard-humberger"></i>
+                                 <!-- <img class="dashboard-humberger" src="../../assets/images/icons/humberger-menu.svg" width="24" height="24" alt="="> -->
                             </div>
                         </div>
                     </div>
@@ -95,9 +97,11 @@
                 <!-- Navbar -->
                 <nav class="navbar fixed-top navbar-aside navbar-expand-lg bg-white w-dashboard shadow-sm menuContent">
                     <div class="container-fluid">   
-
-                        <div class="icon_humberger_navbar" style="cursor: pointer; margin-right: 24px;">
-                            <i class="icon icon-menu icon-size-24px"></i>
+                        <div class="dashboard-logo">
+                            <img src="../../assets/images/logo/logo.png" alt="logo">
+                            <div class="icon_humberger_navbar dashboard-icon_humberger_navbar" style="cursor: pointer; margin-right: 24px;">
+                                <i class="icon icon-menu icon-size-24px"></i>
+                            </div>
                         </div>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -283,6 +287,7 @@
                             </ul>
 
                             <ul class="navbar-nav ms-auto nav__dahsboard">
+                                <li class=""></li>
                                 <li class="nav-item d-flex align-items-center">
                                     <div class="nav-link">
                                         <div class="dropdown-center">
@@ -380,7 +385,7 @@
                                                 <div class="avatar-container h-32px w-32px">
                                                     <img src="../../assets/images/avatars/avatar2.png" alt="Logo" class="avatar-image">
                                                 </div>
-                                                <span class="fw-semibold fs-14px profile_name">Elite International Investment LLC</span>
+                                                <span class="fw-semibold fs-14px profile_name dashboard-profile_name">Elite International Investment LLC</span>
                                             </div>
 
                                             <div class="dropdown-menu dropdown-user dropdown-menu-end shadow" aria-labelledby="profileDropdown">
@@ -1045,7 +1050,6 @@
                                                             <path d="M22 7.81V14H17.92C17.25 14 16.46 13.52 16.15 12.93L15.11 10.96C14.83 10.43 14.43 10.46 14.21 11.01L11.91 16.82C11.66 17.47 11.24 17.47 10.98 16.82L9.84 13.94C9.57 13.24 8.73 12.67 7.98 12.67L2 12.7V7.81C2 4.17 4.17 2 7.81 2H16.19C19.83 2 22 4.17 22 7.81Z" fill="#ECF2FF"/>
                                                             <path d="M22 16.1901V14.0001H17.92C17.25 14.0001 16.46 13.5201 16.15 12.9301L15.11 10.9601C14.83 10.4301 14.43 10.4601 14.21 11.0101L11.91 16.8201C11.66 17.4701 11.24 17.4701 10.98 16.8201L9.84 13.9401C9.57 13.2401 8.73 12.6701 7.98 12.6701L2 12.7001V16.1901C2 19.7701 4.1 21.9301 7.63 21.9901C7.74 22.0001 7.86 22.0001 7.97 22.0001H15.97C16.12 22.0001 16.27 22.0001 16.41 21.9901C19.92 21.9101 22 19.7601 22 16.1901Z" id="icon_tabs" class="active_icon" fill="#7C8FAC"/>
                                                         </svg>
-
                                                         Profit & Lost
                                                     </button>
                                                 </li>

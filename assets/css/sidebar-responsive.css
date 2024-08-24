@@ -1,0 +1,39 @@
+.dashboard-humberger {
+  width: 24px;
+  height: 24px;
+  background-image: url(../../assets/images/icons/humberger-menu.svg);
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+}
+.dashboard-logo {
+  display: none;
+}
+.dashboard-logo img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  margin-right: 16px;
+}
+.dashboard-icon_humberger_navbar {
+  display: none;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../assets/images/icons/humberger-menu.svg);
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 767.98px) {
+  .dashboard-logo {
+    display: flex;
+    align-items: center;
+  }
+  .dashboard-profile_name {
+    display: none;
+  }
+  .dashboard-icon_humberger_navbar {
+    display: block !important;
+  }
+  .dashboard-left-avatar {
+    display: none !important;
+  }
+}
