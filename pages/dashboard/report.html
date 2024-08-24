@@ -729,10 +729,14 @@
         <!-- Content -->
         <main class="mt-dashboard p-custom-7">
           <section>
-            <div class="d-flex align-items-center justify-content-between">
+            <div
+              class="d-flex flex-column flex-md-row align-md-items-center justify-content-md-between gap-20"
+            >
               <h5 class="fs-21px fw-semibold">Reports sent to users</h5>
 
-              <div class="d-flex align-items-center gap-3">
+              <div
+                class="d-flex justify-content-between justify-content-md-end align-md-items-center gap-3"
+              >
                 <button type="button" class="btn btn-primary">
                   Download Reports
                 </button>
@@ -1153,6 +1157,161 @@
       </div>
     </div>
 
+    <!-- Modal Ask Eagle.ai-->
+    <div
+      class="modal fade"
+      id="askEagleModal"
+      tabindex="-1"
+      aria-labelledby="askEagleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="bg-white w-100 py-custom-12 px-3 rounded-12px">
+            <div class="d-flex flex-column gap-3">
+              <!-- Welcome Label -->
+              <div
+                id="welcome-label"
+                class="p-custom-12 d-flex flex-column gap-12 border border-1 rounded-12px position-relative"
+              >
+                <div class="d-flex gap-12 align-items-center w-100">
+                  <i class="icon icon-ai icon-size-24px"></i>
+                  <h6 class="fw-semibold text-primary mb-0">
+                    Welcome Elite International Investment LLC!
+                  </h6>
+                </div>
+
+                <div class="d-flex gap-12 align-items-center">
+                  <span
+                    class="badge fs-12px fw-semibold text-bg-light p-custom-12"
+                    >What does our Expenses spend look like so far this
+                    year?</span
+                  >
+                  <span
+                    class="badge fs-12px fw-semibold text-bg-light p-custom-12"
+                    >What was net profit las month?</span
+                  >
+                  <span
+                    class="badge fs-12px fw-semibold text-bg-light p-custom-12"
+                    >What is my Cost of Goods Sold this month</span
+                  >
+                </div>
+
+                <div class="d-flex gap-12 align-items-center">
+                  <span
+                    class="badge fs-12px fw-semibold text-bg-light p-custom-12"
+                    >How much did we spend on Amazon charges this month?</span
+                  >
+                  <span
+                    class="badge fs-12px fw-semibold text-bg-light p-custom-12"
+                    >Is there any correlation between my sales and
+                    advertising?</span
+                  >
+                </div>
+
+                <div class="position-absolute top-0 end-0">
+                  <div class="p-1">
+                    <i
+                      class="icon icon-close-circle icon-size-24px"
+                      style="cursor: pointer"
+                    ></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="scrollable-container">
+                <div class="d-flex flex-column gap-3">
+                  <div class="chat-ai d-flex justify-content-end">
+                    <div>
+                      <div
+                        class="chat-time fw-semibold fs-12px text-neutral-400"
+                      >
+                        Aug 5, 2024 16:01 •
+                        <span class="fw-bold text-neutral-base">Elite Int</span>
+                        <div class="avatar-container w-24px h-24px">
+                          <img
+                            src="../../assets/images/avatars/avatar1.png"
+                            alt="Logo"
+                            class="avatar-image"
+                          />
+                        </div>
+                      </div>
+                      <div class="chat-bubble user">
+                        How much does our Expenses spend look like so far this
+                        year?
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="chat-ai d-flex">
+                    <div>
+                      <div
+                        class="chat-time fw-semibold fs-12px text-neutral-400"
+                      >
+                        <div class="avatar-container w-24px h-24px">
+                          <img
+                            src="../../assets/images/avatars/avatar1.png"
+                            alt="Logo"
+                            class="avatar-image"
+                          />
+                        </div>
+                        <span class="fw-bold text-neutral-base">Eagle Bot</span>
+                        • Aug 5, 2024 16:02
+                      </div>
+                      <div class="chat-bubble bot">
+                        Expense dataset information the total amount of
+                        $787,500.86 an average monthly amount of $393,750.43,
+                        and details about the largest amount in June
+                        ($545,306.31) and the smallest amount in July
+                        ($242,194.54).
+
+                        <div class="d-flex w-100 justify-content-center">
+                          <canvas class="mt-2" id="aiDoughnutChart"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-2 d-flex justify-content-center">
+                    <button
+                      type="button"
+                      class="btn btn-secondary btn-clear-history"
+                    >
+                      Clear History
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="position-relative input-group">
+                <input
+                  type="email"
+                  class="form-control form-control_padding fw-semibold"
+                  id="email"
+                  placeholder="Ask Eagle.ai or search"
+                />
+                <i
+                  class="icon icon-ai position-absolute top-50 start-ap1 translate-middle-y"
+                ></i>
+
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  id="inputGroupFileAddon04"
+                >
+                  <i
+                    class="icon icon-arrow-up icon-size-24px text-white-icon"
+                    style="transform: rotate(90deg)"
+                  ></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="backdrop"></div>
+
     <!-- Bootstrap -->
     <script src="../../assets/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -1167,6 +1326,9 @@
     <script src="../../assets/js/dashboard.js"></script>
     <script src="../../assets/js/global.js"></script>
     <script src="../../assets/js/sidebar.js"></script>
+
+    <!-- Chart -->
+    <script src="../../assets/js/doughnutChart.js"></script>
 
     <script>
       $(document).ready(function () {
