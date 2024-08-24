@@ -102,7 +102,7 @@ $(document).ready(function () {
         },
       },
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
       cutout: cutoutPercentage,
     };
   }
