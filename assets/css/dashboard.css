@@ -119,7 +119,7 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
 
 /* Button Outline Focus */
 .dropdown-apps.show {
-  min-width: 700px !important;
+  max-width: 700px !important;
   padding: 16px 30px 30px 30px;
 }
 
@@ -514,6 +514,11 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
 }
 
 /* Modal */
+.modal-backdrop {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .modal__filters {
   position: absolute;
   left: 0 !important;
@@ -521,10 +526,11 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   margin-top: 0 !important;
   transform: translateX(0);
   width: 100%;
+  padding: 20px;
 }
 
 .modal__filters__content {
-  border-radius: 0 !important;
+  border-radius: 8px !important;
 }
 
 .modal__filters__close {
@@ -654,6 +660,19 @@ aside {
     width: calc(100% - 93px);
   }
 
+  .modal__filters {
+    left: 0 !important;
+    top: 0 !important;
+    margin-top: 0 !important;
+    transform: translateX(0);
+    width: 100%;
+    padding: 0px;
+  }
+
+  .modal__filters__content {
+    border-radius: 0px !important;
+  }
+
   .navbar-aside {
     width: calc(100% - 93px);
     right: 0 !important;
@@ -670,6 +689,10 @@ aside {
 @media (min-width: 768px) {
   .navbar {
     padding: 16px 24px;
+  }
+
+  .dropdown-apps.show {
+    min-width: 700px !important;
   }
 
   .mt-dashboard {
