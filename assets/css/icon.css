@@ -129,6 +129,16 @@
   background-image: url("../images/icons/minus.svg");
 }
 
+/* Minus Circle */
+.icon-minus-circle {
+  background-image: url("../images/icons/minusr-circle.svg");
+}
+
+/* Plus Circle */
+.icon-plus-circle {
+  background-image: url("../images/icons/plus-circle.svg");
+}
+
 /* Compare */
 .icon-compare {
   background-image: url("../images/icons/git-compare.svg");

@@ -1,28 +1,11 @@
 $(document).ready(function () {
-  const arDoughnutContext1 = document
-    .getElementById("arDoughnutChart1")
-    .getContext("2d");
-  const arDoughnutContext2 = document
-    .getElementById("arDoughnutChart2")
-    .getContext("2d");
-  const arDoughnutContext3 = document
-    .getElementById("arDoughnutChart3")
-    .getContext("2d");
-
-  const arDoughnutChartModal1 = document
-    .getElementById("arDoughnutChartModal1")
-    .getContext("2d");
-
-  const arDoughnutChartModal2 = document
-    .getElementById("arDoughnutChartModal2")
-    .getContext("2d");
-
-  const expensesDoughnutContext = document
-    .getElementById("expensesDoughnutChart")
-    .getContext("2d");
-  const aiDoughnutChartContext = document
-    .getElementById("aiDoughnutChart")
-    .getContext("2d");
+  function initializeChart(chartId, data, labels, centerText) {
+    const context = document.getElementById(chartId);
+    if (context) {
+      const ctx = context.getContext("2d");
+      renderChart(ctx, data, labels, centerText);
+    }
+  }
 
   const bgColor = [
     "#7B61FF",
@@ -45,7 +28,6 @@ $(document).ready(function () {
 
   function getDoughnutData(data, labels) {
     const bgColorData = data.map((item, index) => bgColor[index]);
-
     return {
       labels: labels,
       datasets: [
@@ -245,7 +227,7 @@ $(document).ready(function () {
     });
   }
 
-  // Data and configuration for the A/R chart
+  // Data for the A/R chart
   const arData = [8000, 17000, 11000, 23000, 10000];
   const arLabels = [
     "Current",
@@ -256,7 +238,7 @@ $(document).ready(function () {
   ];
   const arCenterText = "$58,458";
 
-  // Data and configuration for the Expenses chart
+  // Data for the Expenses chart
   const expensesData = [17000, 48000, 82000, 90000, 4000];
   const expensesLabels = [
     "Truck Parking",
@@ -267,39 +249,42 @@ $(document).ready(function () {
   ];
   const expensesCenterText = "$45,000";
 
-  // Render each chart with its specific data and options
-  renderChart(arDoughnutContext1, arData, arLabels, arCenterText);
-  renderChart(
-    arDoughnutContext2,
+  // Initialize charts
+  initializeChart("arDoughnutChart1", arData, arLabels, arCenterText);
+  initializeChart(
+    "arDoughnutChart2",
     expensesData,
     expensesLabels,
     expensesCenterText
   );
-  renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
-  renderChart(arDoughnutChartModal1, arData, arLabels, arCenterText);
-  renderChart(arDoughnutChartModal2, arData, arLabels, arCenterText);
-
-  renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
-  renderChart(
-    expensesDoughnutContext,
+  initializeChart("arDoughnutChart3", arData, arLabels, arCenterText);
+  initializeChart("arDoughnutChartModal1", arData, arLabels, arCenterText);
+  initializeChart("arDoughnutChartModal2", arData, arLabels, arCenterText);
+  initializeChart(
+    "expensesDoughnutChart",
     expensesData,
     expensesLabels,
     expensesCenterText
   );
+  initializeChart("aiDoughnutChart", arData, arLabels, arCenterText);
 
   $(window).resize(function () {
-    renderChart(arDoughnutContext1, arData, arLabels, arCenterText);
-    renderChart(arDoughnutContext2, arData, arLabels, arCenterText);
-    renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
-    renderChart(arDoughnutChartModal11, arData, arLabels, arCenterText);
-    renderChart(arDoughnutChartModal12, arData, arLabels, arCenterText);
-
-    renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
-    renderChart(
-      expensesDoughnutContext,
+    initializeChart("arDoughnutChart1", arData, arLabels, arCenterText);
+    initializeChart(
+      "arDoughnutChart2",
       expensesData,
       expensesLabels,
       expensesCenterText
     );
+    initializeChart("arDoughnutChart3", arData, arLabels, arCenterText);
+    initializeChart("arDoughnutChartModal1", arData, arLabels, arCenterText);
+    initializeChart("arDoughnutChartModal2", arData, arLabels, arCenterText);
+    initializeChart(
+      "expensesDoughnutChart",
+      expensesData,
+      expensesLabels,
+      expensesCenterText
+    );
+    initializeChart("aiDoughnutChart", arData, arLabels, arCenterText);
   });
 });

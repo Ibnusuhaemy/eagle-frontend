@@ -16,7 +16,10 @@ $(document).ready(function () {
       $toggleButtonSidebar.show();
       $toggleButtonNavbar.hide();
       $sidebar.css("width", "275px");
-      $content.css("width", "100%");
+      $content.css({
+        width: "100%",
+        "margin-left": "0px",
+      });
       $mainContent.css("width", "100%");
       $logoSidebar.css("justify-content", "space-between");
       $textSidebar.show();
