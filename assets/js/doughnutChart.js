@@ -1,11 +1,33 @@
 $(document).ready(function () {
-  function initializeChart(chartId, data, labels, centerText) {
-    const context = document.getElementById(chartId);
-    if (context) {
-      const ctx = context.getContext("2d");
-      renderChart(ctx, data, labels, centerText);
-    }
-  }
+  const canvasIds = {
+    arDoughnut1: "arDoughnutChart1",
+    arDoughnut2: "arDoughnutChart2",
+    arDoughnut3: "arDoughnutChart3",
+    arDoughnutModal1: "arDoughnutChartModal1",
+    arDoughnutModal2: "arDoughnutChartModal2",
+    expenses: "expensesDoughnutChart",
+    expenses2: "expensesDoughnutChart2",
+    expenses3: "expensesDoughnutChart3",
+    ai: "aiDoughnutChart",
+  };
+
+  // Retrieve canvas contexts
+  const getContext = (id) => {
+    const canvas = document.getElementById(id);
+    return canvas ? canvas.getContext("2d") : null;
+  };
+
+  const arDoughnutContext1 = getContext(canvasIds.arDoughnut1);
+  const arDoughnutContext2 = getContext(canvasIds.arDoughnut2);
+  const arDoughnutContext3 = getContext(canvasIds.arDoughnut3);
+  const arDoughnutChartModal1 = getContext(canvasIds.arDoughnutModal1);
+  const arDoughnutChartModal2 = getContext(canvasIds.arDoughnutModal2);
+
+  const expensesDoughnutContext = getContext(canvasIds.expensesDoughnutChart);
+  const expensesDoughnutContext2 = getContext(canvasIds.expensesDoughnutChart2);
+  const expensesDoughnutContext3 = getContext(canvasIds.expensesDoughnutChart3);
+
+  const aiDoughnutChartContext = getContext(canvasIds.ai);
 
   const bgColor = [
     "#7B61FF",
@@ -27,7 +49,9 @@ $(document).ready(function () {
   ];
 
   function getDoughnutData(data, labels) {
-    const bgColorData = data.map((item, index) => bgColor[index]);
+    const bgColorData = data.map(
+      (item, index) => bgColor[index % bgColor.length]
+    );
     return {
       labels: labels,
       datasets: [
@@ -52,22 +76,16 @@ $(document).ready(function () {
     const cutoutPercentage = "74%";
 
     return {
-      layout: {
-        padding: padding,
-      },
+      layout: { padding: padding },
       plugins: {
-        datalabels: {
-          display: false,
-        },
-        legend: {
-          display: false,
-        },
+        datalabels: { display: false },
+        legend: { display: false },
         tooltip: {
           callbacks: {
             label: function (tooltipItem) {
-              return (
-                tooltipItem.label + ": $" + tooltipItem.raw.toLocaleString()
-              );
+              return `${
+                tooltipItem.label
+              }: $${tooltipItem.raw.toLocaleString()}`;
             },
           },
         },
@@ -75,17 +93,11 @@ $(document).ready(function () {
           display: true,
           text: `Total ${centerText}`,
           color: "#000000",
-          font: {
-            size: fontSizeText,
-            weight: "200",
-          },
+          font: { size: fontSizeText, weight: "200" },
         },
         customDataLabel: {
           display: true,
-          font: {
-            size: fontSizeLabel,
-            weight: "bold",
-          },
+          font: { size: fontSizeLabel, weight: "bold" },
           lineLength: lineLength,
           lineHeight: lineHeight,
         },
@@ -96,15 +108,12 @@ $(document).ready(function () {
   }
 
   function formatNumber(value) {
-    if (value >= 1000000) {
-      return (value / 1000000).toFixed(1) + "M";
-    } else if (value >= 1000) {
-      return (value / 1000).toFixed(1) + "k";
-    } else {
-      return value;
-    }
+    if (value >= 1000000) return (value / 1000000).toFixed(1) + "M";
+    if (value >= 1000) return (value / 1000).toFixed(1) + "k";
+    return value;
   }
 
+  // Register Chart.js plugins
   Chart.register({
     id: "centerText",
     beforeDraw(chart) {
@@ -117,8 +126,8 @@ $(document).ready(function () {
           color = "#2A3547",
           font = { size: 20, weight: "semibold" },
         } = pluginOptions;
-
         const { width, height } = chartArea;
+
         ctx.save();
         ctx.font = `${font.weight} ${font.size}px sans-serif`;
         ctx.fillStyle = color;
@@ -126,12 +135,10 @@ $(document).ready(function () {
 
         const textCenter = text.split(" ");
         const lineHeight = 24;
-
         const totalTextHeight = lineHeight * textCenter.length;
 
         const startY =
           height / 2 + chartArea.top - totalTextHeight / 2 + lineHeight / 2;
-
         textCenter.forEach((line, i) => {
           const x = width / 2 + chartArea.left;
           const y = startY + i * lineHeight;
@@ -152,7 +159,6 @@ $(document).ready(function () {
           ctx,
           chartArea: { width, height },
         } = chart;
-
         const dataset = chart.data.datasets[0];
         const meta = chart.getDatasetMeta(0);
         const radius = (width / 10) * 0.8;
@@ -167,17 +173,14 @@ $(document).ready(function () {
           const label = chart.data.labels[index];
           const arc = meta.data[index];
           const center = arc.getCenterPoint();
-
           const angle = arc.startAngle + (arc.endAngle - arc.startAngle) / 2;
 
           const startX = center.x + Math.cos(angle) * radius;
           const startY = center.y + Math.sin(angle) * radius;
-
           const outerX = center.x + Math.cos(angle) * (radius + lineLength);
           const outerY = center.y + Math.sin(angle) * (radius + lineLength);
 
           ctx.textAlign = outerX > center.x ? "left" : "right";
-
           ctx.strokeStyle = "#DFE5EF";
           ctx.beginPath();
           ctx.moveTo(startX, startY);
@@ -217,17 +220,19 @@ $(document).ready(function () {
   });
 
   function renderChart(context, data, labels, centerText) {
-    const doughnutData = getDoughnutData(data, labels);
-    const options = getResponsiveOptions(context, centerText);
+    if (context) {
+      const doughnutData = getDoughnutData(data, labels);
+      const options = getResponsiveOptions(context, centerText);
 
-    new Chart(context, {
-      type: "doughnut",
-      data: doughnutData,
-      options: options,
-    });
+      new Chart(context, {
+        type: "doughnut",
+        data: doughnutData,
+        options: options,
+      });
+    }
   }
 
-  // Data for the A/R chart
+  // Data and configuration for the charts
   const arData = [8000, 17000, 11000, 23000, 10000];
   const arLabels = [
     "Current",
@@ -238,7 +243,6 @@ $(document).ready(function () {
   ];
   const arCenterText = "$58,458";
 
-  // Data for the Expenses chart
   const expensesData = [17000, 48000, 82000, 90000, 4000];
   const expensesLabels = [
     "Truck Parking",
@@ -249,42 +253,48 @@ $(document).ready(function () {
   ];
   const expensesCenterText = "$45,000";
 
-  // Initialize charts
-  initializeChart("arDoughnutChart1", arData, arLabels, arCenterText);
-  initializeChart(
-    "arDoughnutChart2",
+  // Render each chart with its specific data and options
+  renderChart(arDoughnutContext1, arData, arLabels, arCenterText);
+  renderChart(arDoughnutContext2, arData, arLabels, arCenterText);
+  renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
+  renderChart(arDoughnutChartModal1, arData, arLabels, arCenterText);
+  renderChart(arDoughnutChartModal2, arData, arLabels, arCenterText);
+  renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
+
+  renderChart(
+    expensesDoughnutContext,
     expensesData,
     expensesLabels,
     expensesCenterText
   );
-  initializeChart("arDoughnutChart3", arData, arLabels, arCenterText);
-  initializeChart("arDoughnutChartModal1", arData, arLabels, arCenterText);
-  initializeChart("arDoughnutChartModal2", arData, arLabels, arCenterText);
-  initializeChart(
-    "expensesDoughnutChart",
+
+  renderChart(
+    expensesDoughnutContext2,
     expensesData,
     expensesLabels,
     expensesCenterText
   );
-  initializeChart("aiDoughnutChart", arData, arLabels, arCenterText);
+  
+  renderChart(
+    expensesDoughnutContext3,
+    expensesData,
+    expensesLabels,
+    expensesCenterText
+  );
 
   $(window).resize(function () {
-    initializeChart("arDoughnutChart1", arData, arLabels, arCenterText);
-    initializeChart(
-      "arDoughnutChart2",
+    // Re-render charts on window resize
+    renderChart(arDoughnutContext1, arData, arLabels, arCenterText);
+    renderChart(arDoughnutContext2, arData, arLabels, arCenterText);
+    renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
+    renderChart(arDoughnutChartModal1, arData, arLabels, arCenterText);
+    renderChart(arDoughnutChartModal2, arData, arLabels, arCenterText);
+    renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
+    renderChart(
+      expensesDoughnutContext,
       expensesData,
       expensesLabels,
       expensesCenterText
     );
-    initializeChart("arDoughnutChart3", arData, arLabels, arCenterText);
-    initializeChart("arDoughnutChartModal1", arData, arLabels, arCenterText);
-    initializeChart("arDoughnutChartModal2", arData, arLabels, arCenterText);
-    initializeChart(
-      "expensesDoughnutChart",
-      expensesData,
-      expensesLabels,
-      expensesCenterText
-    );
-    initializeChart("aiDoughnutChart", arData, arLabels, arCenterText);
   });
 });

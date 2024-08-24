@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="../../assets/css/auth.css">
         <link rel="stylesheet" href="../../assets/css/grid.css">
 
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
@@ -790,22 +792,28 @@
                                             <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm h-100 d-flex flex-column gap-12 justify-content-between">
                                                 <span class="fw-semibold text-neutral-base fs-5 mt-1">A/R</span>
 
-                                                <div class="slider d-flex overflow-hidden" data-bs-toggle="modal" data-bs-target="#summaryeModal">
-                                                    <div class="slider-item" style="min-width: 100%;">
-                                                        <canvas id="arDoughnutChart1"></canvas>
+                                               <!-- Swiper -->
+                                                <div class="swiper-container swiper-container-ar">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <canvas id="arDoughnutChart1"></canvas>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <canvas id="arDoughnutChart2"></canvas>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <canvas id="arDoughnutChart3"></canvas>
+                                                        </div>
                                                     </div>
-                                                    <div class="slider-item" style="min-width: 100%;">
-                                                        <canvas id="arDoughnutChart2"></canvas>
-                                                    </div>
-                                                    <div class="slider-item" style="min-width: 100%;">
-                                                        <canvas id="arDoughnutChart3"></canvas>
-                                                    </div>
+
+                                                    <div class="swiper-pagination"></div>
                                                 </div>
 
-                                                <div class="d-flex gap-4 justify-content-center align-items-center mt-3">
-                                                    <i id="prev" class="icon icon-arrow-left-circle icon-size-32px" style="cursor: pointer;"></i>
-                                                    <i id="next" class="icon icon-arrow-right-circle icon-size-32px" style="cursor: pointer;"></i>
+                                                <div class="d-flex gap-4 justify-content-center align-items-center">
+                                                    <i class="icon icon-arrow-left-circle icon-size-32px swiper-button-prev"></i>
+                                                    <i class="icon icon-arrow-right-circle icon-size-32px swiper-button-next"></i>
                                                 </div>
+
                                             </div>
                                         </div>
                                         
@@ -814,11 +822,26 @@
                                             <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm h-100 d-flex flex-column gap-12 justify-content-between">
                                                 <span class="fw-semibold text-neutral-base fs-5 mt-1">Expenses</span>
 
-                                                <canvas id="expensesDoughnutChart"></canvas>
+                                                <!-- Swiper -->
+                                                <div class="swiper-container swiper-container-expenses">
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <canvas id="expensesDoughnutChart"></canvas>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <canvas id="expensesDoughnutChart2"></canvas>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <canvas id="expensesDoughnutChart3"></canvas>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="swiper-pagination swiper-pagination-expenses"></div>
+                                                </div>
 
                                                 <div class="d-flex gap-4 justify-content-center align-items-center">
-                                                    <i class="icon icon-arrow-left-circle icon-size-32px"></i>
-                                                    <i class="icon icon-arrow-right-circle icon-size-32px"></i>
+                                                    <i class="icon icon-arrow-left-circle icon-size-32px swiper-button-prev swiper-button-prev-expenses"></i>
+                                                    <i class="icon icon-arrow-right-circle icon-size-32px swiper-button-next swiper-button-next-expenses"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -2327,7 +2350,7 @@
         </div>
 
         <!-- Modal Summary -->
-        <div class="modal fade" id="mergeModal" tabindex="-1" aria-labelledby="mergeModalLabel" aria-hidden="true">
+        <div class="modal fade" id="summaryeModal" tabindex="-1" aria-labelledby="summaryeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                     <div class="bg-white w-100 py-4 px-custom-40 rounded-12px">
@@ -2340,11 +2363,16 @@
                             </div>
                         </div>
 
-                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Combined Financials</span>
-                        <h6 class="text-neutral-400 fw-semibold mb-0">Year to Last Month</h6>
+                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Expenses</span>
+                        <h6 class="text-neutral-400 fw-semibold mb-0">Current Year vs Previous Year</h6>
                         
-                        <div class="mt-custom-32">
-                            <canvas id="multiLineChart"></canvas>
+                        <div class="mt-custom-32 grid grid-cols-2">
+                            <div class="col-span-1">
+                                <canvas id="arDoughnutChartModal1"></canvas>
+                            </div>
+                            <div class="col-span-1">
+                                <canvas id="arDoughnutChartModal2"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2457,7 +2485,7 @@
         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 
         <!-- Slick -->
-        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
         <!-- Local Assets -->
         <script src="../../assets/js/select2.js" ></script>
@@ -2474,36 +2502,34 @@
         <script src="../../assets/js/multiLineChart2.js" ></script>
 
         <script>
-            $(document).ready(function() {
-                let currentIndex = 0;
-                const items = $('.slider-item');
-                const totalItems = items.length;
-
-                function showItem(index) {
-                    const offset = -index * 100;
-                    $('.slider').css('transform', `translateX(${offset}%)`);
-                }
-
-                $('#next').on('click', function() {
-                    if (currentIndex < totalItems - 1) {
-                        currentIndex++;
-                    } else {
-                        currentIndex = 0; // Loop back to the first item
-                    }
-                    showItem(currentIndex);
-                });
-
-                $('#prev').on('click', function() {
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                    } else {
-                        currentIndex = totalItems - 1; // Loop back to the last item
-                    }
-                    showItem(currentIndex);
-                });
-
-                showItem(currentIndex); // Initialize slider
+            var swiperAr = new Swiper('.swiper-container-ar', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination-ar',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next-ar',
+                    prevEl: '.swiper-button-prev-ar',
+                },
             });
+
+            var swiperExpenses = new Swiper('.swiper-container-expenses', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination-expenses',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next-expenses',
+                    prevEl: '.swiper-button-prev-expenses',
+                },
+            });
+
         </script>
         
     </body>
