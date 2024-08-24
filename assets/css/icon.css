@@ -210,7 +210,66 @@
   background-image: url("../images/icons/closeFill.svg");
 }
 
-/* Menu */
-.icon-menu {
-  background-image: url("../images/icons/menu.svg");
+.icon-export {
+  background-image: url("../images/icons/bulk/export.svg");
+}
+
+.icon-empty-wallet {
+  background-image: url("../images/icons/bulk/empty-wallet.svg");
+}
+
+.icon-graph {
+  background-image: url("../images/icons/bulk/graph.svg");
+}
+
+.icon-home-hashtag {
+  background-image: url("../images/icons/bulk/home-hashtag.svg");
+}
+
+.icon-import {
+  background-image: url("../images/icons/bulk/import.svg");
+}
+
+.icon-receipt-2 {
+  background-image: url("../images/icons/bulk/receipt-2.svg");
+}
+
+.icon-shopping-cart {
+  background-image: url("../images/icons/bulk/shopping-cart.svg");
+}
+
+.icon-status-up {
+  background-image: url("../images/icons/bulk/status-up.svg");
+}
+
+.icon-linear-bag {
+  background-image: url("../images/icons/linear/bag.svg");
+}
+
+.icon-linear-chart-2 {
+  background-image: url("../images/icons/linear/chart-2.svg");
+}
+
+.icon-linear-chart {
+  background-image: url("../images/icons/linear/chart.svg");
+}
+
+.icon-linear-computing {
+  background-image: url("../images/icons/linear/computing.svg");
+}
+
+.icon-linear-graph {
+  background-image: url("../images/icons/linear/graph.svg");
+}
+
+.icon-linear-status-up {
+  background-image: url("../images/icons/linear/status-up.svg");
+}
+
+.icon-linear-wallet-add {
+  background-image: url("../images/icons/linear/wallet-add.svg");
+}
+
+.icon-linear-iconoir_group {
+  background-image: url("../images/icons/linear/iconoir_group.svg");
 }

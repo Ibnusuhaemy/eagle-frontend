@@ -48,7 +48,7 @@
                 
                 <ul class="navbar-nav gap-2 mb-1 mt-custom-32">
                     <li class="nav-item">
-                        <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active " href="#">
+                        <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active " href="dashboard.html">
                             <i class="icon icon-dashboard text-white-icon icon-size-24px"></i>
                             <span class="fw-semibold fs-14px text_sidebar">Dashboard</span>
                         </a>
@@ -2295,7 +2295,7 @@
         </div>
 
         <!-- Modal Merge -->
-        <div class="modal fade" id="mergeModal" tabindex="-1" aria-labelledby="mergeModalLabel" aria-hidden="true">
+        <div class="modal fade" id="summaryeModal" tabindex="-1" aria-labelledby="summaryeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                     <div class="bg-white w-100 py-4 px-custom-40 rounded-12px">
@@ -2308,16 +2308,23 @@
                             </div>
                         </div>
 
-                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Combined Financials</span>
-                        <h6 class="text-neutral-400 fw-semibold mb-0">Year to Last Month</h6>
+                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Expenses</span>
+                        <h6 class="text-neutral-400 fw-semibold mb-0">Current Year vs Previous Year</h6>
                         
-                        <div class="mt-custom-32">
-                            <canvas id="multiLineChart"></canvas>
-                        </div>
+                        <div class="mt-custom-32 row px-custom-40">
+                            <div class="col-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Expenses This Year</span>
 
-                        <div class="mt-4">
-                            <div class="mt-2">
-                                <div id="chart_legend_modal" class="d-flex gap-4 align-items-center justify-content-center"></div>
+                                    <canvas id="arDoughnutChartModal1"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Expenses This Year</span>
+
+                                    <canvas id="arDoughnutChartModal2"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
