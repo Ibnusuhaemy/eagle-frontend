@@ -45,8 +45,8 @@ $(document).ready(function () {
       type: "bar",
       data: data,
       options: {
-        // responsive: true,
-        // maintainAspectRatio: false,
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: {
           legend: {
             display: false,

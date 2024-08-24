@@ -104,8 +104,8 @@ $(document).ready(function () {
         },
       },
     },
-    // responsive: true,
-    // maintainAspectRatio: false,
+    responsive: true,
+    maintainAspectRatio: false,
   };
 
   new Chart(ctx, {
