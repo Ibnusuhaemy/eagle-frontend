@@ -11,23 +11,22 @@ $(document).ready(function () {
     ai: "aiDoughnutChart",
   };
 
-  // Retrieve canvas contexts
   const getContext = (id) => {
     const canvas = document.getElementById(id);
     return canvas ? canvas.getContext("2d") : null;
   };
 
-  const arDoughnutContext1 = getContext(canvasIds.arDoughnut1);
-  const arDoughnutContext2 = getContext(canvasIds.arDoughnut2);
-  const arDoughnutContext3 = getContext(canvasIds.arDoughnut3);
-  const arDoughnutChartModal1 = getContext(canvasIds.arDoughnutModal1);
-  const arDoughnutChartModal2 = getContext(canvasIds.arDoughnutModal2);
-
-  const expensesDoughnutContext = getContext(canvasIds.expenses);
-  const expensesDoughnutContext2 = getContext(canvasIds.expenses2);
-  const expensesDoughnutContext3 = getContext(canvasIds.expenses3);
-
-  const aiDoughnutChartContext = getContext(canvasIds.ai);
+  const contexts = {
+    arDoughnut1: getContext(canvasIds.arDoughnut1),
+    arDoughnut2: getContext(canvasIds.arDoughnut2),
+    arDoughnut3: getContext(canvasIds.arDoughnut3),
+    arDoughnutModal1: getContext(canvasIds.arDoughnutModal1),
+    arDoughnutModal2: getContext(canvasIds.arDoughnutModal2),
+    expenses: getContext(canvasIds.expenses),
+    expenses2: getContext(canvasIds.expenses2),
+    expenses3: getContext(canvasIds.expenses3),
+    ai: getContext(canvasIds.ai),
+  };
 
   const bgColor = [
     "#7B61FF",
@@ -67,12 +66,12 @@ $(document).ready(function () {
   }
 
   function getResponsiveOptions(context, centerText) {
-    const chartWidth = context.canvas.parentNode.clientWidth;
-    const padding = chartWidth < 400 ? 50 : 100;
-    const fontSizeText = chartWidth < 400 ? 10 : 16;
-    const fontSizeLabel = chartWidth < 400 ? 10 : 14;
+    const chartWidth = context.canvas.clientWidth;
+    const padding = chartWidth < 400 ? 20 : 40;
+    const fontSizeText = chartWidth < 400 ? 10 : 14;
+    const fontSizeLabel = chartWidth < 400 ? 8 : 12;
     const lineLength = chartWidth < 400 ? 10 : 20;
-    const lineHeight = chartWidth < 400 ? 9 : 18;
+    const lineHeight = chartWidth < 400 ? 8 : 14;
     const cutoutPercentage = "74%";
 
     return {
@@ -103,6 +102,7 @@ $(document).ready(function () {
         },
       },
       responsive: true,
+      maintainAspectRatio: false,
       cutout: cutoutPercentage,
     };
   }
@@ -113,7 +113,6 @@ $(document).ready(function () {
     return value;
   }
 
-  // Register Chart.js plugins
   Chart.register({
     id: "centerText",
     beforeDraw(chart) {
@@ -253,62 +252,34 @@ $(document).ready(function () {
   ];
   const expensesCenterText = "$45,000";
 
-  // Render each chart with its specific data and options
-  renderChart(arDoughnutContext1, arData, arLabels, arCenterText);
-  renderChart(arDoughnutContext2, arData, arLabels, arCenterText);
-  renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
-  renderChart(arDoughnutChartModal1, arData, arLabels, arCenterText);
-  renderChart(arDoughnutChartModal2, arData, arLabels, arCenterText);
-  renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
+  const aiData = [30000, 20000, 10000];
+  const aiLabels = ["Expense 1", "Expense 2", "Expense 3"];
+  const aiCenterText = "$45,000";
+
+  renderChart(contexts.arDoughnut1, arData, arLabels, arCenterText);
+  renderChart(contexts.arDoughnut2, arData, arLabels, arCenterText);
+  renderChart(contexts.arDoughnut3, arData, arLabels, arCenterText);
+  renderChart(contexts.arDoughnutModal1, arData, arLabels, arCenterText);
+  renderChart(contexts.arDoughnutModal2, arData, arLabels, arCenterText);
 
   renderChart(
-    expensesDoughnutContext,
+    contexts.expenses,
+    expensesData,
+    expensesLabels,
+    expensesCenterText
+  );
+  renderChart(
+    contexts.expenses2,
+    expensesData,
+    expensesLabels,
+    expensesCenterText
+  );
+  renderChart(
+    contexts.expenses3,
     expensesData,
     expensesLabels,
     expensesCenterText
   );
 
-  renderChart(
-    expensesDoughnutContext2,
-    expensesData,
-    expensesLabels,
-    expensesCenterText
-  );
-
-  renderChart(
-    expensesDoughnutContext3,
-    expensesData,
-    expensesLabels,
-    expensesCenterText
-  );
-
-  $(window).resize(function () {
-    // Re-render charts on window resize
-    renderChart(arDoughnutContext1, arData, arLabels, arCenterText);
-    renderChart(arDoughnutContext2, arData, arLabels, arCenterText);
-    renderChart(arDoughnutContext3, arData, arLabels, arCenterText);
-    renderChart(arDoughnutChartModal1, arData, arLabels, arCenterText);
-    renderChart(arDoughnutChartModal2, arData, arLabels, arCenterText);
-    renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
-    renderChart(
-      expensesDoughnutContext,
-      expensesData,
-      expensesLabels,
-      expensesCenterText
-    );
-
-    renderChart(
-      expensesDoughnutContext2,
-      expensesData,
-      expensesLabels,
-      expensesCenterText
-    );
-
-    renderChart(
-      expensesDoughnutContext3,
-      expensesData,
-      expensesLabels,
-      expensesCenterText
-    );
-  });
+  renderChart(contexts.ai, aiData, aiLabels, aiCenterText);
 });

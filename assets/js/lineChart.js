@@ -72,6 +72,9 @@ $(document).ready(function () {
             },
             ticks: {
               color: "#7C8FAC",
+              autoSkip: true, // Skip labels if they are too crowded
+              maxRotation: 0, // Prevents rotation of labels
+              minRotation: 0,
             },
           },
           y: {
@@ -87,22 +90,27 @@ $(document).ready(function () {
             },
           },
         },
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+          padding: {
+            top: 10,
+            bottom: 10,
+            left: 10,
+            right: 10,
+          },
+        },
+        elements: {
+          line: {
+            tension: 0.4, // Smooth line curve
+          },
+        },
       },
-      responsive: true,
-      maintainAspectRatio: false,
     });
   };
 
-  // Different datasets for each chart
+  // Data chart
   const dataChart = [65, 59, 80, 81, 56, 55, 40];
-
-  // const dataChartTotalSales = [65, 59, 80, 81, 56, 55, 40];
-  // const dataChartTotalCost = [45, 79, 60, 91, 66, 65, 30];
-  // const dataChartGrossProfit = [75, 69, 90, 71, 46, 75, 60];
-  // const dataChartTotalExpenses = [55, 49, 70, 61, 86, 85, 50];
-  // const dataChartNetProfit = [95, 89, 100, 81, 76, 95, 70];
-  // const dataChartBankTotal = [35, 29, 50, 51, 26, 45, 20];
-  // const dataChartBurnRate = [85, 79, 90, 101, 86, 75, 90];
 
   // Create charts with different datasets
   createChart("totalSales", dataChart);

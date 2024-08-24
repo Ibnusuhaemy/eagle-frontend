@@ -25,6 +25,10 @@ $(document).ready(function () {
       return;
     }
 
+    // Make the canvas responsive
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+
     const contextData = canvas.getContext("2d");
 
     const data = {
@@ -128,7 +132,7 @@ $(document).ready(function () {
         },
       ],
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: false, // Ensure the chart adapts to the container's aspect ratio
     });
     return chart;
   };
@@ -148,8 +152,6 @@ $(document).ready(function () {
 
   // Set Data
   const dataRevenue = [250, 200, 150, 170, 80, 60, 40, 70, 10];
-
-  // Get ID
 
   // Create Bar Chart
   createChart("revenueBarChart", dataRevenue, dataLabelRevenue);

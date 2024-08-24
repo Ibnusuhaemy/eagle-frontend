@@ -79,7 +79,7 @@ $(document).ready(function () {
         },
         ticks: {
           color: "#7C8FAC",
-          callback: function (value, index, values) {
+          callback: function (value) {
             return "$" + value.toLocaleString();
           },
         },
@@ -104,13 +104,13 @@ $(document).ready(function () {
         },
       },
     },
+    responsive: true,
+    maintainAspectRatio: false,
   };
 
-  const myChart = new Chart(ctx, {
+  new Chart(ctx, {
     type: "line",
     data: data,
     options: options,
-    responsive: true,
-    maintainAspectRatio: false,
   });
 });
