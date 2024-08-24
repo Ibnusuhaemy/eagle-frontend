@@ -649,7 +649,9 @@ aside {
 }
 
 .nav-profit {
-  width: 100%;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
 }
 
 /* Small devices (landscape phones, 576px and up) */
