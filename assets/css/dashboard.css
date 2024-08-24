@@ -682,6 +682,15 @@ aside {
   min-width: 557px;
   width: 100%;
 }
+
+@media (max-width: 575.98px) {
+  .dropdown-menu {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    min-width: 300px; /* Adjust as needed */
+  }
+}
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   .profile_name {
