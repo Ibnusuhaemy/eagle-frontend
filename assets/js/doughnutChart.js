@@ -23,9 +23,9 @@ $(document).ready(function () {
   const arDoughnutChartModal1 = getContext(canvasIds.arDoughnutModal1);
   const arDoughnutChartModal2 = getContext(canvasIds.arDoughnutModal2);
 
-  const expensesDoughnutContext = getContext(canvasIds.expensesDoughnutChart);
-  const expensesDoughnutContext2 = getContext(canvasIds.expensesDoughnutChart2);
-  const expensesDoughnutContext3 = getContext(canvasIds.expensesDoughnutChart3);
+  const expensesDoughnutContext = getContext(canvasIds.expenses);
+  const expensesDoughnutContext2 = getContext(canvasIds.expenses2);
+  const expensesDoughnutContext3 = getContext(canvasIds.expenses3);
 
   const aiDoughnutChartContext = getContext(canvasIds.ai);
 
@@ -274,7 +274,7 @@ $(document).ready(function () {
     expensesLabels,
     expensesCenterText
   );
-  
+
   renderChart(
     expensesDoughnutContext3,
     expensesData,
@@ -292,6 +292,20 @@ $(document).ready(function () {
     renderChart(aiDoughnutChartContext, arData, arLabels, arCenterText);
     renderChart(
       expensesDoughnutContext,
+      expensesData,
+      expensesLabels,
+      expensesCenterText
+    );
+
+    renderChart(
+      expensesDoughnutContext2,
+      expensesData,
+      expensesLabels,
+      expensesCenterText
+    );
+
+    renderChart(
+      expensesDoughnutContext3,
       expensesData,
       expensesLabels,
       expensesCenterText
