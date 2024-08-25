@@ -43,6 +43,10 @@ a {
   width: 20px !important;
 }
 
+.w-160px {
+  width: 160px !important;
+}
+
 .w-24px {
   width: 24px !important;
 }
@@ -78,6 +82,10 @@ a {
 /* height */
 .h-20px {
   height: 20px !important;
+}
+
+.h-160px {
+  height: 160px !important;
 }
 
 .h-24px {
