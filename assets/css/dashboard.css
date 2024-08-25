@@ -588,11 +588,11 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   justify-content: center;
 }
 
-.logo-sidebar {
+.eagle-logo_sidebar {
   display: none;
 }
 
-.logo-main {
+.eagle-logo_sidebar_main {
   display: block;
 }
 
