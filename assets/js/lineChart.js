@@ -123,4 +123,7 @@ $(document).ready(function () {
   createChart("burnRate", dataChart);
   createChart("burnRate2", dataChart);
   createChart("burnRate3", dataChart);
+
+  createChart("burnRateModal1", dataChart);
+  createChart("burnRateModal2", dataChart);
 });

@@ -23,16 +23,18 @@
         <link rel="stylesheet" href="../../assets/css/dashboard.css">
         <link rel="stylesheet" href="../../assets/css/auth.css">
         <link rel="stylesheet" href="../../assets/css/grid.css">
-
+        <link rel="stylesheet" href="../../assets/css/sidebar-responsive.css">
+        
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     </head>
     <body class="bg-primary-100">
         <div class="d-flex w-100">
             <!-- Sidebar -->
-            <aside class="min-vh-100 bg-white p-4 position-fixed">
+            <!-- Sidebar -->
+            <aside class="min-vh-100 bg-white p-4 position-fixed dashboard-side-trick">
                 <div class="logo-sidebar d-flex align-items-center">
-                    <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-3 dashboard-left-avatar">
                         <div class="avatar-container w-35px h-35px">
                             <img src="../../assets/images/logo/logo.png" alt="logo">
                         </div>
@@ -42,7 +44,8 @@
                     <div class="icon_humberger_sidebar" style="cursor: pointer;">
                         <div class="d-flex align-item-center">
                             <div class="d-flex alig-items-center">
-                                <i class="icon icon-menu icon-size-24px"></i>
+                                <i class="icon icon-menu icon-size-24px dashboard-humberger"></i>
+                                 <!-- <img class="dashboard-humberger" src="../../assets/images/icons/humberger-menu.svg" width="24" height="24" alt="="> -->
                             </div>
                         </div>
                     </div>
@@ -51,7 +54,7 @@
                 
                 <ul class="navbar-nav gap-2 mb-1 mt-custom-32">
                     <li class="nav-item">
-                        <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active " href="dashboard.html">
+                        <a class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active " href="#">
                             <i class="icon icon-dashboard text-white-icon icon-size-24px"></i>
                             <span class="fw-semibold fs-14px text_sidebar">Dashboard</span>
                         </a>
@@ -98,8 +101,10 @@
                 <!-- Navbar -->
                 <nav class="navbar fixed-top navbar-aside navbar-expand-lg bg-white w-dashboard shadow-sm menuContent">
                     <div class="container-fluid">   
-
-                        <div class="icon_humberger_navbar" style="cursor: pointer; margin-right: 24px;">
+                        <div class="dashboard-logo">
+                            <img src="../../assets/images/logo/logo.png" alt="logo">
+                        </div>
+                        <div class="icon_humberger_navbar dashboard-icon_humberger_navbar" style="cursor: pointer; margin-right: 24px;">
                             <i class="icon icon-menu icon-size-24px"></i>
                         </div>
 
@@ -286,6 +291,7 @@
                             </ul>
 
                             <ul class="navbar-nav ms-auto nav__dahsboard">
+                                <li class=""></li>
                                 <li class="nav-item d-flex align-items-center">
                                     <div class="nav-link">
                                         <div class="dropdown-center">
@@ -302,7 +308,7 @@
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start dropdown-user shadow" aria-labelledby="profileDropdown">
                                                 <div class="d-flex flex-column gap-20">
                                                     <div class="d-flex justify-content-between align-items-center">
-                                                        <h6 class="fs-18px fw-semibold text-neutral-base mb-0">User Profile</h6>
+                                                        <h6 class="fs-18px fw-semibold text-neutral-base mb-0">Notifications</h6>
 
                                                         <span class="badge rounded-pill text-bg-primary px-3 py-2">5 new</span>
                                                     </div>
@@ -383,10 +389,10 @@
                                                 <div class="avatar-container h-32px w-32px">
                                                     <img src="../../assets/images/avatars/avatar2.png" alt="Logo" class="avatar-image">
                                                 </div>
-                                                <span class="fw-semibold fs-14px profile_name">Elite International Investment LLC</span>
+                                                <span class="fw-semibold fs-14px profile_name dashboard-profile_name">Elite International Investment LLC</span>
                                             </div>
 
-                                            <div class="dropdown-menu dropdown-user dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                                            <div class="dropdown-menu dropdown-profile dropdown-menu-lg-start dropdown-menu-end shadow" aria-labelledby="profileDropdown">
                                                 <div class="d-flex flex-column gap-20">
                                                     <h6 class="fs-18px fw-semibold text-neutral-base">User Profile</h6>
 
@@ -661,7 +667,7 @@
                                     <div class="d-flex flex-lg-row flex-column  gap-32">
                                         <h5 class="fw-semibold mb-0">Financial Snapshot</h5>
 
-                                        <div class="d-flex flex-column flex-md-row align-md-items-center gap-12">
+                                        <div class="d-flex flex-wrap flex-column flex-md-row align-md-items-center gap-12">
 
                                             <!-- Button Year to Last Month -->
                                             <div class="dropdown">
@@ -901,11 +907,11 @@
                                 </div>
 
                                 <div id="profitandLostGraphs" class="col-lg-12 mt-custom-22 transition-height">
-                                    <div class="row row-gap-3">
+                                    <div class="grid grid-cols-1 lg:grid-cols-2">
 
                                         <!-- Revenue updates Bar Chart -->
-                                        <div class="col-lg-6 col-12">
-                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                        <div class="col-span-1 tab-revenue">
+                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm tab-financial revenue-chart">
                                                 <div class="d-flex justify-content-between gap-2">
                                                     <div class="d-flex flex-column gap-1">
                                                         <span class="fw-semibold text-neutral-base fs-5 mt-1">Revenue updates</span>
@@ -921,15 +927,15 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="mt-custom-32">
-                                                    <canvas id="revenueBarChart"></canvas>
+                                                <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                    <canvas class="mt-2" id="revenueBarChart"></canvas>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <!-- Breakeven Analysis Bar Chart -->
-                                        <div class="col-lg-6 col-12">
-                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                        <div class="col-span-1 tab-revenue">
+                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm revenue-chart">
                                                 <div class="d-flex justify-content-between gap-2">
                                                     <div class="d-flex flex-column gap-1">
                                                         <span class="fw-semibold text-neutral-base fs-5 mt-1">Breakeven Analysis</span>
@@ -946,8 +952,8 @@
                                                 </div>
 
                                                 <div class="mt-custom-32 row">
-                                                    <div class="col-9 h-100">
-                                                        <canvas id="breakevenChart"></canvas>
+                                                    <div class="col-9 d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                        <canvas class="mt-2" id="breakevenChart"></canvas>
                                                     </div>
 
                                                     <div class="col-3 d-flex flex-column gap-4">
@@ -1006,19 +1012,9 @@
                                                     </div>
 
                                                     <div class="col-12 mt-4">
-                                                        <div class="d-flex justify-content-center mt-2">
-                                                            <div class="d-flex align-items-center me-4">
-                                                                <div class="label-color bg-primary"></div>
-                                                                <span class="label-text">Revenue</span>
-                                                            </div>
-                                                            <div class="d-flex align-items-center me-4">
-                                                                <div class="label-color" style="background-color: #FFAE1F;"></div>
-                                                                <span class="label-text">Variable Costs</span>
-                                                            </div>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="label-color" style="background-color: #5A6A85;"></div>
-                                                                <span class="label-text">Fixed Costs</span>
-                                                            </div>
+                                                        <!-- Revenue -->
+                                                        <div id="chart_legend_breakeven" class="d-flex gap-4 justify-content-center align-items-center mt-2">
+                                                            <!-- Legend will be inserted here -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1046,14 +1042,13 @@
                                         <div class="d-flex flex-column justify-content-between gap-2">
 
                                             <!-- Nav Tabs -->
-                                            <ul class="nav nav-pills mb-3 gap-3" id="pills-tab" role="tablist">
+                                            <ul class="nav d-grid grid-cols-2 sm:grid-cols-2 grid d-md-flex nav-pills mb-3 gap-3" id="pills-tab" role="tablist">
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link nav-link-profit active-profit" id="pills-profit-tab" data-bs-toggle="pill" data-bs-target="#pills-profit" type="button" role="tab" aria-controls="pills-profit" aria-selected="true">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M22 7.81V14H17.92C17.25 14 16.46 13.52 16.15 12.93L15.11 10.96C14.83 10.43 14.43 10.46 14.21 11.01L11.91 16.82C11.66 17.47 11.24 17.47 10.98 16.82L9.84 13.94C9.57 13.24 8.73 12.67 7.98 12.67L2 12.7V7.81C2 4.17 4.17 2 7.81 2H16.19C19.83 2 22 4.17 22 7.81Z" fill="#ECF2FF"/>
-                                                            <path d="M22 16.1901V14.0001H17.92C17.25 14.0001 16.46 13.5201 16.15 12.9301L15.11 10.9601C14.83 10.4301 14.43 10.4601 14.21 11.0101L11.91 16.8201C11.66 17.4701 11.24 17.4701 10.98 16.8201L9.84 13.9401C9.57 13.2401 8.73 12.6701 7.98 12.6701L2 12.7001V16.1901C2 19.7701 4.1 21.9301 7.63 21.9901C7.74 22.0001 7.86 22.0001 7.97 22.0001H15.97C16.12 22.0001 16.27 22.0001 16.41 21.9901C19.92 21.9101 22 19.7601 22 16.1901Z" id="icon_tabs" class="active_icon" fill="#7C8FAC"/>
+                                                            <path d="M22 16.1901V14.0001H17.92C17.25 14.0001 16.46 13.5201 16.15 12.9301L15.11 10.9601C14.83 10.4301 14.43 10.4601 14.21 11.0101L11.91 16.8201C11.66 17.4701 11.24 17.4701 10.98 16.8201L9.84 13.9401C9.57 13.2401 8.73 12.6701 7.98 12.6701L2 12.7001V16.1901C2 19.7701 4.1 21.9301 7.63 21.9901C7.74 22.0001 7.86 22.0001 7.97 22.0001H15.97C16.12 22.0001 16.27 22.0001 16.41 21.9901C19.92 21.9101 22 19.7601 22 16.1901Z" class="icon-tabs" fill="#7C8FAC"/>
                                                         </svg>
-
                                                         Profit & Lost
                                                     </button>
                                                 </li>
@@ -1061,7 +1056,7 @@
                                                     <button class="nav-link nav-link-profit" id="pills-balance-tab" data-bs-toggle="pill" data-bs-target="#pills-balance" type="button" role="tab" aria-controls="pills-balance" aria-selected="false">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M16.1971 2H7.8129C4.17108 2 2 4.17 2 7.81V16.18C2 19.83 4.17108 22 7.8129 22H16.1871C19.8289 22 22 19.83 22 16.19V7.81C22.01 4.17 19.8389 2 16.1971 2Z" fill="#EAEFF4"/>
-                                                            <path d="M11.9921 6C11.2376 6 10.5664 6.46316 10.3169 7.15789H6.64577V8.31579H7.80413L6.05173 12.3684C5.77254 13.5263 6.64577 14.1053 8.13085 14.1053C9.61593 14.1053 10.5426 13.5263 10.21 12.3684L8.45757 8.31579H10.3109C10.507 8.80789 10.8931 9.18421 11.398 9.37526V15.8421H6.05173V17H17.9324V15.8421H12.5861V9.36947C13.091 9.18421 13.4771 8.80789 13.6672 8.31579H15.5266L13.7742 12.3684C13.495 13.5263 14.3682 14.1053 15.8533 14.1053C17.3384 14.1053 18.265 13.5263 17.9324 12.3684L16.18 8.31579H17.3384V7.15789H13.6732C13.4177 6.46316 12.7465 6 11.9921 6ZM11.9921 7.15789C12.1496 7.15789 12.3007 7.21889 12.4121 7.32746C12.5235 7.43604 12.5861 7.5833 12.5861 7.73684C12.5861 7.89039 12.5235 8.03765 12.4121 8.14622C12.3007 8.25479 12.1496 8.31579 11.9921 8.31579C11.8345 8.31579 11.6834 8.25479 11.572 8.14622C11.4606 8.03765 11.398 7.89039 11.398 7.73684C11.398 7.5833 11.4606 7.43604 11.572 7.32746C11.6834 7.21889 11.8345 7.15789 11.9921 7.15789ZM8.13085 10.1974L9.0219 12.3684H7.2398L8.13085 10.1974ZM15.8533 10.1974L16.7443 12.3684H14.9622L15.8533 10.1974Z" id="icon_tabs" fill="#7C8FAC"/>
+                                                            <path d="M11.9921 6C11.2376 6 10.5664 6.46316 10.3169 7.15789H6.64577V8.31579H7.80413L6.05173 12.3684C5.77254 13.5263 6.64577 14.1053 8.13085 14.1053C9.61593 14.1053 10.5426 13.5263 10.21 12.3684L8.45757 8.31579H10.3109C10.507 8.80789 10.8931 9.18421 11.398 9.37526V15.8421H6.05173V17H17.9324V15.8421H12.5861V9.36947C13.091 9.18421 13.4771 8.80789 13.6672 8.31579H15.5266L13.7742 12.3684C13.495 13.5263 14.3682 14.1053 15.8533 14.1053C17.3384 14.1053 18.265 13.5263 17.9324 12.3684L16.18 8.31579H17.3384V7.15789H13.6732C13.4177 6.46316 12.7465 6 11.9921 6ZM11.9921 7.15789C12.1496 7.15789 12.3007 7.21889 12.4121 7.32746C12.5235 7.43604 12.5861 7.5833 12.5861 7.73684C12.5861 7.89039 12.5235 8.03765 12.4121 8.14622C12.3007 8.25479 12.1496 8.31579 11.9921 8.31579C11.8345 8.31579 11.6834 8.25479 11.572 8.14622C11.4606 8.03765 11.398 7.89039 11.398 7.73684C11.398 7.5833 11.4606 7.43604 11.572 7.32746C11.6834 7.21889 11.8345 7.15789 11.9921 7.15789ZM8.13085 10.1974L9.0219 12.3684H7.2398L8.13085 10.1974ZM15.8533 10.1974L16.7443 12.3684H14.9622L15.8533 10.1974Z" class="icon-tabs" fill="#7C8FAC"/>
                                                         </svg>
 
 
@@ -1072,7 +1067,7 @@
                                                     <button class="nav-link nav-link-profit" id="pills-trends-tab" data-bs-toggle="pill" data-bs-target="#pills-trends" type="button" role="tab" aria-controls="pills-trends" aria-selected="false">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81V16.18C2 19.83 4.17 22 7.81 22H16.18C19.82 22 21.99 19.83 21.99 16.19V7.81C22 4.17 19.83 2 16.19 2Z" fill="#EAEFF4"/>
-                                                            <path d="M16.8314 9.40998C16.7614 9.23998 16.6214 9.09998 16.4514 9.02998C16.3714 8.99998 16.2814 8.97998 16.1914 8.97998H14.3314C13.9414 8.97998 13.6314 9.28998 13.6314 9.67998C13.6314 10.07 13.9414 10.38 14.3314 10.38H14.5114L12.4014 12.49L11.3814 10.97C11.2614 10.8 11.0814 10.68 10.8714 10.66C10.6514 10.64 10.4614 10.71 10.3114 10.86L7.33141 13.84C7.06141 14.11 7.06141 14.55 7.33141 14.83C7.47141 14.97 7.64141 15.03 7.82141 15.03C8.00141 15.03 8.18141 14.96 8.31141 14.83L10.6914 12.45L11.7114 13.97C11.8314 14.14 12.0114 14.26 12.2214 14.28C12.4414 14.3 12.6314 14.23 12.7814 14.08L15.5014 11.36V11.54C15.5014 11.93 15.8114 12.24 16.2014 12.24C16.5914 12.24 16.9014 11.93 16.9014 11.54V9.66998C16.8814 9.57998 16.8714 9.48998 16.8314 9.40998Z" id="icon_tabs" fill="#7C8FAC"/>
+                                                            <path d="M16.8314 9.40998C16.7614 9.23998 16.6214 9.09998 16.4514 9.02998C16.3714 8.99998 16.2814 8.97998 16.1914 8.97998H14.3314C13.9414 8.97998 13.6314 9.28998 13.6314 9.67998C13.6314 10.07 13.9414 10.38 14.3314 10.38H14.5114L12.4014 12.49L11.3814 10.97C11.2614 10.8 11.0814 10.68 10.8714 10.66C10.6514 10.64 10.4614 10.71 10.3114 10.86L7.33141 13.84C7.06141 14.11 7.06141 14.55 7.33141 14.83C7.47141 14.97 7.64141 15.03 7.82141 15.03C8.00141 15.03 8.18141 14.96 8.31141 14.83L10.6914 12.45L11.7114 13.97C11.8314 14.14 12.0114 14.26 12.2214 14.28C12.4414 14.3 12.6314 14.23 12.7814 14.08L15.5014 11.36V11.54C15.5014 11.93 15.8114 12.24 16.2014 12.24C16.5914 12.24 16.9014 11.93 16.9014 11.54V9.66998C16.8814 9.57998 16.8714 9.48998 16.8314 9.40998Z" class="icon-tabs" fill="#7C8FAC"/>
                                                         </svg>
 
                                                         Trends
@@ -1082,9 +1077,9 @@
                                                     <button class="nav-link nav-link-profit" id="pills-ratio-tab" data-bs-toggle="pill" data-bs-target="#pills-ratio" type="button" role="tab" aria-controls="pills-ratio" aria-selected="false">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M22 7.81V16.19C22 19.83 19.83 22 16.19 22H7.81C6.32 22 5.08 21.64 4.13 20.95C3.71 20.66 3.34 20.29 3.05 19.87C2.36 18.92 2 17.68 2 16.19V7.81C2 4.17 4.17 2 7.81 2H16.19C17.68 2 18.92 2.36 19.87 3.05C20.29 3.34 20.66 3.71 20.95 4.13C21.64 5.08 22 6.32 22 7.81Z" fill="#EAEFF4"/>
-                                                            <path d="M20.9498 4.1298L4.1298 20.9498C3.7098 20.6598 3.3398 20.2898 3.0498 19.8698L19.8698 3.0498C20.2898 3.3398 20.6598 3.7098 20.9498 4.1298Z" id="icon_tabs" fill="#7C8FAC"/>
-                                                            <path d="M18.5 14.75H16.81V13C16.81 12.59 16.47 12.25 16.06 12.25C15.65 12.25 15.31 12.59 15.31 13V14.75H13.5C13.09 14.75 12.75 15.09 12.75 15.5C12.75 15.91 13.09 16.25 13.5 16.25H15.31V18C15.31 18.41 15.65 18.75 16.06 18.75C16.47 18.75 16.81 18.41 16.81 18V16.25H18.5C18.91 16.25 19.25 15.91 19.25 15.5C19.25 15.09 18.91 14.75 18.5 14.75Z" id="icon_tabs" fill="#7C8FAC"/>
-                                                            <path d="M10.5 8.25H5.5C5.09 8.25 4.75 7.91 4.75 7.5C4.75 7.09 5.09 6.75 5.5 6.75H10.5C10.91 6.75 11.25 7.09 11.25 7.5C11.25 7.91 10.91 8.25 10.5 8.25Z" id="icon_tabs" fill="#7C8FAC"/>
+                                                            <path d="M20.9498 4.1298L4.1298 20.9498C3.7098 20.6598 3.3398 20.2898 3.0498 19.8698L19.8698 3.0498C20.2898 3.3398 20.6598 3.7098 20.9498 4.1298Z" class="icon-tabs" fill="#7C8FAC"/>
+                                                            <path d="M18.5 14.75H16.81V13C16.81 12.59 16.47 12.25 16.06 12.25C15.65 12.25 15.31 12.59 15.31 13V14.75H13.5C13.09 14.75 12.75 15.09 12.75 15.5C12.75 15.91 13.09 16.25 13.5 16.25H15.31V18C15.31 18.41 15.65 18.75 16.06 18.75C16.47 18.75 16.81 18.41 16.81 18V16.25H18.5C18.91 16.25 19.25 15.91 19.25 15.5C19.25 15.09 18.91 14.75 18.5 14.75Z" class="icon-tabs" fill="#7C8FAC"/>
+                                                            <path d="M10.5 8.25H5.5C5.09 8.25 4.75 7.91 4.75 7.5C4.75 7.09 5.09 6.75 5.5 6.75H10.5C10.91 6.75 11.25 7.09 11.25 7.5C11.25 7.91 10.91 8.25 10.5 8.25Z" class="icon-tabs" fill="#7C8FAC"/>
                                                         </svg>
 
                                                         Ratios
@@ -1093,11 +1088,11 @@
                                             </ul>
 
                                             <!-- Data Tabs -->
-                                            <div class="tab-content tab-financial" id="pills-tabContent">
+                                            <div class="tab-content" id="pills-tabContent">
 
                                                 <!-- Tabs Profit & Lost  -->
-                                                <div class="tab-pane fade show active-profit-tabs" id="pills-profit" role="tabpanel" aria-labelledby="pills-profit-tab" tabindex="0">
-                                                    <table class="table">
+                                                <div class="tab-pane tab-financial tab-financial fade show active-profit-tabs" id="pills-profit" role="tabpanel" aria-labelledby="pills-profit-tab" tabindex="0">
+                                                    <table class="table" id="profitLostTab">
                                                         <thead>
                                                             <tr class="table-header">
                                                                 <th class="icon-cell d-flex align-items-center gap-12">
@@ -1470,8 +1465,8 @@
                                                 </div>
 
                                                 <!-- Tabs Balance Sheet -->
-                                                <div class="tab-pane fade" id="pills-balance" role="tabpanel" aria-labelledby="pills-balance-tab" tabindex="0">
-                                                    <table class="table">
+                                                <div class="tab-pane tab-financial fade" id="pills-balance" role="tabpanel" aria-labelledby="pills-balance-tab" tabindex="0">
+                                                    <table class="table" id="balanceSheetTab">
                                                         <thead>
                                                             <tr class="table-header">
                                                                 <th class="icon-cell d-flex align-items-center gap-12">
@@ -1848,7 +1843,7 @@
                                                     <div class="row">
                                                         
                                                         <!-- Profit & Lost -->
-                                                        <div class="col-lg-4 pr-custom-7">
+                                                        <div id="profitLost" class="col-12 col-lg-6 col-xxl-4 pr-custom-7 tab-financial mb-3">
                                                             <h5 class="fw-semibold fs-18px text-neutral-base mb-3">Profit & Lost</h5>
                                                             <table class="table">
                                                                 <thead>
@@ -1856,7 +1851,7 @@
                                                                         <th class="text-start text-neutral-400">
                                                                             <div class="d-flex align-item-center gap-2">
                                                                                 <button id="expand-all" class="btn btn-primary rounded-circle p-0" title="Expand All">
-                                                                                    <i class="icon icon-expand icon-size-24px text-white-icon"></i>
+                                                                                    <i class="icon icon-expand icon-size-24px"></i>
                                                                                 </button>
 
                                                                                 <button id="collapse-all" class="btn btn-primary btn-custom-grey bg-primary-200 rounded-circle p-0" title="Collapse All">
@@ -2060,7 +2055,7 @@
                                                         </div>
                                                         
                                                         <!-- Balance Sheet -->
-                                                        <div class="col-lg-4">
+                                                        <div id="balanceSheet" class="col-12 col-lg-6 col-xxl-4 tab-financial mb-3">
                                                             <h5 class="fw-semibold fs-18px text-neutral-base mb-3">Balance Sheet</h5>
                                                             <table class="table">
                                                                 <thead>
@@ -2207,13 +2202,13 @@
                                                         </div>
 
                                                         <!-- Historic Chart of Selected Accounts Overview of Profit -->
-                                                        <div class="col-lg-4">
+                                                        <div class="col-12 col-xxl-4">
                                                             <div class="p-3 rounded-3" style="background-color: #F2F6FA;">
                                                                 <span class="fs-18px fw-semibold text-neutral-base">
                                                                     Historic Chart of Selected Accounts Overview of Profit
                                                                 </span>
 
-                                                                <div class="mt-5">
+                                                                <div class="mt-5 tab-financial">
                                                                     <canvas id="historicChart"></canvas>
 
                                                                     <div class="col-12 mt-4">
@@ -2232,14 +2227,14 @@
                                                     <div class="row justify-content-between row-gap-5">
 
                                                         <!-- Data Ratios 1 -->
-                                                        <div class="col-md-6 col-12 d-flex flex-column gap-4 px-custom-28">
-                                                            <div>
+                                                        <div class="grid-item col-12 col-xl-6 d-flex flex-column gap-4 px-custom-28">
+                                                            <div class="w-100">
                                                                 <h5 class="fs-18px fw-semibold text-neutral-base">
                                                                     Current Ratio: <span class="text-neutral-500">Current Assets/Current Liabilities</span>
                                                                 </h5>
 
-                                                                <div class="mt-1">
-                                                                    <p class="mb-0 text-neutral-400 fs-14px ">
+                                                                <div class="mt-1 w-100">
+                                                                    <p class="mb-0 text-neutral-400 fs-14px w-100">
                                                                         The current is a liquidity ratio that measures a company’s abilities to cover it’s short term obligations with it’s current assets.
                                                                     </p>
                                                                 </div>
@@ -2266,7 +2261,7 @@
                                                         </div>
 
                                                         <!-- Data Ratios 2 -->
-                                                        <div class="col-md-6 col-12 d-flex flex-column gap-4 px-custom-28">
+                                                        <div class="grid-item col-12 col-xl-6 d-flex flex-column gap-4 px-custom-28">
                                                             <div>
                                                                 <h5 class="fs-18px fw-semibold text-neutral-base">
                                                                     Current Ratio: <span class="text-neutral-500">Current Assets/Current Liabilities</span>
@@ -2299,8 +2294,10 @@
 
                                                         </div>
 
+                                                        <div class="col-12 border-1" style="border: 1px solid #EAEFF4;"></div>
+
                                                         <!-- Data Ratios 3 -->
-                                                        <div class="col-md-6 col-12 d-flex flex-column gap-4 px-custom-28">
+                                                        <div class="grid-item col-12 col-xl-6 d-flex flex-column gap-4 px-custom-28">
                                                             <div>
                                                                 <h5 class="fs-18px fw-semibold text-neutral-base">
                                                                     Current Ratio: <span class="text-neutral-500">Current Assets/Current Liabilities</span>
@@ -2376,6 +2373,48 @@
             </div>
         </div>
 
+        <!-- Modal Summary -->
+        <div class="modal fade" id="summaryeModal" tabindex="-1" aria-labelledby="summaryeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="bg-white w-100 py-4 px-custom-40 rounded-12px">
+                        <!-- Close Button -->
+                        <div class="position-relative">
+                            <div class="position-absolute top-0 end-0">
+                                <div class="p-1">
+                                    <i class="icon icon-close-circle icon-size-24px" data-bs-dismiss="modal" aria-label="Close" style="cursor: pointer;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Expenses</span>
+                        <h6 class="text-neutral-400 fw-semibold mb-0">Current Year vs Previous Year</h6>
+                        
+                        <div class="mt-custom-32 row px-custom-40">
+                            <div class="col-12 col-lg-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Expenses This Year</span>
+
+                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                        <canvas class="mt-2" id="arDoughnutChartModal1"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Expenses This Year</span>
+
+                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                        <canvas class="mt-2" id="arDoughnutChartModal2"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Modal Ask Eagle.ai-->
         <div class="modal fade" id="askEagleModal" tabindex="-1" aria-labelledby="askEagleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -2392,7 +2431,7 @@
                                     <h6 class="fw-semibold text-primary mb-0">Welcome Elite International Investment LLC!</h6>
                                 </div>
                                 
-                                 <div class="d-flex flex-wrap gap-12 align-items-center">
+                                <div class="d-flex flex-wrap gap-12 align-items-center">
                                     <span class="badge fs-12px fw-semibold text-bg-light p-custom-12">What does our Expenses spend look like so far this year?</span>
                                     <span class="badge fs-12px fw-semibold text-bg-light p-custom-12">What was net profit las month?</span>
                                     <span class="badge fs-12px fw-semibold text-bg-light p-custom-12">What is my Cost of Goods Sold this month</span>
@@ -2402,7 +2441,7 @@
                                 
                                 <div class="position-absolute top-0 end-0">
                                     <div class="p-1">
-                                        <i class="icon icon-close-circle icon-size-24px" style="cursor: pointer;"></i>
+                                        <i class="icon icon-close-circle icon-size-24px" style="cursor: pointer;" data-bs-dismiss="modal" aria-label="Close"></i>
                                     </div>
                                 </div>
                             </div>
@@ -2434,8 +2473,8 @@
                                             <div class="chat-bubble bot">
                                                 Expense dataset information the total amount of $787,500.86 an average monthly amount of $393,750.43, and details about the largest amount in June ($545,306.31) and the smallest amount in July ($242,194.54).
 
-                                                <div class="d-flex w-100 justify-content-center">
-                                                    <canvas class="mt-2 w-275px h-275px" id="aiDoughnutChart"></canvas>
+                                                <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                    <canvas class="mt-2" id="aiDoughnutChart"></canvas>
                                                 </div>
                                             </div>
                                         </div>
@@ -2463,6 +2502,7 @@
                 </div>
             </div>
         </div>
+        <div class="backdrop"></div>
 
         <!-- Bootstrap -->
         <script src="../../assets/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -2477,6 +2517,9 @@
         <!-- CartJS -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+        <!-- Slick -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
         <!-- Local Assets -->
         <script src="../../assets/js/select2.js" ></script>
@@ -2495,3 +2538,4 @@
         
     </body>
 </html>
+

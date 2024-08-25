@@ -367,6 +367,15 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   border-radius: 8px;
   padding: 25px 30px;
   width: 340px;
+  right: -115px !important;
+}
+
+.dropdown-profile {
+  border: none !important;
+  border-radius: 8px;
+  padding: 25px 30px;
+  width: 340px;
+  right: -15px !important;
 }
 
 .dropdown-toggle-user {
@@ -726,6 +735,14 @@ aside {
   aside {
     display: block;
     width: 93px;
+  }
+
+  .dropdown-user {
+    right: 0 !important;
+  }
+
+  .dropdown-profile {
+    right: 0 !important;
   }
 }
 

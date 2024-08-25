@@ -1758,9 +1758,9 @@
                                                         </ul>
                                                     </div>
 
-                                                    <div class="d-flex align-items-center gap-12">
+                                                    <div class="d-flex justify-content-between justify-content-md-start align-items-center gap-12">
                                                         <!-- Button Compare -->
-                                                        <a class="btn btn-primary fs-14px fw-semibold d-flexalign-items-center" href="compare.html">
+                                                        <a class="btn btn-primary fs-14px fw-semibold d-flex align-items-center" href="compare.html">
                                                             <i class="icon icon-compare text-white-icon icon-size-24px"></i>
                                                             Compare
                                                         </a>
@@ -1940,7 +1940,7 @@
                                                             <span class="badge text-bg-primary-light fs-5">3%</span>
                                                         </div>
 
-                                                        <div class="swiper-container swiper-container-burnRate" data-bs-toggle="modal" data-bs-target="#summaryeModal" style="cursor: pointer; height:100%">
+                                                        <div class="swiper-container swiper-container-burnRate" data-bs-toggle="modal" data-bs-target="#burnRateModal" style="cursor: pointer; height:100%">
                                                             <div class="swiper-wrapper d-flex">
                                                                 <div class="swiper-slide">
                                                                     <canvas id="burnRate"></canvas>
@@ -1980,11 +1980,11 @@
                                         </div>
 
                                         <div id="profitandLostGraphs" class="col-lg-12 mt-custom-22 transition-height">
-                                            <div class="row row-gap-3">
+                                            <div class="grid grid-cols-1 lg:grid-cols-2">
 
                                                 <!-- Revenue updates Bar Chart -->
-                                                <div class="col-lg-6 col-12">
-                                                    <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                                <div class="col-span-1 tab-revenue">
+                                                    <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm tab-financial revenue-chart">
                                                         <div class="d-flex justify-content-between gap-2">
                                                             <div class="d-flex flex-column gap-1">
                                                                 <span class="fw-semibold text-neutral-base fs-5 mt-1">Revenue updates</span>
@@ -2000,15 +2000,15 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="mt-custom-32">
-                                                            <canvas id="revenueBarChart"></canvas>
+                                                        <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                            <canvas class="mt-2" id="revenueBarChart"></canvas>
                                                         </div>
                                                     </div>
                                                 </div>
 
                                                 <!-- Breakeven Analysis Bar Chart -->
-                                                <div class="col-lg-6 col-12">
-                                                    <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                                <div class="col-span-1 tab-revenue">
+                                                    <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm revenue-chart">
                                                         <div class="d-flex justify-content-between gap-2">
                                                             <div class="d-flex flex-column gap-1">
                                                                 <span class="fw-semibold text-neutral-base fs-5 mt-1">Breakeven Analysis</span>
@@ -2025,11 +2025,11 @@
                                                         </div>
 
                                                         <div class="mt-custom-32 row">
-                                                            <div class="col-12 col-md-9 h-100">
-                                                                <canvas id="breakevenChart"></canvas>
+                                                            <div class="col-9 d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                                <canvas class="mt-2" id="breakevenChart"></canvas>
                                                             </div>
 
-                                                            <div class="col-12 col-md-3 d-flex flex-column gap-4">
+                                                            <div class="col-3 d-flex flex-column gap-4">
                                                                 
                                                                 <!-- Revenue -->
                                                                 <div class="d-flex flex-row gap-2">
@@ -2085,19 +2085,9 @@
                                                             </div>
 
                                                             <div class="col-12 mt-4">
-                                                                <div class="d-flex justify-content-center mt-2">
-                                                                    <div class="d-flex align-items-center me-4">
-                                                                        <div class="label-color bg-primary"></div>
-                                                                        <span class="label-text">Revenue</span>
-                                                                    </div>
-                                                                    <div class="d-flex align-items-center me-4">
-                                                                        <div class="label-color" style="background-color: #FFAE1F;"></div>
-                                                                        <span class="label-text">Variable Costs</span>
-                                                                    </div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="label-color" style="background-color: #5A6A85;"></div>
-                                                                        <span class="label-text">Fixed Costs</span>
-                                                                    </div>
+                                                                <!-- Revenue -->
+                                                                <div id="chart_legend_breakeven" class="d-flex gap-4 justify-content-center align-items-center mt-2">
+                                                                    <!-- Legend will be inserted here -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2125,7 +2115,7 @@
                                                 <div class="d-flex flex-column justify-content-between gap-2">
 
                                                     <!-- Nav Tabs -->
-                                                    <ul class="nav nav-pills mb-3 gap-3" id="pills-tab" role="tablist">
+                                                    <ul class="nav d-grid grid-cols-2 sm:grid-cols-2 grid d-md-flex nav-pills mb-3 gap-3" id="pills-tab" role="tablist">
                                                         <li class="nav-item" role="presentation">
                                                             <button class="nav-link nav-link-profit active-profit" id="pills-profit-tab" data-bs-toggle="pill" data-bs-target="#pills-profit" type="button" role="tab" aria-controls="pills-profit" aria-selected="true">
                                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2174,8 +2164,8 @@
                                                     <div class="tab-content" id="pills-tabContent">
 
                                                         <!-- Tabs Profit & Lost  -->
-                                                        <div class="tab-pane tab-financial fade show active-profit-tabs" id="pills-profit" role="tabpanel" aria-labelledby="pills-profit-tab" tabindex="0">
-                                                            <table class="table">
+                                                        <div class="tab-pane tab-financial tab-financial fade show active-profit-tabs" id="pills-profit" role="tabpanel" aria-labelledby="pills-profit-tab" tabindex="0">
+                                                            <table class="table" id="profitLostTab">
                                                                 <thead>
                                                                     <tr class="table-header">
                                                                         <th class="icon-cell d-flex align-items-center gap-12">
@@ -2548,8 +2538,8 @@
                                                         </div>
 
                                                         <!-- Tabs Balance Sheet -->
-                                                        <div class="tab-pane  fade" id="pills-balance" role="tabpanel" aria-labelledby="pills-balance-tab" tabindex="0">
-                                                            <table class="table">
+                                                        <div class="tab-pane tab-financial fade" id="pills-balance" role="tabpanel" aria-labelledby="pills-balance-tab" tabindex="0">
+                                                            <table class="table" id="balanceSheetTab">
                                                                 <thead>
                                                                     <tr class="table-header">
                                                                         <th class="icon-cell d-flex align-items-center gap-12">
@@ -2926,7 +2916,7 @@
                                                             <div class="row">
                                                                 
                                                                 <!-- Profit & Lost -->
-                                                                <div class="col-12 col-lg-6 col-xxl-4 pr-custom-7">
+                                                                <div id="profitLost" class="col-12 col-lg-6 col-xxl-4 pr-custom-7 tab-financial mb-3">
                                                                     <h5 class="fw-semibold fs-18px text-neutral-base mb-3">Profit & Lost</h5>
                                                                     <table class="table">
                                                                         <thead>
@@ -2934,7 +2924,7 @@
                                                                                 <th class="text-start text-neutral-400">
                                                                                     <div class="d-flex align-item-center gap-2">
                                                                                         <button id="expand-all" class="btn btn-primary rounded-circle p-0" title="Expand All">
-                                                                                            <i class="icon icon-expand icon-size-24px text-white-icon"></i>
+                                                                                            <i class="icon icon-expand icon-size-24px"></i>
                                                                                         </button>
 
                                                                                         <button id="collapse-all" class="btn btn-primary btn-custom-grey bg-primary-200 rounded-circle p-0" title="Collapse All">
@@ -3138,7 +3128,7 @@
                                                                 </div>
                                                                 
                                                                 <!-- Balance Sheet -->
-                                                                <div class="col-12 col-lg-6 col-xxl-4">
+                                                                <div id="balanceSheet" class="col-12 col-lg-6 col-xxl-4 tab-financial mb-3">
                                                                     <h5 class="fw-semibold fs-18px text-neutral-base mb-3">Balance Sheet</h5>
                                                                     <table class="table">
                                                                         <thead>
@@ -3291,7 +3281,7 @@
                                                                             Historic Chart of Selected Accounts Overview of Profit
                                                                         </span>
 
-                                                                        <div class="mt-5">
+                                                                        <div class="mt-5 tab-financial">
                                                                             <canvas id="historicChart"></canvas>
 
                                                                             <div class="col-12 mt-4">
@@ -3310,7 +3300,7 @@
                                                             <div class="row justify-content-between row-gap-5">
 
                                                                 <!-- Data Ratios 1 -->
-                                                                <div class="col-12 col-xl-6 d-flex flex-column gap-4 px-custom-28">
+                                                                <div class="grid-item col-12 col-xl-6 d-flex flex-column gap-4 px-custom-28">
                                                                     <div class="w-100">
                                                                         <h5 class="fs-18px fw-semibold text-neutral-base">
                                                                             Current Ratio: <span class="text-neutral-500">Current Assets/Current Liabilities</span>
@@ -3339,12 +3329,14 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <canvas id="ratiosChart"></canvas>
+                                                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                                        <canvas id="ratiosChart"></canvas>
+                                                                    </div>
 
                                                                 </div>
 
                                                                 <!-- Data Ratios 2 -->
-                                                                <div class="col-12 col-xl-6 d-flex flex-column gap-4 px-custom-28">
+                                                                <div class="grid-item col-12 col-xl-6 d-flex flex-column gap-4 px-custom-28">
                                                                     <div>
                                                                         <h5 class="fs-18px fw-semibold text-neutral-base">
                                                                             Current Ratio: <span class="text-neutral-500">Current Assets/Current Liabilities</span>
@@ -3373,12 +3365,16 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <canvas id="ratiosChart2"></canvas>
+                                                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                                        <canvas id="ratiosChart2"></canvas>
+                                                                    </div>
 
                                                                 </div>
 
+                                                                <div class="col-12 border-1" style="border: 1px solid #EAEFF4;"></div>
+
                                                                 <!-- Data Ratios 3 -->
-                                                                <div class="col-12 col-xl-6 d-flex flex-column gap-4 px-custom-28">
+                                                                <div class="grid-item col-12 col-xl-6 d-flex flex-column gap-4 px-custom-28">
                                                                     <div>
                                                                         <h5 class="fs-18px fw-semibold text-neutral-base">
                                                                             Current Ratio: <span class="text-neutral-500">Current Assets/Current Liabilities</span>
@@ -3407,7 +3403,9 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <canvas id="ratiosChart3"></canvas>
+                                                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                                        <canvas id="ratiosChart3"></canvas>
+                                                                    </div>
 
                                                                 </div>
                                                             </div>
@@ -3425,6 +3423,120 @@
                 </div>
             </div>
             
+        </div>
+
+        <!-- Modal Merge -->
+        <div class="modal fade" id="mergeModal" tabindex="-1" aria-labelledby="mergeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="bg-white w-100 py-4 px-custom-40 rounded-12px">
+                        <!-- Close Button -->
+                        <div class="position-relative">
+                            <div class="position-absolute top-0 end-0">
+                                <div class="p-1">
+                                    <i class="icon icon-close-circle icon-size-24px" data-bs-dismiss="modal" aria-label="Close" style="cursor: pointer;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Combined Financials</span>
+                        <h6 class="text-neutral-400 fw-semibold mb-0">Year to Last Month</h6>
+                        
+                        <div class="mt-custom-32">
+                            <canvas id="multiLineChart"></canvas>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <div id="chart_legend_modal" class="d-flex gap-4 justify-content-center align-items-center mt-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Summary -->
+        <div class="modal fade" id="summaryeModal" tabindex="-1" aria-labelledby="summaryeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="bg-white w-100 py-4 px-custom-40 rounded-12px">
+                        <!-- Close Button -->
+                        <div class="position-relative">
+                            <div class="position-absolute top-0 end-0">
+                                <div class="p-1">
+                                    <i class="icon icon-close-circle icon-size-24px" data-bs-dismiss="modal" aria-label="Close" style="cursor: pointer;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Expenses</span>
+                        <h6 class="text-neutral-400 fw-semibold mb-0">Current Year vs Previous Year</h6>
+                        
+                        <div class="mt-custom-32 row px-custom-40">
+                            <div class="col-12 col-lg-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Expenses This Year</span>
+
+                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                        <canvas class="mt-2" id="arDoughnutChartModal1"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Expenses This Year</span>
+
+                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                        <canvas class="mt-2" id="arDoughnutChartModal2"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Summary Burn Rate-->
+        <div class="modal fade" id="burnRateModal" tabindex="-1" aria-labelledby="burnRateModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="bg-white w-100 py-4 px-custom-40 rounded-12px">
+                        <!-- Close Button -->
+                        <div class="position-relative">
+                            <div class="position-absolute top-0 end-0">
+                                <div class="p-1">
+                                    <i class="icon icon-close-circle icon-size-24px" data-bs-dismiss="modal" aria-label="Close" style="cursor: pointer;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Burn Rate</span>
+                        <h6 class="text-neutral-400 fw-semibold mb-0">Current Year vs Previous Year</h6>
+                        
+                        <div class="mt-custom-32 row px-custom-40">
+                            <div class="col-12 col-lg-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Burn Rate This Year</span>
+
+                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                        <canvas class="mt-2" id="burnRateModal1"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Burn Rate This Year</span>
+
+                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                        <canvas class="mt-2" id="burnRateModal2"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Bootstrap -->

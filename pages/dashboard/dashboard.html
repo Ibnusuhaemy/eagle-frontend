@@ -20,9 +20,9 @@
         <link rel="stylesheet" href="../../assets/css/dashboard.css">
         <link rel="stylesheet" href="../../assets/css/auth.css">
         <link rel="stylesheet" href="../../assets/css/grid.css">
+        <link rel="stylesheet" href="../../assets/css/sidebar-responsive.css">
         
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="../../assets/css/sidebar-responsive.css">
     </head>
 
     <body class="bg-primary-100">
@@ -304,7 +304,7 @@
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start dropdown-user shadow" aria-labelledby="profileDropdown">
                                                 <div class="d-flex flex-column gap-20">
                                                     <div class="d-flex justify-content-between align-items-center">
-                                                        <h6 class="fs-18px fw-semibold text-neutral-base mb-0">User Profile</h6>
+                                                        <h6 class="fs-18px fw-semibold text-neutral-base mb-0">Notifications</h6>
 
                                                         <span class="badge rounded-pill text-bg-primary px-3 py-2">5 new</span>
                                                     </div>
@@ -388,7 +388,7 @@
                                                 <span class="fw-semibold fs-14px profile_name dashboard-profile_name">Elite International Investment LLC</span>
                                             </div>
 
-                                            <div class="dropdown-menu dropdown-user dropdown-menu-end shadow" aria-labelledby="profileDropdown">
+                                            <div class="dropdown-menu dropdown-profile dropdown-menu-lg-start dropdown-menu-end shadow" aria-labelledby="profileDropdown">
                                                 <div class="d-flex flex-column gap-20">
                                                     <h6 class="fs-18px fw-semibold text-neutral-base">User Profile</h6>
 
@@ -860,7 +860,7 @@
                                                     <span class="badge text-bg-primary-light fs-5">3%</span>
                                                 </div>
 
-                                                 <div class="swiper-container swiper-container-burnRate" data-bs-toggle="modal" data-bs-target="#summaryeModal" style="cursor: pointer; height:100%">
+                                                 <div class="swiper-container swiper-container-burnRate" data-bs-toggle="modal" data-bs-target="#burnRateModal" style="cursor: pointer; height:100%">
                                                     <div class="swiper-wrapper d-flex">
                                                         <div class="swiper-slide">
                                                             <canvas id="burnRate"></canvas>
@@ -2249,7 +2249,9 @@
                                                                 </div>
                                                             </div>
 
-                                                            <canvas id="ratiosChart"></canvas>
+                                                            <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                                <canvas id="ratiosChart"></canvas>
+                                                            </div>
 
                                                         </div>
 
@@ -2283,7 +2285,9 @@
                                                                 </div>
                                                             </div>
 
-                                                            <canvas id="ratiosChart2"></canvas>
+                                                            <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                                <canvas id="ratiosChart2"></canvas>
+                                                            </div>
 
                                                         </div>
 
@@ -2319,7 +2323,9 @@
                                                                 </div>
                                                             </div>
 
-                                                            <canvas id="ratiosChart3"></canvas>
+                                                            <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                                <canvas id="ratiosChart3"></canvas>
+                                                            </div>
 
                                                         </div>
                                                     </div>
@@ -2399,6 +2405,48 @@
 
                                     <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
                                         <canvas class="mt-2" id="arDoughnutChartModal2"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Summary Burn Rate-->
+        <div class="modal fade" id="burnRateModal" tabindex="-1" aria-labelledby="burnRateModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="bg-white w-100 py-4 px-custom-40 rounded-12px">
+                        <!-- Close Button -->
+                        <div class="position-relative">
+                            <div class="position-absolute top-0 end-0">
+                                <div class="p-1">
+                                    <i class="icon icon-close-circle icon-size-24px" data-bs-dismiss="modal" aria-label="Close" style="cursor: pointer;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span class="fw-semibold text-neutral-base fs-4 mt-1">Burn Rate</span>
+                        <h6 class="text-neutral-400 fw-semibold mb-0">Current Year vs Previous Year</h6>
+                        
+                        <div class="mt-custom-32 row px-custom-40">
+                            <div class="col-12 col-lg-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Burn Rate This Year</span>
+
+                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                        <canvas class="mt-2" id="burnRateModal1"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="d-flex flex-column">
+                                    <span class="text-primary fw-semibold">Burn Rate This Year</span>
+
+                                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                        <canvas class="mt-2" id="burnRateModal2"></canvas>
                                     </div>
                                 </div>
                             </div>
