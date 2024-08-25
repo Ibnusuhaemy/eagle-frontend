@@ -781,7 +781,7 @@ body.no-scroll {
 /* Column */
 section .financial-content {
   display: grid;
-  grid-template-columns: repeat(1, minmax(190px, 1fr));
+  grid-template-columns: repeat(1, 1fr);
   gap: 30px;
   min-width: 573px;
   overflow: auto;
@@ -811,21 +811,21 @@ section .financial-content {
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
   section .financial-content {
-    grid-template-columns: repeat(1, minmax(190px, 1fr));
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   section .financial-content {
-    grid-template-columns: repeat(2, minmax(190px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   section .financial-content {
-    grid-template-columns: repeat(2, minmax(190px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .text__hidden__responsive {
@@ -836,7 +836,7 @@ section .financial-content {
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   section .financial-content {
-    grid-template-columns: repeat(3, minmax(190px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

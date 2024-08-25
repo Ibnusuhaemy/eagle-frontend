@@ -523,6 +523,7 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   position: absolute;
   left: 0 !important;
   top: 0 !important;
+  height: 100%;
   margin-top: 0 !important;
   transform: translateX(0);
   width: 100%;
