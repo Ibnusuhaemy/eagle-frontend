@@ -63,13 +63,6 @@ $(document).ready(function () {
     $($(this).data("bs-target")).addClass("active-profit-tabs show");
   });
 
-  // Welcome Label
-  $(document).ready(function () {
-    $(".icon-close-circle").click(function () {
-      $(this).closest("#welcome-label").remove();
-    });
-  });
-
   // Toggle
   $(document).ready(function () {
     // Tab switch event
@@ -102,5 +95,4 @@ $(document).ready(function () {
       }
     });
   });
-
 });
