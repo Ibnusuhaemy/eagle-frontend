@@ -95,4 +95,55 @@ $(document).ready(function () {
       }
     });
   });
+
+  // DataTable Report
+  $(document).ready(function () {
+    let table = new DataTable("#myTable", {
+      responsive: true,
+      lengthChange: false,
+      info: false,
+      searching: true,
+      scrollX: true,
+      autoWidth: false,
+      dom: 't<"d-none"ip>',
+      ordering: false,
+      pagingType: "numbers",
+      pageLength: 10,
+    });
+
+    function updateInfo() {
+      let info = table.page.info();
+      let pagination = $("#custom_pagination");
+
+      $("#myTable_info").html(
+        `Showing ${info.end} out of ${info.recordsTotal} entries`
+      );
+
+      pagination.empty();
+
+      for (let i = 1; i <= info.pages; i++) {
+        pagination.append(`<button class="dt-paging-button ${
+          i === info.page + 1 ? "current" : ""
+        }" 
+          role="link" type="button" aria-controls="myTable" data-dt-idx="${
+            i - 1
+          }">${i}</button>`);
+      }
+
+      $(".dt-paging-button").on("click", function () {
+        let pageIndex = $(this).data("dt-idx");
+        table.page(pageIndex).draw(false);
+      });
+    }
+
+    updateInfo();
+
+    table.on("draw", function () {
+      updateInfo();
+    });
+
+    $("#customSearch").on("keyup", function () {
+      table.search(this.value).draw();
+    });
+  });
 });

@@ -8,7 +8,7 @@ $(document).ready(function () {
   var $logoName = $(".logo_name");
   var $logoSidebar = $(".logo-sidebar");
   var $logoSidebarMain = $(".eagle-logo_sidebar_main");
-  var $logo = $(".eagle-logo_sidebar_main");
+  var $logo = $(".eagle-logo_sidebar");
   var $runReport = $(".run_report");
   var $backdrop = $(".backdrop");
 
@@ -33,8 +33,8 @@ $(document).ready(function () {
         "margin-left": "0px",
       });
       $logoSidebar.css("justify-content", "space-between");
-      $logoSidebarMain.css('display', "block");
-      $logo.css('display', "none");
+      $logoSidebarMain.hide();
+      $logo.show();
       $textSidebar.show();
       $logoName.show();
       $runReport.hide();
@@ -49,9 +49,9 @@ $(document).ready(function () {
           "margin-left": "275px",
         });
         $logoSidebar.css("justify-content", "space-between");
+        $logoSidebarMain.hide();
+        $logo.show();
         $textSidebar.show();
-        $logoSidebarMain.css("display", "block");
-        $logo.css("display", "none");
         $logoName.show();
         $runReport.hide();
         $toggleButtonSidebar.show();
@@ -64,8 +64,8 @@ $(document).ready(function () {
           "margin-left": "93px",
         });
         $logoSidebar.css("justify-content", "center");
-        $logoSidebarMain.css("display", "none");
-        $logo.css("display", "block");
+        $logoSidebarMain.show();
+        $logo.hide();
         $textSidebar.hide();
         $logoName.hide();
         $runReport.show();
@@ -85,8 +85,8 @@ $(document).ready(function () {
         })
         .removeClass("expanded");
       $logoSidebar.css("justify-content", "space-between");
-      $logoSidebarMain.css("display", "block");
-      $logo.css("display", "none");
+      $logoSidebarMain.show();
+      $logo.hide();
       $textSidebar.show();
       $logoName.show();
       $runReport.hide();
@@ -125,6 +125,8 @@ $(document).ready(function () {
           transition: ".5s",
         });
         $textSidebar.show();
+        $logoSidebarMain.show();
+        $logo.hide();
         $logoName.show();
         $runReport.hide();
         $backdrop.show();
@@ -141,6 +143,8 @@ $(document).ready(function () {
           "margin-left": "93px",
         });
         $logoSidebar.css("justify-content", "center");
+        $logoSidebarMain.hide();
+        $logo.show();
         $textSidebar.hide();
         $logoName.hide();
         $runReport.show();
@@ -154,6 +158,8 @@ $(document).ready(function () {
           "margin-left": "275px",
         });
         $logoSidebar.css("justify-content", "space-between");
+        $logoSidebarMain.show();
+        $logo.hide();
         $textSidebar.show();
         $logoName.show();
         $runReport.hide();
