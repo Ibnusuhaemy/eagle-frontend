@@ -7,6 +7,8 @@ $(document).ready(function () {
   var $textSidebar = $(".text_sidebar");
   var $logoName = $(".logo_name");
   var $logoSidebar = $(".logo-sidebar");
+  var $logoSidebarMain = $(".eagle-logo_sidebar_main");
+  var $logo = $(".eagle-logo_sidebar_main");
   var $runReport = $(".run_report");
   var $backdrop = $(".backdrop");
 
@@ -31,6 +33,8 @@ $(document).ready(function () {
         "margin-left": "0px",
       });
       $logoSidebar.css("justify-content", "space-between");
+      $logoSidebarMain.css('display', "block");
+      $logo.css('display', "none");
       $textSidebar.show();
       $logoName.show();
       $runReport.hide();
@@ -46,6 +50,8 @@ $(document).ready(function () {
         });
         $logoSidebar.css("justify-content", "space-between");
         $textSidebar.show();
+        $logoSidebarMain.css("display", "block");
+        $logo.css("display", "none");
         $logoName.show();
         $runReport.hide();
         $toggleButtonSidebar.show();
@@ -58,6 +64,8 @@ $(document).ready(function () {
           "margin-left": "93px",
         });
         $logoSidebar.css("justify-content", "center");
+        $logoSidebarMain.css("display", "none");
+        $logo.css("display", "block");
         $textSidebar.hide();
         $logoName.hide();
         $runReport.show();
@@ -77,6 +85,8 @@ $(document).ready(function () {
         })
         .removeClass("expanded");
       $logoSidebar.css("justify-content", "space-between");
+      $logoSidebarMain.css("display", "block");
+      $logo.css("display", "none");
       $textSidebar.show();
       $logoName.show();
       $runReport.hide();

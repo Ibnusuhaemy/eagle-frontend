@@ -565,6 +565,37 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   width: 100%;
 }
 
+.modal__eagleai {
+  position: absolute;
+  right: 0 !important;
+  top: 0 !important;
+  height: 100%;
+  margin-top: 0 !important;
+  transform: translateX(0);
+  width: 100%;
+  padding: 20px;
+}
+
+.modal-header_eagleai {
+  padding: 0px !important;
+  border: none !important;
+  margin-bottom: 20px;
+}
+
+.modal-footer_eagleai {
+  border: none !important;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-sidebar {
+  display: none;
+}
+
+.logo-main {
+  display: block;
+}
+
 /* Responsive */
 .navbar-expand-lg .navbar-collapse {
   display: flex !important;
@@ -616,12 +647,25 @@ aside {
   scrollbar-width: none;
 }
 
+.scroll_dropdown {
+  max-height: 80vh;
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+.scroll_dropdown::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll_dropdown {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 #dateSummaryGraphs {
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  /* scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; */
 }
 
 #dateSummaryGraphs::-webkit-scrollbar {

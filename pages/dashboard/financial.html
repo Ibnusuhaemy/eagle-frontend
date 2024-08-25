@@ -157,7 +157,7 @@
                                                 <hr class="mt-0" style="border: 1px solid #DFE5EF;">
                                             </div>
 
-                                            <div class="mt-custom-12 d-flex flex-column gap-40">
+                                            <div class="mt-custom-12 d-flex flex-column gap-40 scroll_dropdown">
                                                 
                                                 <!-- IRS -->
                                                 <div class="d-flex flex-column">
@@ -193,7 +193,7 @@
                                                 <div class="d-flex flex-column">
                                                     <h6 class="text-primary fw-semibold fs-14px mb-3">Accounting</h6>
 
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                                                         <div class="col-span-1 d-flex align-items-center gap-12">
                                                             <div class="p-custom-12 bg-primary-100 rounded-2">
                                                                 <img src="../../assets/images/company/QuickBooks.png" alt="image company" class="h-24px">
@@ -212,7 +212,7 @@
                                                 <div class="d-flex flex-column">
                                                     <h6 class="text-primary fw-semibold fs-14px mb-3">Tax/Payroll</h6>
 
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                                                         <div class="col-span-1 d-flex align-items-center gap-12">
                                                             <div class="p-custom-12 bg-primary-100 rounded-2">
                                                                 <img src="../../assets/images/company/ProConnect.png" alt="image company" class="h-24px">
@@ -3282,7 +3282,9 @@
                                                                         </span>
 
                                                                         <div class="mt-5 tab-financial">
-                                                                            <canvas id="historicChart"></canvas>
+                                                                            <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                                                <canvas class="mt-2" id="historicChart"></canvas>
+                                                                            </div>
 
                                                                             <div class="col-12 mt-4">
                                                                                 <div id="chart_legend" class="d-flex gap-4 justify-content-center align-items-center mt-2">
