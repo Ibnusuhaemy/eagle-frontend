@@ -98,19 +98,46 @@ $(document).ready(function () {
     },
     plugins: {
       legend: {
-        display: false,
-        labels: {
-          usePointStyle: true,
-        },
+        display: false, // Initially hide the default legend
       },
     },
     responsive: true,
     maintainAspectRatio: false,
   };
 
-  new Chart(ctx, {
+  const chart = new Chart(ctx, {
     type: "line",
     data: data,
     options: options,
   });
+
+  function createLegend() {
+    const legendContainer = document.getElementById("chart_legend_breakeven");
+    legendContainer.innerHTML = ""; // Clear any existing content
+    const legendItems = [];
+
+    data.datasets.forEach((dataset, index) => {
+      if (
+        dataset.label !== "Revenue" &&
+        dataset.label !== "Variable Costs" &&
+        dataset.label !== "Fixed Costs"
+      ) {
+        return;
+      }
+      const legendItem = document.createElement("div");
+      legendItem.innerHTML = `<div class="d-flex align-items-center"><div class="label-color" style="background-color: ${dataset.borderColor};"></div><span class="label-text"> ${dataset.label}</span></div>`;
+      legendItem.style.cursor = "pointer";
+      legendItem.onclick = () => {
+        const meta = chart.getDatasetMeta(index);
+        meta.hidden =
+          meta.hidden === null ? !chart.data.datasets[index].hidden : null;
+        chart.update();
+      };
+      legendItems.push(legendItem);
+      legendContainer.appendChild(legendItem);
+    });
+  }
+
+  // Create the custom legend
+  createLegend();
 });

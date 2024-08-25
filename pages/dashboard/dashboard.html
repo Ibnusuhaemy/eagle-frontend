@@ -920,8 +920,8 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="mt-custom-32">
-                                                    <canvas id="revenueBarChart"></canvas>
+                                                <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                    <canvas class="mt-2" id="revenueBarChart"></canvas>
                                                 </div>
                                             </div>
                                         </div>
@@ -945,8 +945,8 @@
                                                 </div>
 
                                                 <div class="mt-custom-32 row">
-                                                    <div class="col-9 h-100">
-                                                        <canvas id="breakevenChart"></canvas>
+                                                    <div class="col-9 d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                                                        <canvas class="mt-2" id="breakevenChart"></canvas>
                                                     </div>
 
                                                     <div class="col-3 d-flex flex-column gap-4">
@@ -1005,19 +1005,9 @@
                                                     </div>
 
                                                     <div class="col-12 mt-4">
-                                                        <div class="d-flex justify-content-center mt-2">
-                                                            <div class="d-flex align-items-center me-4">
-                                                                <div class="label-color bg-primary"></div>
-                                                                <span class="label-text">Revenue</span>
-                                                            </div>
-                                                            <div class="d-flex align-items-center me-4">
-                                                                <div class="label-color" style="background-color: #FFAE1F;"></div>
-                                                                <span class="label-text">Variable Costs</span>
-                                                            </div>
-                                                            <div class="d-flex align-items-center">
-                                                                <div class="label-color" style="background-color: #5A6A85;"></div>
-                                                                <span class="label-text">Fixed Costs</span>
-                                                            </div>
+                                                        <!-- Revenue -->
+                                                        <div id="chart_legend_breakeven" class="d-flex gap-4 justify-content-center align-items-center mt-2">
+                                                            <!-- Legend will be inserted here -->
                                                         </div>
                                                     </div>
                                                 </div>

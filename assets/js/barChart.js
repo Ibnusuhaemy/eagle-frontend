@@ -25,6 +25,10 @@ $(document).ready(function () {
       return;
     }
 
+    // Ensure canvas takes full size of the container
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+
     const contextData = canvas.getContext("2d");
 
     const data = {
@@ -68,7 +72,7 @@ $(document).ready(function () {
               font: function (context) {
                 const width = context.chart.width;
                 return {
-                  size: width < 400 ? 8 : 12,
+                  size: width < 400 ? 12 : 16,
                 };
               },
               callback: function () {
@@ -97,29 +101,43 @@ $(document).ready(function () {
           afterDraw: function (chart) {
             const xAxis = chart.scales.x;
             const yOffset = 10;
+            const minWidthToShowLabels = 300;
+
+            // Skip drawing labels if the chart's width is less than the threshold
+            if (chart.width < minWidthToShowLabels) {
+              return;
+            }
+
             chart.ctx.save();
             chart.ctx.textAlign = "center";
             chart.ctx.fillStyle = "#7C8FAC";
             chart.ctx.textBaseline = "middle";
+
             chart.data.labels.forEach((label, index) => {
               const labelX = xAxis.getPixelForTick(index);
               const labelText = label.split(" ");
-              let line = "";
               let lines = [];
-              chart.ctx.font = chart.width < 400 ? "8px Arial" : "10px Arial";
-              const maxWidth = xAxis.width / chart.data.labels.length;
-              for (let i = 0; i < labelText.length; i++) {
-                const testLine = line + labelText[i] + " ";
+              chart.ctx.font = chart.width < 400 ? "10px Arial" : "12px Arial";
+              const maxWidth = (xAxis.width / chart.data.labels.length) * 0.9;
+
+              let currentLine = "";
+
+              labelText.forEach((word) => {
+                const testLine = currentLine + word + " ";
                 const metrics = chart.ctx.measureText(testLine);
                 const testWidth = metrics.width;
-                if (testWidth > maxWidth && i > 0) {
-                  lines.push(line.trim());
-                  line = labelText[i] + " ";
+
+                if (testWidth > maxWidth && currentLine.length > 0) {
+                  lines.push(currentLine.trim());
+                  currentLine = word + " ";
                 } else {
-                  line = testLine;
+                  currentLine = testLine;
                 }
-              }
-              lines.push(line.trim());
+              });
+
+              lines.push(currentLine.trim());
+
+              // Position lines with proper vertical spacing
               lines.forEach((line, i) => {
                 chart.ctx.fillText(
                   line,
@@ -128,11 +146,13 @@ $(document).ready(function () {
                 );
               });
             });
+
             chart.ctx.restore();
           },
         },
       ],
     });
+
     return chart;
   };
 

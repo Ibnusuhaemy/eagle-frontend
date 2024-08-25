@@ -679,7 +679,7 @@ aside {
 }
 
 .revenue-chart {
-  min-width: 557px;
+  min-width: 730px;
   width: 100%;
 }
 
@@ -807,10 +807,10 @@ aside {
     overflow-x: none;
   }
 
-  .revenue-chart {
+  /* .revenue-chart {
     min-width: 100%;
     width: 100%;
-  }
+  } */
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
