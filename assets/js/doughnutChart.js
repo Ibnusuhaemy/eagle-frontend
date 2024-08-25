@@ -68,10 +68,10 @@ $(document).ready(function () {
   function getResponsiveOptions(context, centerText) {
     const chartWidth = context.canvas.clientWidth;
     const padding = chartWidth < 400 ? 40 : 40;
-    const fontSizeText = chartWidth < 400 ? 10 : 14;
-    const fontSizeLabel = chartWidth < 400 ? 8 : 12;
-    const lineLength = chartWidth < 400 ? 10 : 20;
-    const lineHeight = chartWidth < 400 ? 8 : 14;
+    const fontSizeText = chartWidth < 400 ? 16 : 18;
+    const fontSizeLabel = chartWidth < 400 ? 12 : 14;
+    const lineLength = chartWidth < 400 ? 10 : 15;
+    const lineHeight = chartWidth < 400 ? 12 : 14;
     const cutoutPercentage = "74%";
 
     return {
@@ -102,7 +102,7 @@ $(document).ready(function () {
         },
       },
       responsive: true,
-      maintainAspectRatio: true,
+      maintainAspectRatio: false,
       cutout: cutoutPercentage,
     };
   }
