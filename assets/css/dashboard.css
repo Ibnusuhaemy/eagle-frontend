@@ -382,7 +382,7 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   color: var(--neutral-500);
   font-size: 12px;
   font-weight: 500;
-  width: 120px;
+  width: 100%;
   height: 80px;
   padding: 8px 16px;
 }
@@ -755,6 +755,10 @@ aside {
 
   .agination_dt {
     padding: 8px 60px;
+  }
+
+  .nav-link-profit {
+    width: 120px;
   }
 }
 

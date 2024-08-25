@@ -1035,7 +1035,7 @@
                                         <div class="d-flex flex-column justify-content-between gap-2">
 
                                             <!-- Nav Tabs -->
-                                            <ul class="nav nav-profit nav-pills mb-3 gap-3" id="pills-tab" role="tablist">
+                                            <ul class="nav d-grid grid-cols-2 sm:grid-cols-2 grid d-md-flex nav-pills mb-3 gap-3" id="pills-tab" role="tablist">
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link nav-link-profit active-profit" id="pills-profit-tab" data-bs-toggle="pill" data-bs-target="#pills-profit" type="button" role="tab" aria-controls="pills-profit" aria-selected="true">
                                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1085,7 +1085,7 @@
 
                                                 <!-- Tabs Profit & Lost  -->
                                                 <div class="tab-pane tab-financial tab-financial fade show active-profit-tabs" id="pills-profit" role="tabpanel" aria-labelledby="pills-profit-tab" tabindex="0">
-                                                    <table class="table">
+                                                    <table class="table" id="profitLostTab">
                                                         <thead>
                                                             <tr class="table-header">
                                                                 <th class="icon-cell d-flex align-items-center gap-12">
@@ -1459,7 +1459,7 @@
 
                                                 <!-- Tabs Balance Sheet -->
                                                 <div class="tab-pane tab-financial fade" id="pills-balance" role="tabpanel" aria-labelledby="pills-balance-tab" tabindex="0">
-                                                    <table class="table">
+                                                    <table class="table" id="balanceSheetTab">
                                                         <thead>
                                                             <tr class="table-header">
                                                                 <th class="icon-cell d-flex align-items-center gap-12">
@@ -1836,7 +1836,7 @@
                                                     <div class="row">
                                                         
                                                         <!-- Profit & Lost -->
-                                                        <div class="col-12 col-lg-6 col-xxl-4 pr-custom-7 tab-financial mb-3">
+                                                        <div id="profitLost" class="col-12 col-lg-6 col-xxl-4 pr-custom-7 tab-financial mb-3">
                                                             <h5 class="fw-semibold fs-18px text-neutral-base mb-3">Profit & Lost</h5>
                                                             <table class="table">
                                                                 <thead>
@@ -1844,7 +1844,7 @@
                                                                         <th class="text-start text-neutral-400">
                                                                             <div class="d-flex align-item-center gap-2">
                                                                                 <button id="expand-all" class="btn btn-primary rounded-circle p-0" title="Expand All">
-                                                                                    <i class="icon icon-expand icon-size-24px text-white-icon"></i>
+                                                                                    <i class="icon icon-expand icon-size-24px"></i>
                                                                                 </button>
 
                                                                                 <button id="collapse-all" class="btn btn-primary btn-custom-grey bg-primary-200 rounded-circle p-0" title="Collapse All">
@@ -2048,7 +2048,7 @@
                                                         </div>
                                                         
                                                         <!-- Balance Sheet -->
-                                                        <div class="col-12 col-lg-6 col-xxl-4 tab-financial mb-3">
+                                                        <div id="balanceSheet" class="col-12 col-lg-6 col-xxl-4 tab-financial mb-3">
                                                             <h5 class="fw-semibold fs-18px text-neutral-base mb-3">Balance Sheet</h5>
                                                             <table class="table">
                                                                 <thead>
