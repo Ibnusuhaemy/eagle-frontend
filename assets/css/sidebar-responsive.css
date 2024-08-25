@@ -15,7 +15,7 @@
   margin-right: 16px;
 }
 .dashboard-icon_humberger_navbar {
-  display: none;
+  /* display: none; */
   width: 24px;
   height: 24px;
   background-image: url(../../assets/images/icons/humberger-menu.svg);

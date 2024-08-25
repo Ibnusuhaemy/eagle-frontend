@@ -48,6 +48,8 @@ $(document).ready(function () {
         $textSidebar.show();
         $logoName.show();
         $runReport.hide();
+        $toggleButtonSidebar.show();
+        $toggleButtonNavbar.hide();
       } else {
         $sidebar.css("width", "93px");
         $content.css("width", "calc(100% - 93px)");
@@ -59,9 +61,9 @@ $(document).ready(function () {
         $textSidebar.hide();
         $logoName.hide();
         $runReport.show();
+        $toggleButtonSidebar.hide();
+        $toggleButtonNavbar.show();
       }
-      $toggleButtonSidebar.hide();
-      $toggleButtonNavbar.hide();
       $sidebar.css("display", "block");
       $backdrop.hide();
       $("body").removeClass("no-scroll");
