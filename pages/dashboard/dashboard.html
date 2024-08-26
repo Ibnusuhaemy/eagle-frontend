@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +24,6 @@
         
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     </head>
-
     <body class="bg-primary-100">
         <div class="d-flex w-100">
             <!-- Sidebar -->
@@ -681,12 +680,12 @@
                                                 </ul>
                                             </div>
 
-                                            <div class="d-flex justify-content-between justify-content-md-start align-items-center gap-12">
+                                            <div class="d-flex justify-content-between justify-content-md-start align-items-center gap-12"> 
                                                 <!-- Button Compare -->
-                                                <a class="btn btn-primary fs-14px fw-semibold d-flex align-items-center" href="compare.html">
+                                                <button id="btn_compare" class="btn btn-primary fs-14px fw-semibold d-flex align-items-center" type="button">
                                                     <i class="icon icon-compare text-white-icon icon-size-24px"></i>
                                                     Compare
-                                                </a>
+                                                </button>
 
                                                 <!-- Button Merge -->
                                                 <button class="btn btn-outline-primary fs-14px fw-semibold py-2 px-3 d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#mergeModal">
@@ -694,6 +693,9 @@
                                                     Merge
                                                 </button>
                                             </div>
+
+                                            <!-- Chart -->
+                                            <div id="chart_legend" class="compare_legend gap-4 justify-content-center align-items-center"></div>
                                         </div>
                                     </div>
                                     
@@ -703,7 +705,7 @@
                                 </div>
 
                                 <div id="financialSnapshotGraphs" class="col-lg-12 mt-custom-22 transition-height">
-                                    <div class="row row-gap-4">
+                                    <div id="default_financial_snapshot" class="row row-gap-4">
 
                                         <!-- Total Sales -->
                                         <div class="col-lg-4 col-md-6 col-12">
@@ -773,6 +775,81 @@
 
                                                 <div class="mt-custom-12">
                                                     <canvas id="bankTotal"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="compare_financial_snapshot" class="row row-gap-4">
+
+                                        <!-- Total Sales -->
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                                <h6 class="text-neutral-400 fw-semibold mb-0">Total Sales</h6>
+                                                <span class="fw-semibold text-neutral-base fs-4 mt-1">$509,820.5</span>
+
+                                                <div class="mt-custom-12">
+                                                    <canvas id="totalSalesCompare"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Total Cost -->
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                                <h6 class="text-neutral-400 fw-semibold mb-0">Total Cost</h6>
+                                                <span class="fw-semibold text-neutral-base fs-4 mt-1">$474,320.71</span>
+
+                                                <div class="mt-custom-12">
+                                                    <canvas id="totalCostCompare"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Gross Profit -->
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                                <h6 class="text-neutral-400 fw-semibold mb-0">Gross Profit</h6>
+                                                <span class="fw-semibold text-neutral-base fs-4 mt-1">$35,543.13</span>
+
+                                                <div class="mt-custom-12">
+                                                    <canvas id="grossProfitCompare"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Total Expenses -->
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                                <h6 class="text-neutral-400 fw-semibold mb-0">Total Expenses</h6>
+                                                <span class="fw-semibold text-neutral-base fs-4 mt-1">$35,543.13</span>
+
+                                                <div class="mt-custom-12">
+                                                    <canvas id="totalExpensesCompare"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Net Profit -->
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                                <h6 class="text-neutral-400 fw-semibold mb-0">Net Profit</h6>
+                                                <span class="fw-semibold text-neutral-base fs-4 mt-1">$12,032.71</span>
+
+                                                <div class="mt-custom-12">
+                                                    <canvas id="netProfitCompare"></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Bank Total -->
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="bg-white w-100 h-100 p-custom-7 rounded-3 shadow-sm">
+                                                <h6 class="text-warning fw-semibold mb-0">Bank Total</h6>
+                                                <span class="fw-semibold text-warning fs-4 mt-1">$18,943.13</span>
+
+                                                <div class="mt-custom-12">
+                                                    <canvas id="bankTotalCompare"></canvas>
                                                 </div>
                                             </div>
                                         </div>
@@ -1871,7 +1948,7 @@
                                                                                         <i class="icon icon-arrow-up"></i>
                                                                                     </div>
                                                                                 </div>
-                                                                                <input type="checkbox" id="checkbox-income" class="form-check-input me-2" data-chart="income">
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="income">
                                                                                 <strong>Income</strong>
                                                                             </div>
                                                                         </td>
@@ -1879,21 +1956,21 @@
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-amazon-sales" class="form-check-input me-2" data-chart="amazon-sales">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="amazon-sale">
                                                                             <span>Amazon Sales</span>
                                                                         </td>
                                                                         <td>$3,684,042</td>
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-amazon-transfer" class="form-check-input me-2" data-chart="amazon-transfer">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="amazon-transfer">
                                                                             <span>Amazon Transfer Account</span>
                                                                         </td>
                                                                         <td>$367,456</td>
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-sales" class="form-check-input me-2" data-chart="sales">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="sales">
                                                                             <span>Sales</span>
                                                                         </td>
                                                                         <td>$44,394</td>
@@ -1908,7 +1985,7 @@
                                                                                         <i class="icon icon-arrow-up"></i>
                                                                                     </div>
                                                                                 </div>
-                                                                                <input type="checkbox" id="checkbox-cogs" class="form-check-input me-2" data-chart="cogs">
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="cogs">
                                                                                 <strong>Cost of Goods Sold</strong>
                                                                             </div>
                                                                         </td>
@@ -1916,26 +1993,24 @@
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-cogs-cost" class="form-check-input me-2" data-chart="cogs-cost">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="cogs-cost">
                                                                             <span>Cost of Goods Sold</span>
                                                                         </td>
                                                                         <td>$96,123</td>
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-shipping" class="form-check-input me-2" data-chart="shipping">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="shipping">
                                                                             <span>Shipping</span>
                                                                         </td>
-                                                                        <td>$0</td>
+                                                                        <td>$3,000</td>
                                                                     </tr>
-
-                                                                    <!-- Table Neutral -->
-                                                                    <tr class="neutral-table">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 ps-5">
-                                                                            <input type="checkbox" id="checkbox-gross-profit" class="form-check-input me-2" data-chart="gross-profit">
+                                                                    <tr class="sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="gross-profit">
                                                                             <span>Gross Profit</span>
                                                                         </td>
-                                                                        <td class="fw-semibold">-$24,488</td>
+                                                                        <td>$1,892,340</td>
                                                                     </tr>
 
                                                                     <!-- Table Expand -->
@@ -1947,36 +2022,50 @@
                                                                                         <i class="icon icon-arrow-up"></i>
                                                                                     </div>
                                                                                 </div>
-                                                                                <input type="checkbox" id="checkbox-expenses" class="form-check-input me-2" data-chart="expenses">
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="expenses">
                                                                                 <strong>Expenses</strong>
                                                                             </div>
                                                                         </td>
-                                                                        <td class="fw-semibold">$7,045</td>
+                                                                        <td class="fw-semibold">$1,892,340</td>
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-auto-expense" class="form-check-input me-2" data-chart="auto-expense">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="auto-expense">
                                                                             <span>Automobile Expense Gas</span>
                                                                         </td>
                                                                         <td>$0</td>
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-bank-charges" class="form-check-input me-2" data-chart="bank-charges">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="bank-charges">
                                                                             <span>Bank Charges & Fees</span>
                                                                         </td>
                                                                         <td>$3</td>
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-meals-entertainment" class="form-check-input me-2" data-chart="meals-entertainment">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="legal-and-professional-service">
+                                                                            <span>Legal & Professional Services</span>
+                                                                        </td>
+                                                                        <td>$3</td>
+                                                                    </tr>
+                                                                    <tr class="sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="amazon-fees">
+                                                                            <span>Amazon Fees</span>
+                                                                        </td>
+                                                                        <td>$1,767,500</td>
+                                                                    </tr>
+                                                                    <tr class="sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="meals-entertainment">
                                                                             <span>Meals & Entertainment</span>
                                                                         </td>
                                                                         <td>$0</td>
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-office-supplies" class="form-check-input me-2" data-chart="office-supplies">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="office-supplies">
                                                                             <span>Office Supplies & Software</span>
                                                                         </td>
                                                                         <td>$82</td>
@@ -1991,7 +2080,7 @@
                                                                                         <i class="icon icon-arrow-up"></i>
                                                                                     </div>
                                                                                 </div>
-                                                                                <input type="checkbox" id="checkbox-payroll" class="form-check-input me-2" data-chart="payroll">
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="payroll">
                                                                                 <strong>Payroll Expenses</strong>
                                                                             </div>
                                                                         </td>
@@ -1999,31 +2088,36 @@
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-payroll-fees" class="form-check-input me-2" data-chart="payroll-fees">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="payroll-fees">
                                                                             <span>Payroll Fees</span>
                                                                         </td>
                                                                         <td>$0</td>
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-payroll-taxes" class="form-check-input me-2" data-chart="payroll-taxes">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="payroll-taxes">
                                                                             <span>Payroll Taxes</span>
                                                                         </td>
                                                                         <td>$850</td>
                                                                     </tr>
                                                                     <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-wages-salary" class="form-check-input me-2" data-chart="wages-salary">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="wages-salary">
                                                                             <span>Wages & Salary</span>
                                                                         </td>
                                                                         <td>$3,635</td>
                                                                     </tr>
-
-                                                                    <!-- Table Neutral -->
-                                                                    <tr class="neutral-table">
+                                                                    <tr class="sub-row">
                                                                         <td class="d-flex flex-row align-items-center gap-2 ps-5">
-                                                                            <input type="checkbox" id="checkbox-rent-lease" class="form-check-input me-2" data-chart="rent-lease">
-                                                                            <span2 ps-5">Rent & Lease</span>
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="utilities">
+                                                                            <span>Utilities</span>
+                                                                        </td>
+                                                                        <td class="fw-semibold">$2,500</td>
+                                                                    </tr>
+                                                                    <tr class="sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2 ps-5">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="rent-lease">
+                                                                            <span>Rent & Lease</span>
                                                                         </td>
                                                                         <td class="fw-semibold">$2,500</td>
                                                                     </tr>
@@ -2031,8 +2125,8 @@
                                                                     <!-- Table Neutral -->
                                                                     <tr class="neutral-table">
                                                                         <td class="d-flex flex-row align-items-center gap-2 ps-5">
-                                                                            <input type="checkbox" id="checkbox-net-income" class="form-check-input me-2" data-chart="net-income">
-                                                                            <span>Net Operating Income</span>
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="new-operationg">
+                                                                            <span class="fw-semibold">Net Operating Income</span>
                                                                         </td>
                                                                         <td class="fw-semibold">-$37,757</td>
                                                                     </tr>
@@ -2040,8 +2134,8 @@
                                                                     <!-- Table Neutral -->
                                                                     <tr class="neutral-table">
                                                                         <td class="d-flex flex-row align-items-center gap-2 ps-5">
-                                                                            <input type="checkbox" id="checkbox-rent-lease-2" class="form-check-input me-2" data-chart="rent-lease-2">
-                                                                            <span>Rent & Lease</span>
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="rent-lease-2">
+                                                                            <span class="fw-semibold">Rent & Lease</span>
                                                                         </td>
                                                                         <td class="fw-semibold">-$37,757</td>
                                                                     </tr>
@@ -2083,72 +2177,83 @@
                                                                                         <i class="icon icon-arrow-up"></i>
                                                                                     </div>
                                                                                 </div>
-                                                                            <input type="checkbox" id="checkbox-income-balance" class="form-check-input me-2" data-chart="income">
-                                                                                <strong>Income</strong>
+                                                                                
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="assets">
+                                                                                <strong>Assets</strong>
                                                                             </div>
                                                                         </td>
-                                                                        <td class="fw-semibold">$4,096,745</td>
+                                                                        <td class="fw-semibold">$61,183</td>
                                                                     </tr>
-                                                                    <tr class="sub-row">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-amazon-sales-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <span>Amazon Sales</span>
+
+                                                                    <!-- Table Sub Sub Row -->
+                                                                    <tr class="sub-row expandable-sub">
+                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-40">
+                                                                            <div class="d-flex flex-row align-items-center gap-12">
+                                                                                <div class="d-flex">
+                                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                        <i class="icon icon-arrow-up"></i>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="current-assets">
+                                                                                <strong>Current Assets</strong>
+                                                                            </div>
                                                                         </td>
-                                                                        <td>$3,684,042</td>
+                                                                        <td class="fw-semibold">$61,183</td>
                                                                     </tr>
-                                                                    <tr class="sub-row">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-amazon-transfer-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <span>Amazon Transfer Account</span>
+                                                                    <tr class="sub-sub-row expandable-sub-sub">
+                                                                        <td class="d-flex flex-row align-items-center gap-2" style="padding-left: 70px;">
+                                                                            <div class="d-flex flex-row align-items-center gap-12">
+                                                                                <div class="d-flex">
+                                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                        <i class="icon icon-arrow-up"></i>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="bank-accounts">
+                                                                                <strong>Bank Accounts</strong>
+                                                                            </div>
+                                                                            <td>$367,456</td>
                                                                         </td>
-                                                                        <td>$367,456</td>
                                                                     </tr>
-                                                                    <tr class="sub-row">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-sales-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <span>Sales</span>
+                                                                    <tr class="sub-sub-sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2" style="padding-left: 120px;">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="5-3-bank-checkinh">
+                                                                            <span>5/3 Bank Checking</span>
                                                                         </td>
                                                                         <td>$44,394</td>
                                                                     </tr>
+                                                                    <tr class="sub-sub-sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2" style="padding-left: 120px;">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="checking-1146">
+                                                                            <span>Checking (1146)</span>
+                                                                        </td>
+                                                                        <td>-$8</td>
+                                                                    </tr>
 
                                                                     <!-- Table Expand -->
-                                                                    <tr class="expandable">
-                                                                        <td class="d-flex flex-row align-items-center gap-2">
+                                                                    <tr class="sub-sub-row expandable-sub-sub">
+                                                                        <td class="d-flex flex-row align-items-center gap-2" style="padding-left: 70px;">
                                                                             <div class="d-flex flex-row align-items-center gap-12">
                                                                                 <div class="d-flex">
                                                                                     <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
                                                                                         <i class="icon icon-arrow-up"></i>
                                                                                     </div>
                                                                                 </div>
-                                                                            <input type="checkbox" id="checkbox-cogs-balance" class="form-check-input me-2" data-chart="income">
-                                                                                <strong>Cost of Goods Sold</strong>
+
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="other-current-assets">
+                                                                                <strong>Other Current Assets</strong>
                                                                             </div>
+                                                                            <td class="fw-semibold">$96,123</td>
                                                                         </td>
-                                                                        <td class="fw-semibold">$96,123</td>
                                                                     </tr>
-                                                                    <tr class="sub-row">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-cogs-cost-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <span>Cost of Goods Sold</span>
+                                                                    <tr class="sub-sub-sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2" style="padding-left: 120px;">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="inventory">
+                                                                            <span>Inventory</span>
                                                                         </td>
                                                                         <td>$96,123</td>
                                                                     </tr>
-                                                                    <tr class="sub-row">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-shipping-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <span>Shipping</span>
-                                                                        </td>
-                                                                        <td>$0</td>
-                                                                    </tr>
-
-                                                                    <!-- Table Neutral -->
-                                                                    <tr class="neutral-table">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 ps-5">
-                                                                            <input type="checkbox" id="checkbox-gross-profit-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <sp5">Gross Profit</span>
-                                                                        </td>
-                                                                        <td class="fw-semibold">-$24,488</td>
-                                                                    </tr>
 
                                                                     <!-- Table Expand -->
                                                                     <tr class="expandable">
@@ -2159,39 +2264,46 @@
                                                                                         <i class="icon icon-arrow-up"></i>
                                                                                     </div>
                                                                                 </div>
-                                                                            <input type="checkbox" id="checkbox-expenses-balance" class="form-check-input me-2" data-chart="income">
-                                                                                <strong>Expenses</strong>
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="labilitities-equity">
+                                                                                <strong>Liabilities & Equity</strong>
                                                                             </div>
                                                                         </td>
-                                                                        <td class="fw-semibold">$7,045</td>
+                                                                        <td class="fw-semibold">$0</td>
                                                                     </tr>
-                                                                    <tr class="sub-row">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-auto-expense-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <span>Automobile Expense Gas</span>
+                                                                    <tr class="sub-row expandable-sub">
+                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-40">
+                                                                            <div class="d-flex flex-row align-items-center gap-12">
+                                                                                <div class="d-flex">
+                                                                                    <div class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center">
+                                                                                        <i class="icon icon-arrow-up"></i>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="equity">
+                                                                                <strong>Equity</strong>
+                                                                            </div>
                                                                         </td>
-                                                                        <td>$0</td>
                                                                     </tr>
-                                                                    <tr class="sub-row">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-bank-charges-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <span>Bank Charges & Fees</span>
+                                                                    <tr class="sub-sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2" style="padding-left: 95px;">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="opening-balance-equity">
+                                                                            <span>Opening Balance Equity</span>
                                                                         </td>
                                                                         <td>$3</td>
                                                                     </tr>
-                                                                    <tr class="sub-row">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-meals-entertainment-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <span>Meals & Entertainment</span>
+                                                                    <tr class="sub-sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2" style="padding-left: 95px;">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="retained-earnings">
+                                                                            <span>Retained Earnings</span>
                                                                         </td>
-                                                                        <td>$0</td>
+                                                                        <td>-$4,231</td>
                                                                     </tr>
-                                                                    <tr class="sub-row">
-                                                                        <td class="d-flex flex-row align-items-center gap-2 pl-custom-60">
-                                                                            <input type="checkbox" id="checkbox-office-supplies-balance" class="form-check-input me-2" data-chart="income">
-                                                                            <span>Office Supplies & Software</span>
+                                                                    <tr class="sub-sub-row">
+                                                                        <td class="d-flex flex-row align-items-center gap-2" style="padding-left: 95px;">
+                                                                            <input type="checkbox" id="checkbox_historic" name="checkbox_historic" class="form-check-input me-2" value="net-income-2">
+                                                                            <span>Net Income</span>
                                                                         </td>
-                                                                        <td>$82</td>
+                                                                        <td>$1,010</td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -2211,7 +2323,7 @@
                                                                     </div>
 
                                                                     <div class="col-12 mt-4">
-                                                                        <div id="chart_legend" class="d-flex gap-4 justify-content-center align-items-center mt-2">
+                                                                        <div id="chart_legend_historic" class="d-flex flex-wrap gap-4 justify-content-center align-items-center mt-2">
                                                                             <!-- Legend will be inserted here -->
                                                                         </div>
                                                                     </div>
@@ -2579,6 +2691,8 @@
         <script src="../../assets/js/breakevenChart.js" ></script>
         <script src="../../assets/js/multiLineChart.js" ></script>
         <script src="../../assets/js/multiLineChart2.js" ></script>
+        
+        <script src="../../assets/js/trendsChart.js" ></script>
         
     </body>
 </html>

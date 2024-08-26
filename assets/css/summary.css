@@ -113,6 +113,19 @@
   border-radius: 20px;
 }
 
+.page-number-container {
+  width: 100%;
+}
+
+.badge-text {
+  font-size: 12px;
+}
+
+.finance-logo-gold {
+  width: 64px;
+  height: 64px;
+}
+
 /* Responsivity  */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
@@ -200,6 +213,15 @@
     border: 1px solid #7c8fac;
     padding: 20px;
     border-radius: 20px;
+  }
+
+  .page-number-container {
+    width: 55%;
+  }
+
+  .finance-logo-gold {
+    width: 74px;
+    height: 74px;
   }
 }
 

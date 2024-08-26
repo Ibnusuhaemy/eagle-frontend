@@ -64,86 +64,81 @@ $(document).ready(function () {
   });
 
   // Toggle
-  $(document).ready(function () {
-    // Tab switch event
-    $('button[data-bs-toggle="pill"]').on("shown.bs.tab", function (e) {
-      $('svg[id="icon_tabs"]').each(function () {
-        $(this).removeClass("active_icon").attr("fill", "#7C8FAC");
-      });
-
-      $(this)
-        .find('svg[id="icon_tabs"]')
-        .addClass("active_icon")
-        .attr("fill", "#4474FD");
+  $('button[data-bs-toggle="pill"]').on("shown.bs.tab", function (e) {
+    $('svg[id="icon_tabs"]').each(function () {
+      $(this).removeClass("active_icon").attr("fill", "#7C8FAC");
     });
 
-    $("button.nav-link.active-profit")
+    $(this)
       .find('svg[id="icon_tabs"]')
       .addClass("active_icon")
       .attr("fill", "#4474FD");
+  });
 
-    $(".custom-switch input[type='checkbox']").change(function () {
-      const $this = $(this);
-      const $parent = $this.closest(".custom-switch");
+  $("button.nav-link.active-profit")
+    .find('svg[id="icon_tabs"]')
+    .addClass("active_icon")
+    .attr("fill", "#4474FD");
 
-      if ($this.is(":checked")) {
-        $parent.css("background-color", "#5d87ff");
-        $parent.find(".toggle-circle").css("transform", "translateX(16px)");
-      } else {
-        $parent.css("background-color", "#6e7a8a");
-        $parent.find(".toggle-circle").css("transform", "translateX(0)");
-      }
-    });
+  $(".custom-switch input[type='checkbox']").change(function () {
+    const $this = $(this);
+    const $parent = $this.closest(".custom-switch");
+
+    if ($this.is(":checked")) {
+      $parent.css("background-color", "#5d87ff");
+      $parent.find(".toggle-circle").css("transform", "translateX(16px)");
+    } else {
+      $parent.css("background-color", "#6e7a8a");
+      $parent.find(".toggle-circle").css("transform", "translateX(0)");
+    }
   });
 
   // DataTable Report
-  $(document).ready(function () {
-    let table = new DataTable("#myTable", {
-      responsive: true,
-      lengthChange: false,
-      info: false,
-      searching: true,
-      scrollX: true,
-      autoWidth: false,
-      dom: 't<"d-none"ip>',
-      ordering: false,
-      pagingType: "numbers",
-      pageLength: 10,
-    });
+  let table = new DataTable("#myTable", {
+    responsive: true,
+    lengthChange: false,
+    info: false,
+    searching: true,
+    scrollX: true,
+    autoWidth: false,
+    dom: 't<"d-none"ip>',
+    ordering: false,
+    pagingType: "numbers",
+    pageLength: 10,
+  });
 
-    function updateInfo() {
-      let info = table.page.info();
-      let pagination = $("#custom_pagination");
+  function updateInfo() {
+    let info = table.page.info();
+    let pagination = $("#custom_pagination");
 
-      $("#myTable_info").html(
-        `Showing ${info.end} out of ${info.recordsTotal} entries`
-      );
+    $("#myTable_info").html(
+      `Showing ${info.end} out of ${info.recordsTotal} entries`
+    );
 
-      pagination.empty();
+    pagination.empty();
 
-      for (let i = 1; i <= info.pages; i++) {
-        pagination.append(`<button class="dt-paging-button ${
-          i === info.page + 1 ? "current" : ""
-        }" 
+    for (let i = 1; i <= info.pages; i++) {
+      pagination.append(`<button class="dt-paging-button ${
+        i === info.page + 1 ? "current" : ""
+      }" 
           role="link" type="button" aria-controls="myTable" data-dt-idx="${
             i - 1
           }">${i}</button>`);
-      }
-
-      $(".dt-paging-button").on("click", function () {
-        let pageIndex = $(this).data("dt-idx");
-        table.page(pageIndex).draw(false);
-      });
     }
 
+    $(".dt-paging-button").on("click", function () {
+      let pageIndex = $(this).data("dt-idx");
+      table.page(pageIndex).draw(false);
+    });
+  }
+
+  updateInfo();
+
+  table.on("draw", function () {
     updateInfo();
+  });
 
-    table.on("draw", function () {
-      updateInfo();
-    });
-
-    $("#customSearch").on("keyup", function () {
-      table.search(this.value).draw();
-    });
+  $("#customSearch").on("keyup", function () {
+    table.search(this.value).draw();
   });
 });

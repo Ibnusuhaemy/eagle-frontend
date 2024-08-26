@@ -2,18 +2,58 @@ $(document).ready(function () {
   function setupExpandableSections(containerId) {
     const container = $(containerId);
 
-    // Show all sub-rows by default
-    container.find(".sub-row").show();
+    // Show all rows by default
+    container.find(".sub-row, .sub-sub-row, .sub-sub-sub-row").show();
 
-    // Set initial icon state
+    // Set initial icon state to expanded
     container
-      .find(".expandable")
-      .removeClass("expanded")
+      .find(".expandable, .expandable-sub, .expandable-sub-sub")
+      .addClass("expanded")
       .find("i")
-      .removeClass("icon-arrow-up")
-      .addClass("icon-arrow-down");
+      .removeClass("icon-arrow-down")
+      .addClass("icon-arrow-up");
 
-    // Toggle expandable rows
+    function toggleRows($element, nextSelector, rowClass) {
+      const isExpanded = $element.hasClass("expanded");
+      $element.nextUntil(nextSelector).each(function () {
+        const $nextRow = $(this);
+        if ($nextRow.hasClass(rowClass)) {
+          if (isExpanded) {
+            $nextRow.slideDown();
+          } else {
+            $nextRow.slideUp();
+          }
+        }
+      });
+    }
+
+    function closeNestedExpandableRows(
+      $element,
+      nextSelector,
+      nestedSelector,
+      rowClass
+    ) {
+      if (!$element.hasClass("expanded")) {
+        $element.nextUntil(nextSelector).each(function () {
+          const $nextRow = $(this);
+          if ($nextRow.hasClass(nestedSelector)) {
+            $nextRow
+              .removeClass("expanded")
+              .find("i")
+              .removeClass("icon-arrow-up")
+              .addClass("icon-arrow-down");
+            $nextRow.nextUntil(nextSelector).each(function () {
+              const $nextSubRow = $(this);
+              if ($nextSubRow.hasClass(rowClass)) {
+                $nextSubRow.slideUp();
+              }
+            });
+          }
+        });
+      }
+    }
+
+    // Toggle primary expandable rows
     container.on("click", ".expandable", function () {
       const $this = $(this);
       const $icon = $this.find("i");
@@ -21,14 +61,69 @@ $(document).ready(function () {
       $icon.toggleClass("icon-arrow-up icon-arrow-down");
       $this.toggleClass("expanded");
 
-      $this.nextUntil(".expandable, .neutral-table").slideToggle();
+      // Toggle related rows
+      toggleRows($this, ".expandable, .neutral-table", "sub-row");
+
+      // Close nested expandable-sub and expandable-sub-sub rows
+      closeNestedExpandableRows(
+        $this,
+        ".expandable, .neutral-table",
+        "expandable-sub",
+        "sub-sub-row"
+      );
+      closeNestedExpandableRows(
+        $this,
+        ".expandable, .neutral-table",
+        "expandable-sub-sub",
+        "sub-sub-sub-row"
+      );
+    });
+
+    // Toggle nested expandable-sub rows
+    container.on("click", ".expandable-sub", function () {
+      const $this = $(this);
+      const $icon = $this.find("i");
+
+      $icon.toggleClass("icon-arrow-up icon-arrow-down");
+      $this.toggleClass("expanded");
+
+      // Toggle related rows
+      toggleRows(
+        $this,
+        ".expandable, .expandable-sub, .neutral-table",
+        "sub-sub-row"
+      );
+
+      // Close nested expandable-sub-sub rows
+      closeNestedExpandableRows(
+        $this,
+        ".expandable, .expandable-sub, .neutral-table",
+        "expandable-sub-sub",
+        "sub-sub-sub-row"
+      );
+    });
+
+    // Toggle nested expandable-sub-sub rows
+    container.on("click", ".expandable-sub-sub", function () {
+      const $this = $(this);
+      const $icon = $this.find("i");
+
+      $icon.toggleClass("icon-arrow-up icon-arrow-down");
+      $this.toggleClass("expanded");
+
+      // Toggle related rows
+      toggleRows(
+        $this,
+        ".expandable, .expandable-sub, .expandable-sub-sub, .neutral-table",
+        "sub-sub-sub-row"
+      );
     });
 
     // Expand all rows
     container.on("click", "#expand-all", function () {
-      container.find(".sub-row").slideDown();
+      container.find(".sub-row, .sub-sub-row, .sub-sub-sub-row").slideDown();
       container
-        .find(".expandable")
+        .find(".expandable, .expandable-sub, .expandable-sub-sub")
         .addClass("expanded")
         .find("i")
         .removeClass("icon-arrow-down")
@@ -50,9 +145,9 @@ $(document).ready(function () {
 
     // Collapse all rows
     container.on("click", "#collapse-all", function () {
-      container.find(".sub-row").slideUp();
+      container.find(".sub-row, .sub-sub-row, .sub-sub-sub-row").slideUp();
       container
-        .find(".expandable")
+        .find(".expandable, .expandable-sub, .expandable-sub-sub")
         .removeClass("expanded")
         .find("i")
         .removeClass("icon-arrow-up")
@@ -73,10 +168,36 @@ $(document).ready(function () {
     });
   }
 
-  // Initialize expandable sections for different containers
   setupExpandableSections("#profitLostTab");
   setupExpandableSections("#balanceSheetTab");
   setupExpandableSections("#profitLost");
   setupExpandableSections("#balanceSheet");
-  // Add more containers as needed
+});
+
+$(document).ready(function () {
+  var $compareButton = $("#btn_compare");
+
+  var $compareSnapshot = $("#compare_financial_snapshot");
+  var $defaultSnapshot = $("#default_financial_snapshot");
+  var $chartLegend = $(".compare_legend");
+
+  var isCompareVisible = false;
+
+  function toggleCompare() {
+    if (isCompareVisible) {
+      $compareSnapshot.hide();
+      $defaultSnapshot.show();
+      $chartLegend.hide();
+    } else {
+      $compareSnapshot.css("display", "flex");
+      $defaultSnapshot.hide();
+      $chartLegend.css("display", "flex");
+    }
+
+    isCompareVisible = !isCompareVisible;
+  }
+
+  $compareButton.on("click", function () {
+    toggleCompare();
+  });
 });

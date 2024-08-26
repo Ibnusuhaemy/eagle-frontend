@@ -438,6 +438,24 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   display: none;
 }
 
+.expandable-sub {
+  cursor: pointer;
+  border-top: 2px solid #5a6a85;
+}
+
+.sub-sub-row {
+  display: none;
+}
+
+.expandable-sub-sub {
+  cursor: pointer;
+  border-top: 2px solid #5a6a85;
+}
+
+.sub-sub-sub-row {
+  display: none;
+}
+
 .neutral-table {
   border-top: 2px solid #5a6a85;
 }
@@ -637,7 +655,8 @@ aside {
 }
 
 .tab-financial {
-  overflow-x: auto; /* Enable horizontal scrolling */
+  max-width: 100%;
+  overflow-x: auto;
   white-space: nowrap;
   padding: 10px 0;
 }
@@ -664,6 +683,11 @@ aside {
 .scroll_dropdown {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+#compare_financial_snapshot,
+.compare_legend {
+  display: none;
 }
 
 #dateSummaryGraphs {

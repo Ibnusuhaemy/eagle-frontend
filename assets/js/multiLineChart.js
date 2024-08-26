@@ -166,8 +166,12 @@ $(document).ready(function () {
     });
   }
 
-  function createLegend() {
-    const legendContainer = document.getElementById("chart_legend");
+  function createLegend(legendContainerId) {
+    const legendContainer = document.getElementById(legendContainerId);
+    if (!legendContainer) {
+      return;
+    }
+
     legendContainer.innerHTML = ""; // Clear any existing content
     const legendItems = [];
 
@@ -273,14 +277,6 @@ $(document).ready(function () {
   };
 
   // Initialize multiple charts
-  initializeChart(
-    "historicChart",
-    chartData1.labels,
-    chartData1.data,
-    "M",
-    true,
-    true
-  );
   initializeChart("ratiosChart", chartData2.labels, chartData2.data, "%");
   initializeChart("ratiosChart2", chartData2.labels, chartData2.data, "%");
   initializeChart("ratiosChart3", chartData2.labels, chartData2.data, "%");
@@ -403,5 +399,6 @@ $(document).ready(function () {
   );
 
   // Create single legend
-  createLegend();
+  createLegend("chart_legend");
+  createLegend("chart_legend_additional");
 });
