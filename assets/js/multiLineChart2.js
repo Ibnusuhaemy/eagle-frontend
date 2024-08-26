@@ -223,6 +223,15 @@ $(document).ready(function () {
     true
   );
 
+  initializeChart(
+    "multiLineChart2",
+    chartData.labels,
+    chartData.data,
+    "K",
+    true,
+    true
+  );
+
   // Create single legend
   createLegend();
 });

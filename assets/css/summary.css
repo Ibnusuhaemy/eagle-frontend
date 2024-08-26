@@ -11,3 +11,301 @@
   --bs-btn-hover-bg: var(--primary-300) !important;
   --bs-btn-hover-border-color: #2f5ad2 !important;
 }
+
+.cover-image {
+  height: 45dvh;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-image: url("../../assets/images/effects/wave-background.png");
+  background-size: 100% auto;
+}
+
+.finance-zoom-logo {
+  height: 20px;
+  width: auto;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+
+  transform: translate(-50%, -50%);
+}
+
+.cover-image-container {
+  margin-top: 20%;
+}
+
+.cover-image-header {
+  font-size: 24px;
+  color: #4474fd;
+  margin-bottom: 0.2rem;
+}
+
+.cover-image-sub-header {
+  font-size: 12px;
+}
+
+.cover-image-date-text {
+  margin-top: 1rem;
+  font-size: 12px;
+}
+
+.summary {
+  background-color: white;
+  padding: 1rem 0;
+}
+
+.summary-title {
+  display: flex;
+  gap: 0.5rem;
+  color: #4474fd;
+}
+
+.summary-title > h1 {
+  margin: 0;
+  font-size: 16px;
+  font-size: 600;
+}
+
+.summary-sub-title {
+  font-size: 14px;
+  font-size: 600;
+}
+
+.summary-container {
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.summary-description {
+  font-size: 12px;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.blue-box {
+  height: auto;
+  width: 15px;
+  background-color: #4474fd;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.icon-box {
+  background-color: white;
+  padding: 0.4rem;
+  width: fit-content;
+  display: grid;
+  place-items: center;
+  border-radius: 0.5rem;
+}
+
+.multi-chart-container {
+  margin-top: 1rem;
+  border: 1px solid #7c8fac;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+/* Responsivity  */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .cover-image {
+    height: 100dvh;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-image: url("../../assets/images/effects/wave-background.png");
+    background-size: 100% auto;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .cover-image {
+    height: 100dvh;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-image: url("../../assets/images/effects/wave-background.png");
+    background-size: 100% auto;
+  }
+
+  .finance-zoom-logo {
+    height: 40px;
+    width: auto;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%);
+  }
+
+  .cover-image-container {
+    margin-top: 30%;
+  }
+
+  .cover-image-header {
+    font-size: 32px;
+    color: #4474fd;
+    margin-bottom: 0.2rem;
+  }
+
+  .cover-image-sub-header {
+    font-size: 16px;
+  }
+
+  .summary-container {
+    margin-top: 1rem;
+    padding: 0 3rem;
+  }
+
+  .summary-title {
+    display: flex;
+    gap: 2rem;
+    color: #4474fd;
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .summary-title > h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  .summary-sub-title {
+    font-size: 18px;
+    font-size: 600;
+  }
+
+  .summary-description {
+    font-size: 14px;
+    text-align: justify;
+    margin-bottom: 2rem;
+  }
+  .multi-chart-container {
+    margin-top: 1rem;
+    border: 1px solid #7c8fac;
+    padding: 20px;
+    border-radius: 20px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .cover-image {
+    height: 100dvh;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-image: url("../../assets/images/effects/wave-background.png");
+    background-size: 100% auto;
+  }
+
+  .finance-zoom-logo {
+    height: 40px;
+    width: auto;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%);
+  }
+
+  .cover-image-container {
+    margin-top: 30%;
+  }
+
+  .cover-image-header {
+    font-size: 32px;
+    color: #4474fd;
+    margin-bottom: 0.2rem;
+  }
+
+  .cover-image-sub-header {
+    font-size: 16px;
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .multi-chart-container {
+    margin-top: 1rem;
+    border: 1px solid #7c8fac;
+    padding: 30px;
+    border-radius: 20px;
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .cover-image {
+    height: 200dvh;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-image: url("../../assets/images/effects/wave-background.png");
+    background-size: 100% auto;
+  }
+
+  .finance-zoom-logo {
+    height: 80px;
+    width: auto;
+    position: absolute;
+    bottom: 5rem;
+    left: 50%; /* position the left edge of the element at the middle of the parent */
+
+    transform: translate(-50%, -50%);
+  }
+
+  .cover-image-container {
+    margin-top: 30%;
+  }
+
+  .cover-image-header {
+    font-size: 52px;
+    color: #4474fd;
+    margin-bottom: 0.2rem;
+  }
+
+  .cover-image-sub-header {
+    font-size: 26px;
+  }
+  .cover-image-date-text {
+    margin-top: 3rem;
+    font-size: 16px;
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .multi-chart-container {
+    margin-top: 1rem;
+    border: 1px solid #7c8fac;
+    padding: 40px;
+    border-radius: 20px;
+  }
+
+  .summary-sub-title {
+    font-size: 18px;
+    font-size: 600;
+  }
+}

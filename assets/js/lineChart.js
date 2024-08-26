@@ -111,6 +111,14 @@ $(document).ready(function () {
 
   // Data chart
   const dataChart = [65, 59, 80, 81, 56, 55, 40];
+  const balanceData = [
+    "$50,000",
+    "$40,000",
+    "$30,000",
+    "$20,000",
+    "$10,000",
+    "$0",
+  ];
 
   // Create charts with different datasets
   createChart("totalSales", dataChart);
@@ -126,4 +134,5 @@ $(document).ready(function () {
 
   createChart("burnRateModal1", dataChart);
   createChart("burnRateModal2", dataChart);
+  createChart("cashBalance", balanceData);
 });

@@ -442,6 +442,10 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   border-top: 2px solid #5a6a85;
 }
 
+.neutral-table-light {
+  border-top: 1px solid #5a6a85;
+}
+
 .icon-cell {
   width: 30px;
 }

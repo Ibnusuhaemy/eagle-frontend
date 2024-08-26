@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eagle FrontEnd</title>
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="../../assets/vendor/twbs/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Select 2 -->
+    <link
+      rel="stylesheet"
+      href="../../assets/vendor/select2/dist/css/select2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../../assets/vendor/apalfrey/select2-bootstrap-5-theme/dist/select2-bootstrap-5-theme.min.css"
+    />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="../../assets/css/icon.css" />
+
+    <!-- Local Assets -->
+    <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/dashboard.css" />
+    <link rel="stylesheet" href="../../assets/css/auth.css" />
+    <link rel="stylesheet" href="../../assets/css/grid.css" />
+    <link rel="stylesheet" href="../../assets/css/summary.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="../../assets/css/sidebar-responsive.css" />
+  </head>
+
+  <body class="bg-primary-100">
+    <div class="d-flex w-100">
+      <!-- Sidebar -->
+      <aside
+        class="min-vh-100 bg-white p-4 position-fixed dashboard-side-trick"
+      >
+        <ul class="navbar-nav gap-2 mb-1 mt-custom-32">
+          <li class="nav-item">
+            <a
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              href="summary.html"
+            >
+              <i class="icon icon-dashboard text-white-icon icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text_sidebar"
+                >Executive Summary</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active"
+              href="cash-balance.html"
+            >
+              <i class="icon icon-finance text-white-icon icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text_sidebar">Cash Balance</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              href="income-cost.html"
+            >
+              <i class="icon icon-linear-graph icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text-secondary text_sidebar"
+                >Income & Cost Analysis</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              href="ar_analysis.html"
+            >
+              <i class="icon icon-linear-computing icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text-secondary text_sidebar"
+                >A/R Analysis</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              href="profitability_analysis.html"
+            >
+              <i class="icon icon-linear-chart icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text-secondary text_sidebar"
+                >Profitability Analysis</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              href="#"
+            >
+              <i class="icon icon-linear-chart-2 icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text-secondary text_sidebar"
+                >Major KPIs</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              href="#"
+            >
+              <i class="icon icon-linear-iconoir_group icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text-secondary text_sidebar"
+                >Profit & Loss</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              href="#"
+            >
+              <i class="icon icon-linear-status-up icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text-secondary text_sidebar"
+                >Balance Sheet</span
+              >
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              href="#"
+            >
+              <i class="icon icon-linear-wallet-add icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text-secondary text_sidebar"
+                >Account Receivables</span
+              >
+            </a>
+          </li>
+        </ul>
+
+        <hr class="hr" />
+
+        <button
+          onclick="location.href='dashboard.html'"
+          class="btn bg-primary-200 fs-12px p-custom-12 fw-semibold w-100"
+        >
+          <div class="d-flex align-items-center gap-2 text-primary">
+            <i class="icon icon-arrow-left-circle"></i>
+            <span class="fw-semibold fs-14px text_sidebar">Back to Eagle</span>
+          </div>
+        </button>
+
+        <hr class="hr" />
+
+        <div class="d-none d-lg-block">
+          <div class="position-relative input-group">
+            <input
+              type="email"
+              class="form-control form-control_padding fw-semibold"
+              id="email"
+              placeholder="Email"
+            />
+            <i
+              class="icon icon-mail position-absolute top-50 start-ap1 translate-middle-y"
+              style="left: 15px"
+            ></i>
+
+            <button
+              class="btn btn-primary"
+              type="button"
+              id="inputGroupFileAddon04"
+            >
+              <i
+                class="icon icon-arrow-up icon-size-24px text-white-icon"
+                style="transform: rotate(90deg)"
+              ></i>
+            </button>
+          </div>
+        </div>
+
+        <button
+          onclick="downloadFile()"
+          class="btn btn-outline-primary fs-12px p-custom-12 fw-semibold w-100 mt-3"
+        >
+          <i class="icon icon-document-download d-block d-lg-none"></i>
+          <span class="text_sidebar"> Download File </span>
+        </button>
+      </aside>
+
+      <div class="ml-dashboard mainContent">
+        <div
+          class="fixed-top navbar-aside bg-primary-100 w-dashboard menuContent"
+        >
+          <div class="py-3 d-flex justify-content-center">
+            <div
+              class="d-flex align-items-center justify-content-center bg-white rounded-12px p-2"
+            >
+              <button
+                onclick="handleZoomIncrease()"
+                class="btn d-flex align-items-center"
+              >
+                <i class="icon icon-plus-circle"></i>
+              </button>
+              <span id="zoom-value" class="fs-14px">100%</span>
+              <button
+                onclick="handleZoomDecrease()"
+                class="btn d-flex align-items-center"
+              >
+                <i class="icon icon-minus-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <!-- <embed src="file.pdf" class="p-2 pdf-container" frameborder="0"></embed> -->
+        <main id="main-content" class="mt-dashboard w-100 p-custom-7">
+          <div class="row gap-40 h-100">
+            <div class="summary" style="height: 100dvh">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Cash Balance</h1>
+              </div>
+              <div class="summary-container">
+                <!-- Historic Chart of Selected Accounts Overview of Profit -->
+                <div class="col-12">
+                  <div class="p-3 rounded-3 border">
+                    <div class="tab-financial">
+                      <div
+                        class="d-flex justify-content-center p-3"
+                        style="min-width: 400; min-height: 400px"
+                      >
+                        <canvas class="mt-2" id="historicChart"></canvas>
+                      </div>
+
+                      <!-- <canvas id="historicChart"></canvas> -->
+
+                      <div class="col-12 mt-4">
+                        <div
+                          id="chart_legend"
+                          class="d-flex gap-4 justify-content-center align-items-center mt-2"
+                        >
+                          <!-- Legend will be inserted here -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap -->
+    <script src="../../assets/vendor/twbs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+    <!-- <script src="../../assets/js/jquery.slim.min.js"></script> -->
+    <script src="../../assets/js/jquery.min.js"></script>
+
+    <!-- Select2 -->
+    <script src="../../assets/vendor/select2/dist/js/select2.full.min.js"></script>
+
+    <!-- CartJS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+    <!-- Slick -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Local Assets -->
+    <script src="../../assets/js/select2.js"></script>
+    <script src="../../assets/js/dashboard.js"></script>
+    <script src="../../assets/js/sidebar.js"></script>
+    <script src="../../assets/js/slider.js"></script>
+    <script src="../../assets/js/global.js"></script>
+
+    <!-- Chart -->
+    <script src="../../assets/js/lineChart.js"></script>
+    <script src="../../assets/js/doughnutChart.js"></script>
+    <script src="../../assets/js/barChart.js"></script>
+    <script src="../../assets/js/breakevenChart.js"></script>
+    <script src="../../assets/js/multiLineChart.js"></script>
+    <script src="../../assets/js/multiLineChart2.js"></script>
+
+    <script>
+      function downloadFile() {
+        const link = document.createElement("a");
+        link.href = "file.pdf"; // Replace with the file path
+        link.download = "summary.pdf"; // Replace with the desired filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      // Zoom Page Handler
+      const handleZoomIncrease = () => {
+        let zoomValue = document.getElementById("zoom-value").innerText;
+        if (Number(zoomValue.replace("%", "")) < 200) {
+          let increasedZoomValue = Number(zoomValue.replace("%", "")) + 10;
+          document.getElementById("zoom-value").innerText = `${String(
+            increasedZoomValue
+          )}%`;
+          document.getElementById("main-content").v;
+        }
+      };
+      const handleZoomDecrease = () => {
+        let zoomValue = document.getElementById("zoom-value").innerText;
+        if (Number(zoomValue.replace("%", "")) > 0) {
+          let increasedZoomValue = `${
+            Number(zoomValue.replace("%", "")) - 10
+          }%`;
+          document.getElementById("zoom-value").innerText = increasedZoomValue;
+        }
+      };
+    </script>
+  </body>
+</html>

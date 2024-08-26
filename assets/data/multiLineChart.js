@@ -114,8 +114,6 @@ $(document).ready(function () {
             },
           },
         },
-        responsive: true,
-        maintainAspectRatio: false,
       },
       plugins: [
         {

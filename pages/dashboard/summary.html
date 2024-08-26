@@ -48,7 +48,7 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active"
-              href="#"
+              href="summary.html"
             >
               <i class="icon icon-dashboard text-white-icon icon-size-24px"></i>
               <span class="fw-semibold fs-14px text_sidebar"
@@ -59,7 +59,7 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#"
+              href="cash-balance.html"
             >
               <i class="icon icon-finance icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -70,7 +70,7 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#"
+              href="income-cost.html"
             >
               <i class="icon icon-linear-graph icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -81,7 +81,7 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#"
+              href="ar_analysis.html"
             >
               <i class="icon icon-linear-computing icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -92,7 +92,7 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#"
+              href="profitability_analysis.html"
             >
               <i class="icon icon-linear-chart icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -161,33 +161,842 @@
         <hr class="hr" />
 
         <div class="d-none d-lg-block">
-            <div class="position-relative input-group">
-                <input type="email" class="form-control form-control_padding fw-semibold" id="email" placeholder="Email">
-                <i class="icon icon-mail position-absolute top-50 start-ap1 translate-middle-y" style="left: 15px;"></i>
+          <div class="position-relative input-group">
+            <input
+              type="email"
+              class="form-control form-control_padding fw-semibold"
+              id="email"
+              placeholder="Email"
+            />
+            <i
+              class="icon icon-mail position-absolute top-50 start-ap1 translate-middle-y"
+              style="left: 15px"
+            ></i>
 
-                <button class="btn btn-primary" type="button" id="inputGroupFileAddon04">
-                    <i class="icon icon-arrow-up icon-size-24px text-white-icon" style="transform: rotate(90deg);"></i>
-                </button>
-            </div>
+            <button
+              class="btn btn-primary"
+              type="button"
+              id="inputGroupFileAddon04"
+            >
+              <i
+                class="icon icon-arrow-up icon-size-24px text-white-icon"
+                style="transform: rotate(90deg)"
+              ></i>
+            </button>
+          </div>
         </div>
 
         <button
-        onclick="downloadFile()"
+          onclick="downloadFile()"
           class="btn btn-outline-primary fs-12px p-custom-12 fw-semibold w-100 mt-3"
         >
-            <i class="icon icon-document-download d-block d-lg-none"></i>
-          <span class="text_sidebar">
-            Download File
-          </span>
+          <i class="icon icon-document-download d-block d-lg-none"></i>
+          <span class="text_sidebar"> Download File </span>
         </button>
       </aside>
 
       <div class="ml-dashboard mainContent">
+        <div
+          class="fixed-top navbar-aside bg-primary-100 w-dashboard menuContent"
+        >
+          <div class="py-3 d-flex justify-content-center">
+            <div
+              class="d-flex align-items-center justify-content-center bg-white rounded-12px p-2"
+            >
+              <button
+                onclick="handleZoomIncrease()"
+                class="btn d-flex align-items-center"
+              >
+                <i class="icon icon-plus-circle"></i>
+              </button>
+              <span id="zoom-value" class="fs-14px">100%</span>
+              <button
+                onclick="handleZoomDecrease()"
+                class="btn d-flex align-items-center"
+              >
+                <i class="icon icon-minus-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
 
         <!-- Content -->
-        <embed src="file.pdf" class="p-2 pdf-container" frameborder="0"></embed>
-        <main class="mt-dashboard w-100 p-custom-7">
-          <div class="row gap-40">
+        <!-- <embed src="file.pdf" class="p-2 pdf-container" frameborder="0"></embed> -->
+        <main id="main-content" class="mt-dashboard w-100 p-custom-7">
+          <div class="row gap-40 h-100">
+            <div class="bg-white cover-image position-relative">
+              <div class="d-flex flex-column cover-image-container">
+                <h1 class="cover-image-header">Financial Snapshot</h1>
+                <h4 class="cover-image-sub-header">
+                  Elite International Investment LLC
+                </h4>
+                <img
+                  class="finance-zoom-logo"
+                  src="../../assets/images/logo/finance-zoom-logo.svg"
+                  alt="finance-zoom-logo"
+                />
+              </div>
+              <p class="cover-image-date-text">July 2024</p>
+            </div>
+            <div class="summary">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Executive Summary</h1>
+              </div>
+              <div class="summary-container">
+                <p class="summary-description">
+                  This executive summary provides a concise overview of the
+                  financial performance of your company for the current month
+                  and year-to-date. Highlighted below are key metrics,
+                  juxtaposed against the figures from the previous year,
+                  offering a comparative view into the company's fiscal
+                  trajectory and overall financial health.
+                </p>
+                <div class="cards-container">
+                  <div>
+                    <div class="bg-primary-100 p-custom-7 rounded-12px">
+                      <div class="d-flex flex-column gap-1">
+                        <div class="icon-box">
+                          <i class="icon icon-status-up icon-size-24px"></i>
+                        </div>
+                        <span class="fw-semibold fs-14px text-secondary"
+                          >Revenue</span
+                        >
+                        <h3 class="fw-semibold text-danger">$678,2K</h3>
+
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Card Name -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              Year ago
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >$2.5M</span
+                            >
+                          </div>
+
+                          <!-- Status -->
+                          <div
+                            class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                          >
+                            <i
+                              class="icon icon-call-down icon-size-24px text-danger-icon"
+                            ></i>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              % Change
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >-75.86%</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="bg-primary-100 p-custom-7 rounded-12px">
+                      <div class="d-flex flex-column gap-1">
+                        <div class="icon-box">
+                          <i class="icon icon-home-hashtag icon-size-24px"></i>
+                        </div>
+                        <span class="fw-semibold fs-14px text-secondary"
+                          >Cost of Goods Sold</span
+                        >
+                        <h3 class="fw-semibold text-danger">$571.4K</h3>
+
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Card Name -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              Year ago
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >$2.4M</span
+                            >
+                          </div>
+
+                          <!-- Status -->
+                          <div
+                            class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                          >
+                            <i
+                              class="icon icon-call-down icon-size-24px text-danger-icon"
+                            ></i>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              % Change
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >-76.57%</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="bg-primary-100 p-custom-7 rounded-12px">
+                      <div class="d-flex flex-column gap-1">
+                        <div class="icon-box">
+                          <i class="icon icon-shopping-cart icon-size-24px"></i>
+                        </div>
+                        <span class="fw-semibold fs-14px text-secondary"
+                          >Expenses</span
+                        >
+                        <h3 class="fw-semibold text-danger">$38.9K</h3>
+
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Card Name -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              Year ago
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >$43.2K</span
+                            >
+                          </div>
+
+                          <!-- Status -->
+                          <div
+                            class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                          >
+                            <i
+                              class="icon icon-call-down icon-size-24px text-danger-icon"
+                            ></i>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              % Change
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >-14.76%</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="bg-primary-100 p-custom-7 rounded-12px">
+                      <div class="d-flex flex-column gap-1">
+                        <div class="icon-box">
+                          <i class="icon icon-status-up icon-size-24px"></i>
+                        </div>
+                        <span class="fw-semibold fs-14px text-secondary"
+                          >Gross Profit</span
+                        >
+                        <h3 class="fw-semibold text-danger">$39.1K</h3>
+
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Card Name -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              Year ago
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >$90.5K</span
+                            >
+                          </div>
+
+                          <!-- Status -->
+                          <div
+                            class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                          >
+                            <i
+                              class="icon icon-call-down icon-size-24px text-danger-icon"
+                            ></i>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              % Change
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >-56.74%</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card Net Profit -->
+                  <div>
+                    <div class="bg-primary-100 p-custom-7 rounded-12px">
+                      <div class="d-flex flex-column gap-1">
+                        <div class="icon-box">
+                          <i class="icon icon-graph icon-size-24px"></i>
+                        </div>
+                        <span class="fw-semibold fs-14px text-secondary"
+                          >Net Profit</span
+                        >
+                        <h3 class="fw-semibold text-success">$22,2K</h3>
+
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Card Name -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              Year ago
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >$47.8K</span
+                            >
+                          </div>
+
+                          <!-- Status -->
+                          <div
+                            class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center"
+                          >
+                            <i
+                              class="icon icon-call-up icon-size-24px text-success-icon"
+                            ></i>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              % Change
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >-51.86%</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card A/R -->
+                  <div>
+                    <div class="bg-primary-100 p-custom-7 rounded-12px">
+                      <div class="d-flex flex-column gap-1">
+                        <div class="icon-box">
+                          <i class="icon icon-receipt-2 icon-size-24px"></i>
+                        </div>
+                        <span class="fw-semibold fs-14px text-secondary"
+                          >A/R</span
+                        >
+                        <h3 class="fw-semibold text-neutral-base">$0</h3>
+
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Card Name -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              Year ago
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >N/A</span
+                            >
+                          </div>
+
+                          <!-- Status -->
+                          <div
+                            class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center"
+                          >
+                            <i class="icon icon-minus icon-size-24px"></i>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              % Change
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >N/A</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card Assets -->
+                  <div>
+                    <div class="bg-primary-100 p-custom-7 rounded-12px">
+                      <div class="d-flex flex-column gap-1">
+                        <div class="icon-box">
+                          <i class="icon icon-graph icon-size-24px"></i>
+                        </div>
+                        <span class="fw-semibold fs-14px text-secondary"
+                          >Assets</span
+                        >
+                        <h3 class="fw-semibold text-success">$67.4K</h3>
+
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Card Name -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              Year ago
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >$48.2K</span
+                            >
+                          </div>
+
+                          <!-- Status -->
+                          <div
+                            class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center"
+                          >
+                            <i
+                              class="icon icon-call-up icon-size-24px text-success-icon"
+                            ></i>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              % Change
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >29.53%</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="bg-primary-100 p-custom-7 rounded-12px">
+                      <div class="d-flex flex-column gap-1">
+                        <div class="icon-box">
+                          <i class="icon icon-empty-wallet icon-size-24px"></i>
+                        </div>
+                        <span class="fw-semibold fs-14px text-secondary"
+                          >Bank</span
+                        >
+                        <h3 class="fw-semibold text-danger">$48.2K</h3>
+
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Card Name -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              Year ago
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >-63.55%</span
+                            >
+                          </div>
+
+                          <!-- Status -->
+                          <div
+                            class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                          >
+                            <i
+                              class="icon icon-call-down icon-size-24px text-danger-icon"
+                            ></i>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <p class="mb-0 fs-12px text-neutral-400">
+                              % Change
+                            </p>
+                            <span class="fs-12px fw-semibold text-neutral-base"
+                              >-56.74%</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-column gap-3">
+                  <h2 class="summary-sub-title">Profit Analysis</h2>
+                  <p class="summary-description">
+                    We compare the current period with the previous period,
+                    examining sales, cost of goods sold (COGS), gross profit,
+                    expenses, and net profit to identify trends and assess the
+                    business's performance.
+                  </p>
+
+                  <div class="tab-content" id="pills-tabContent">
+                    <!-- Tabs Profit & Lost  -->
+                    <div
+                      class="tab-pane tab-financial tab-financial fade show active-profit-tabs"
+                      id="pills-profit"
+                      role="tabpanel"
+                      aria-labelledby="pills-profit-tab"
+                      tabindex="0"
+                    >
+                      <table class="table" id="profitLostTab">
+                        <thead>
+                          <tr
+                            class="table-header border-top border-top-2 border-black"
+                          >
+                            <th class=""></th>
+                            <th width="10%" class="text-start text-neutral-400">
+                              May 2024
+                            </th>
+                            <th width="10%" class="text-start text-neutral-400">
+                              June 2024
+                            </th>
+                            <th width="10%" class="text-start text-neutral-400">
+                              % Change
+                            </th>
+                            <th width="10%" class="text-start text-neutral-400">
+                              Year-to Last Month
+                            </th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <!-- Table Neutral -->
+                          <tr class="neutral-table">
+                            <td class="ps-4">Income</td>
+                            <td>$80,279</td>
+                            <td>$71,436</td>
+                            <td class="change-positive">12%</td>
+                            <td>$509,968</td>
+                          </tr>
+
+                          <!-- Table Neutral -->
+                          <tr class="neutral-table-light">
+                            <td class="ps-4">Cost of Goods Sold</td>
+                            <td>$80,827</td>
+                            <td>$96,123</td>
+                            <td class="change-negative">16%</td>
+                            <td>$474,421</td>
+                          </tr>
+
+                          <!-- Table Neutral -->
+                          <tr class="neutral-table-light">
+                            <td class="ps-4">Gross Profit</td>
+                            <td>-$548</td>
+                            <td>-$24,687</td>
+                            <td class="change-positive">98%</td>
+                            <td>$35,537</td>
+                          </tr>
+
+                          <!-- Table Neutral -->
+                          <tr class="neutral-table-light">
+                            <td class="ps-4">Expenses</td>
+                            <td>$4,570</td>
+                            <td>$7,071</td>
+                            <td class="change-negative">35%</td>
+                            <td>$34,537</td>
+                          </tr>
+
+                          <!-- Table Neutral -->
+                          <tr class="neutral-table-light">
+                            <td class="ps-4">Net Income</td>
+                            <td>-$5,118</td>
+                            <td>-$31,757</td>
+                            <td class="change-positive">84%</td>
+                            <td>$1,010</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container"
+                  >
+                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                      <canvas class="mt-2" id="multiLineChart"></canvas>
+                    </div>
+
+                    <!-- <canvas id="multiLineChart"></canvas> -->
+
+                    <div class="mt-4 w-100 overflow-auto">
+                      <div
+                        id="chart_legend_modal"
+                        class="d-flex gap-4 justify-content-center align-items-center mt-2"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center w-100 mt-5">
+                    <div
+                      class="p-3 bg-primary-100 d-flex align-items-center gap-3 rounded-3"
+                    >
+                      <i
+                        class="icon icon-export icon-size-14px text-success-icon"
+                      ></i>
+                      <span>Your Net Profit has increased which is good. </span>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-end mt-5 mb-3">
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                      style="width: 55%"
+                    >
+                      <img
+                        src="../../assets/images/logo/finance-zoom-logo-gold.svg"
+                        alt="logo-gold"
+                        class="h-10 w-10"
+                      />
+                      <span class="rounded py-1 px-2 fs-12px bg-primary-100"
+                        >Page 1</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="summary" style="height: 100dvh">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Cash Balance</h1>
+              </div>
+              <div class="summary-container">
+                <!-- Historic Chart of Selected Accounts Overview of Profit -->
+                <div class="col-12">
+                  <div class="p-3 rounded-3 border">
+                    <div class="tab-financial">
+                      <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                        <canvas class="mt-2" id="historicChart"></canvas>
+                      </div>
+                      <!-- <canvas id="historicChart"></canvas> -->
+
+                      <div class="col-12 mt-4">
+                        <div
+                          id="chart_legend"
+                          class="d-flex gap-4 justify-content-center align-items-center mt-2"
+                        >
+                          <!-- Legend will be inserted here -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center w-100 mt-5">
+                  <div
+                    class="p-3 bg-primary-100 d-flex align-items-center gap-3 rounded-3"
+                  >
+                    <i
+                      class="icon icon-import icon-size-14px text-danger-icon"
+                    ></i>
+                    <span
+                      >Your cash has decreased compared to the last month.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-5 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                    style="width: 55%"
+                  >
+                    <img
+                      src="../../assets/images/logo/finance-zoom-logo-gold.svg"
+                      alt="logo-gold"
+                      class="h-10 w-10"
+                    />
+                    <span class="rounded py-1 px-2 fs-12px bg-primary-100"
+                      >Page 2</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="summary">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Income and Cost Analysis</h1>
+              </div>
+              <div class="summary-container">
+                <!-- Historic Chart of Selected Accounts Overview of Profit -->
+                <div>
+                  <h1 class="summary-sub-title">Sales and Cost Trends</h1>
+                  <p class="summary-description">
+                    The table below presents a snapshot of the company’s sales
+                    and cost trends.
+                  </p>
+                </div>
+
+                <div class="d-flex justify-content-center w-100">
+                  <div
+                    class="p-3 bg-primary-100 d-flex align-items-center gap-3 rounded-3"
+                  >
+                    <i
+                      class="icon icon-export icon-size-14px text-success-icon"
+                    ></i>
+                    <span
+                      >The Rising Revenue growth rate demonstrates that the
+                      company’s core business activities are effectively
+                      generating increased income, indicating positive
+                      performance
+                    </span>
+                  </div>
+                </div>
+
+                <div class="tab-content mt-4" id="pills-tabContent">
+                  <!-- Tabs Profit & Lost  -->
+                  <div
+                    class="tab-pane tab-financial tab-financial fade show active-profit-tabs"
+                    id="pills-profit"
+                    role="tabpanel"
+                    aria-labelledby="pills-profit-tab"
+                    tabindex="0"
+                  >
+                    <table class="table" id="profitLostTab">
+                      <thead>
+                        <tr
+                          class="table-header border-top border-top-2 border-black"
+                        >
+                          <th class=""></th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            May 2024
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            June 2024
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            % Change
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Year-to Last Month
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <!-- Table Neutral -->
+                        <tr class="neutral-table">
+                          <td class="ps-4">Sales</td>
+                          <td>$80,279</td>
+                          <td>$71,436</td>
+                          <td class="change-negative">-11.02%</td>
+                          <td>$509,968</td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr class="neutral-table-light">
+                          <td class="ps-4">Cost of Goods Sold</td>
+                          <td>$80,827</td>
+                          <td>$96,123</td>
+                          <td class="change-positive">18.92%</td>
+                          <td>$474,421</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div>
+                  <p>
+                    Check your historical data identify patterns that reveal the
+                    effectiveness of revenue generation and cost management
+                    strategies below.
+                  </p>
+                  <div
+                    class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container"
+                  >
+                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                      <canvas class="mt-2" id="incomeCostAnalysis"></canvas>
+                    </div>
+                    <!-- <canvas id="incomeCostAnalysis"></canvas> -->
+
+                    <div class="mt-4 w-100 overflow-auto">
+                      <div
+                        id="chart_legend_modal"
+                        class="d-flex gap-4 justify-content-center align-items-center mt-2"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <h1 class="summary-sub-title">Revenure Concentration</h1>
+                  <p class="summary-description">
+                    If a single customer generates a high percentage of your
+                    revenues, you could face financial difficulty if that
+                    customer stops buying..
+                  </p>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <div class="d-flex flex-column justify-content-start">
+                    <h1 class="summary-sub-title">
+                      Study The Planet LLC (IHS)
+                    </h1>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <div
+                        class="p-1 bg-success-light rounded-circle d-flex justify-content-center align-items-center"
+                      >
+                        <i
+                          class="icon icon-call-up icon-size-14px text-success-icon"
+                        ></i>
+                      </div>
+                      <span>11% on Sales</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex gap-1 align-items-center mt-4">
+                  <i class="icon icon-receipt-2 icon-size-14px"></i>
+                  <span>
+                    Note: The revenue concentration table was not calculated
+                    because there were no customers exceeding 10% of the sales.
+                  </span>
+                </div>
+
+                <div class="d-flex justify-content-center w-100 mt-5">
+                  <div
+                    class="p-3 bg-primary-100 d-flex align-items-center gap-3 rounded-3"
+                  >
+                    <i
+                      class="icon icon-export icon-size-14px text-success-icon"
+                    ></i>
+                    <span
+                      >No client should represent more than 10 percent of your
+                      total revenues.
+                      <span class="text-primary">
+                        Expand your range of customers.</span
+                      ></span
+                    >
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-5 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                    style="width: 55%"
+                  >
+                    <img
+                      src="../../assets/images/logo/finance-zoom-logo-gold.svg"
+                      alt="logo-gold"
+                      class="h-10 w-10"
+                    />
+                    <span class="rounded py-1 px-2 fs-12px bg-primary-100"
+                      >Page 3</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </main>
       </div>
@@ -200,6 +1009,16 @@
     <!-- <script src="../../assets/js/jquery.slim.min.js"></script> -->
     <script src="../../assets/js/jquery.min.js"></script>
 
+    <!-- Select2 -->
+    <script src="../../assets/vendor/select2/dist/js/select2.full.min.js"></script>
+
+    <!-- CartJS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+    <!-- Slick -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <!-- Local Assets -->
     <script src="../../assets/js/select2.js"></script>
     <script src="../../assets/js/dashboard.js"></script>
@@ -207,15 +1026,44 @@
     <script src="../../assets/js/slider.js"></script>
     <script src="../../assets/js/global.js"></script>
 
+    <!-- Chart -->
+    <script src="../../assets/js/lineChart.js"></script>
+    <script src="../../assets/js/doughnutChart.js"></script>
+    <script src="../../assets/js/barChart.js"></script>
+    <script src="../../assets/js/breakevenChart.js"></script>
+    <script src="../../assets/js/multiLineChart.js"></script>
+    <script src="../../assets/js/multiLineChart2.js"></script>
+
     <script>
       function downloadFile() {
-        const link = document.createElement('a');
-        link.href = 'file.pdf'; // Replace with the file path
-        link.download = 'summary.pdf'; // Replace with the desired filename
+        const link = document.createElement("a");
+        link.href = "file.pdf"; // Replace with the file path
+        link.download = "summary.pdf"; // Replace with the desired filename
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
       }
+
+      // Zoom Page Handler
+      const handleZoomIncrease = () => {
+        let zoomValue = document.getElementById("zoom-value").innerText;
+        if (Number(zoomValue.replace("%", "")) < 200) {
+          let increasedZoomValue = Number(zoomValue.replace("%", "")) + 10;
+          document.getElementById("zoom-value").innerText = `${String(
+            increasedZoomValue
+          )}%`;
+          document.getElementById("main-content").v;
+        }
+      };
+      const handleZoomDecrease = () => {
+        let zoomValue = document.getElementById("zoom-value").innerText;
+        if (Number(zoomValue.replace("%", "")) > 0) {
+          let increasedZoomValue = `${
+            Number(zoomValue.replace("%", "")) - 10
+          }%`;
+          document.getElementById("zoom-value").innerText = increasedZoomValue;
+        }
+      };
     </script>
   </body>
 </html>

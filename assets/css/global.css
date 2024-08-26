@@ -657,6 +657,10 @@ a {
 }
 
 /* font size */
+.fs-32px {
+  font-size: 21px !important;
+}
+
 .fs-21px {
   font-size: 21px !important;
 }
