@@ -387,8 +387,8 @@ $(document).ready(function () {
 
   initializeChart(
     "incomeCostAnalysis",
-    chartData4.labels,
-    chartData4.data,
+    chartData3.labels,
+    chartData3.data,
     "K",
     true,
     true
@@ -396,8 +396,8 @@ $(document).ready(function () {
 
   initializeChart(
     "incomeCostAnalysis2",
-    chartData4.labels,
-    chartData4.data,
+    chartData3.labels,
+    chartData3.data,
     "K",
     true,
     true

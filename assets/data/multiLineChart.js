@@ -391,15 +391,6 @@ $(document).ready(function () {
     true
   );
 
-  initializeChart(
-    "incomeCostAnalysis",
-    chartData4.labels,
-    chartData4.data,
-    "K",
-    false,
-    true
-  );
-
   // Create single legend
   createLegend();
 });

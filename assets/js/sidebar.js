@@ -121,7 +121,7 @@ $(document).ready(function () {
           display: "block",
           left: 0,
           top: 0,
-          "z-index": 999,
+          "z-index": 9999,
           transition: ".5s",
         });
         $textSidebar.show();

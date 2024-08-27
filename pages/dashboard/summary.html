@@ -44,24 +44,48 @@
       <aside
         class="min-vh-100 bg-white p-4 position-fixed dashboard-side-trick"
       >
+        <div class="logo-sidebar d-flex d-md-none align-items-center">
+          <div class="d-flex align-items-center gap-3 dashboard-left-avatar">
+            <div class="w-35px eagle-logo_sidebar_main">
+              <img src="../../assets/images/logo/eagle-logo.svg" alt="logo" />
+            </div>
+
+            <div class="w-35px eagle-logo_sidebar">
+              <img src="../../assets/images/logo/eagle_logo.svg" alt="logo" />
+            </div>
+          </div>
+
+          <div class="icon_humberger_sidebar" style="cursor: pointer">
+            <div class="d-flex align-item-center">
+              <div class="d-flex alig-items-center">
+                <i
+                  class="icon icon-menu icon-size-24px dashboard-humberger"
+                ></i>
+                <!-- <img class="dashboard-humberger" src="../../assets/images/icons/humberger-menu.svg" width="24" height="24" alt="="> -->
+              </div>
+            </div>
+          </div>
+        </div>
         <ul class="navbar-nav gap-2 mb-1 mt-custom-32">
           <li class="nav-item">
             <a
-              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active"
+              id="menu-1"
+              onclick="handleChangeLink('executive-summary')"
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 executive-summary"
               href="#executive-summary"
-              data-target="#executive-summary"
             >
-              <i class="icon icon-dashboard text-white-icon icon-size-24px"></i>
-              <span class="fw-semibold fs-14px text_sidebar"
+              <i class="icon icon-dashboard icon-size-24px"></i>
+              <span class="fw-semibold fs-14px text-secondary text_sidebar"
                 >Executive Summary</span
               >
             </a>
           </li>
           <li class="nav-item">
             <a
-              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              id="menu-2"
+              onclick="handleChangeLink('cash-balance')"
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 cash-balance"
               href="#cash-balance"
-              data-target="#cash-balance"
             >
               <i class="icon icon-finance icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -71,9 +95,10 @@
           </li>
           <li class="nav-item">
             <a
-              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#income-and-cost-analysis"
-              data-target="#income-and-cost-analysis"
+              id="menu-3"
+              onclick="handleChangeLink('income')"
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 income"
+              href="#income"
             >
               <i class="icon icon-linear-graph icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -83,9 +108,10 @@
           </li>
           <li class="nav-item">
             <a
-              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              id="menu-4"
+              onclick="handleChangeLink('expense-analysis')"
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 expense-analysis"
               href="#expense-analysis"
-              data-target="#expense-analysis"
             >
               <i class="icon icon-linear-computing icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -95,9 +121,10 @@
           </li>
           <li class="nav-item">
             <a
-              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              id="menu-5"
+              onclick="handleChangeLink('profitability-analysis')"
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 profitability-analysis"
               href="#profitability-analysis"
-              data-target="#profitability-analysis"
             >
               <i class="icon icon-linear-chart icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -107,9 +134,10 @@
           </li>
           <li class="nav-item">
             <a
-              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#major-kpis"
-              data-target="#major-kpis"
+              id="menu-6"
+              onclick="handleChangeLink('major-kpi')"
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 major-kpi"
+              href="#major-kpi"
             >
               <i class="icon icon-linear-chart-2 icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -119,9 +147,10 @@
           </li>
           <li class="nav-item">
             <a
-              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#profit-and-lost"
-              data-target="#profit-and-lost"
+              id="menu-7"
+              onclick="handleChangeLink('profit-lost')"
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 profit-lost"
+              href="#profit-lost"
             >
               <i class="icon icon-linear-iconoir_group icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -131,9 +160,10 @@
           </li>
           <li class="nav-item">
             <a
-              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              id="menu-8"
+              onclick="handleChangeLink('balance-sheet')"
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 balance-sheet"
               href="#balance-sheet"
-              data-target="#balance-sheet"
             >
               <i class="icon icon-linear-status-up icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -143,9 +173,10 @@
           </li>
           <li class="nav-item">
             <a
-              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
+              id="menu-9"
+              onclick="handleChangeLink('accounts-receivables')"
+              class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 accounts-receivables"
               href="#accounts-receivables"
-              data-target="#accounts-receivables"
             >
               <i class="icon icon-linear-wallet-add icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -208,7 +239,15 @@
         <div
           class="fixed-top navbar-aside bg-primary-100 w-dashboard menuContent"
         >
-          <div class="py-3 d-flex justify-content-center">
+          <div
+            class="py-3 d-flex justify-content-between justify-content-md-center align-items-center mx-4"
+          >
+            <div
+              class="icon_humberger_navbar dashboard-icon_humberger_navbar d-flex d-md-none"
+              style="cursor: pointer; margin-right: 24px"
+            >
+              <i class="icon icon-menu icon-size-24px"></i>
+            </div>
             <div
               class="d-flex align-items-center justify-content-center bg-white rounded-12px p-2"
             >
@@ -252,7 +291,7 @@
             </section>
 
             <!-- Page 1 -->
-            <section id="executive-summary" class="summary">
+            <div id="executive-summary" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Executive Summary</h1>
@@ -785,7 +824,7 @@
             </section>
 
             <!-- Page 2 -->
-            <section id="cash-balance" class="summary">
+            <div id="cash-balance" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Cash Balance</h1>
@@ -846,7 +885,7 @@
             </section>
 
             <!-- Page 3 -->
-            <section id="income-and-cost-analysis" class="summary">
+            <div id="income" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Income and Cost Analysis</h1>
@@ -946,7 +985,6 @@
                     >
                       <canvas class="mt-2" id="incomeCostAnalysis"></canvas>
                     </div>
-                    <!-- <canvas id="incomeCostAnalysis"></canvas> -->
 
                     <div class="mt-4 w-100 overflow-auto">
                       <div
@@ -1033,7 +1071,7 @@
             </section>
 
             <!-- Expense Analysis -->
-            <section id="expense-analysis" class="summary">
+            <div id="expense-analysis" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Expense Analysis</h1>
@@ -1222,7 +1260,6 @@
                       id="totalExpenseVsTotalIncome"
                     ></canvas>
                   </div>
-                  <!-- <canvas id="incomeCostAnalysis"></canvas> -->
 
                   <div class="mt-4 w-100 overflow-auto">
                     <div
@@ -1251,7 +1288,7 @@
             </section>
 
             <!-- Profitability Analysis -->
-            <section id="profitability-analysis" class="summary">
+            <div id="profitability-analysis" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Profitability Analysis</h1>
@@ -1394,7 +1431,6 @@
                   >
                     <canvas class="mt-2" id="grossProfitMargin"></canvas>
                   </div>
-                  <!-- <canvas id="incomeCostAnalysis"></canvas> -->
                 </div>
 
                 <div class="d-flex justify-content-center w-100 mt-5">
@@ -1550,7 +1586,6 @@
                   >
                     <canvas class="mt-2" id="netProfitMargin"></canvas>
                   </div>
-                  <!-- <canvas id="incomeCostAnalysis"></canvas> -->
                 </div>
 
                 <div class="d-flex justify-content-center w-100 mt-5">
@@ -1588,7 +1623,7 @@
             </section>
 
             <!-- Major KPIs -->
-            <section id="major-kpis" class="summary">
+            <div id="major-kpi" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Major KPIs</h1>
@@ -1646,44 +1681,22 @@
                       >
                         <span class="fs-14px fw-semibold text-neutral-400">
                           June Current Ratio
-                        </span>
-                        <div
-                          class="d-flex gap-2 justify-content-between align-items-center"
-                        >
-                          <div class="d-flex align-items-center gap-2">
-                            <div class="d-flex p-1">
-                              <div
-                                class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center"
-                              >
-                                <i class="icon icon-minus"></i>
-                              </div>
-                            </div>
-                          </div>
-
-                          <!-- % Change -->
-                          <div class="d-flex flex-column">
-                            <span class="fs-12px fw-semibold text-neutral-base">
-                              0%
-                            </span>
-                          </div>
+                        </h3>
+                        <div class="d-flex align-items-center gap-2">
+                          <span
+                            class="fs-12px py-1 px-2 bg-primary-100 rounded-circle"
+                            >-</span
+                          >
+                          <span class="fs-12px">0%</span>
                         </div>
                       </div>
                     </div>
-
-                    <div
-                      class="d-flex justify-content-center p-3"
-                      style="min-width: 400; min-height: 400px"
-                    >
-                      <canvas class="mt-2" id="majorKpi"></canvas>
-                    </div>
-                    <!-- <canvas id="incomeCostAnalysis"></canvas> -->
-
-                    <div class="mt-4 w-100 overflow-auto">
-                      <div
-                        id="chart_legend_additional"
-                        class="d-flex gap-4 justify-content-center flex-wrap align-items-center mt-2"
-                      ></div>
-                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-center p-3"
+                    style="min-width: 400; min-height: 400px"
+                  >
+                    <canvas class="mt-2" id="currentRatio"></canvas>
                   </div>
                 </div>
 
@@ -1745,61 +1758,25 @@
                             </div>
                           </div>
 
-                          <!-- % Change -->
-                          <div class="d-flex flex-column">
-                            <span class="fs-12px fw-semibold text-neutral-base">
-                              5%
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <!-- June Current Ratio -->
-                      <div
-                        class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white rounded-12px w-md-100 w-auto"
-                      >
-                        <span class="fs-14px fw-semibold text-neutral-400">
-                          June Current Ratio
-                        </span>
-                        <div
-                          class="d-flex gap-2 justify-content-between align-items-center"
-                        >
-                          <div class="d-flex align-items-center gap-2">
-                            <div class="d-flex p-1">
-                              <div
-                                class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center"
-                              >
-                                <i
-                                  class="icon icon-call-up icon-size-24px text-success-icon"
-                                ></i>
-                              </div>
-                            </div>
-                          </div>
-
-                          <!-- % Change -->
-                          <div class="d-flex flex-column">
-                            <span class="fs-12px fw-semibold text-neutral-base">
-                              8%
-                            </span>
-                          </div>
+                    <div class="w-100 border rounded py-3 px-5">
+                      <div class="d-flex flex-column align-items-center">
+                        <h3 class="fs-14px text-secondary fw-semibold">
+                          June (D/E) Ratio
+                        </h3>
+                        <div class="d-flex align-items-center gap-2">
+                          <i
+                            class="icon icon-call-up icon-size-14px text-success-icon"
+                          ></i>
+                          <span class="fs-12px">5%</span>
                         </div>
                       </div>
                     </div>
-
-                    <div
-                      class="d-flex justify-content-center p-3"
-                      style="min-width: 400; min-height: 400px"
-                    >
-                      <canvas class="mt-2" id="majorKpi2"></canvas>
-                    </div>
-                    <!-- <canvas id="incomeCostAnalysis"></canvas> -->
-
-                    <div class="mt-4 w-100 overflow-auto">
-                      <div
-                        id="chart_legend_additional"
-                        class="d-flex gap-4 justify-content-center flex-wrap align-items-center mt-2"
-                      ></div>
-                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-center p-3"
+                    style="min-width: 400; min-height: 400px"
+                  >
+                    <canvas class="mt-2" id="debtToEquity"></canvas>
                   </div>
                 </div>
 
@@ -1878,46 +1855,21 @@
                       >
                         <span class="fs-14px fw-semibold text-neutral-400">
                           June ROA
-                        </span>
-                        <div
-                          class="d-flex gap-2 justify-content-between align-items-center"
-                        >
-                          <div class="d-flex align-items-center gap-2">
-                            <div class="d-flex p-1">
-                              <div
-                                class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
-                              >
-                                <i
-                                  class="icon icon-call-down icon-size-24px text-danger-icon"
-                                ></i>
-                              </div>
-                            </div>
-                          </div>
-
-                          <!-- % Change -->
-                          <div class="d-flex flex-column">
-                            <span class="fs-12px fw-semibold text-neutral-base">
-                              -1.65%
-                            </span>
-                          </div>
+                        </h3>
+                        <div class="d-flex align-items-center gap-2">
+                          <i
+                            class="icon icon-call-down icon-size-14px text-danger-icon"
+                          ></i>
+                          <span class="fs-12px">-1.65%</span>
                         </div>
                       </div>
                     </div>
-
-                    <div
-                      class="d-flex justify-content-center p-3"
-                      style="min-width: 400; min-height: 400px"
-                    >
-                      <canvas class="mt-2" id="majorKpi3"></canvas>
-                    </div>
-                    <!-- <canvas id="incomeCostAnalysis"></canvas> -->
-
-                    <div class="mt-4 w-100 overflow-auto">
-                      <div
-                        id="chart_legend_additional"
-                        class="d-flex gap-4 justify-content-center flex-wrap align-items-center mt-2"
-                      ></div>
-                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-center p-3"
+                    style="min-width: 400; min-height: 400px"
+                  >
+                    <canvas class="mt-2" id="returnOnAssets"></canvas>
                   </div>
                 </div>
 
@@ -1955,7 +1907,7 @@
             </section>
 
             <!-- Profit and Lost -->
-            <section id="profit-and-lost" class="summary">
+            <div id="profit-lost" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Profit and Loss</h1>
@@ -2471,7 +2423,7 @@
             </section>
 
             <!-- Balance Sheet -->
-            <section id="balance-sheet" class="summary">
+            <div id="balance-sheet" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Balance Sheet</h1>
@@ -2835,7 +2787,7 @@
             </section>
 
             <!-- Accounts Receivables -->
-            <section id="accounts-receivables" class="summary">
+            <div id="accounts-receivables" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Accounts Receivables</h1>
@@ -2974,6 +2926,50 @@
     <script src="../../assets/js/multiLineGridChart.js"></script>
 
     <script>
+      let initialUrl = document.URL.split("#")[1];
+      let menus = {
+        "executive-summary": "menu-1",
+        "cash-balance": "menu-2",
+        income: "menu-3",
+        "expense-analysis": "menu-4",
+        "profitability-analysis": "menu-5",
+        "major-kpi": "menu-6",
+        "profit-lost": "menu-7",
+        "balance-sheet": "menu-8",
+        "accounts-receivables": "menu-9",
+      };
+
+      document.getElementById(menus[initialUrl]).classList.add("active");
+      document
+        .querySelector(`#${menus[initialUrl]} i`)
+        .classList.add("text-white-icon");
+      document
+        .querySelector(`#${menus[initialUrl]} span`)
+        .classList.remove("text-secondary");
+
+      const handleChangeLink = (param) => {
+        for (let index = 1; index < 10; index++) {
+          if (menus[param] === `menu-${index}`) {
+            document.getElementById(menus[param]).classList.add("active");
+            document
+              .querySelector(`#${menus[param]} i`)
+              .classList.add("text-white-icon");
+            document
+              .querySelector(`#${menus[param]} span`)
+              .classList.remove("text-secondary");
+          } else {
+            document.getElementById(`menu-${index}`).classList.remove("active");
+            document
+              .querySelector(`#menu-${index} i`)
+              .classList.remove("text-white-icon");
+
+            document
+              .querySelector(`#menu-${index} span`)
+              .classList.add("text-secondary");
+          }
+        }
+      };
+
       function downloadFile() {
         const link = document.createElement("a");
         link.href = "file.pdf"; // Replace with the file path
@@ -2991,53 +2987,21 @@
           document.getElementById("zoom-value").innerText = `${String(
             increasedZoomValue
           )}%`;
-          document.getElementById("main-content").v;
+          document.getElementById("main-content").style.zoom =
+            String(increasedZoomValue) + "%";
         }
       };
       const handleZoomDecrease = () => {
         let zoomValue = document.getElementById("zoom-value").innerText;
         if (Number(zoomValue.replace("%", "")) > 0) {
-          let increasedZoomValue = `${
-            Number(zoomValue.replace("%", "")) - 10
-          }%`;
-          document.getElementById("zoom-value").innerText = increasedZoomValue;
+          let decreasedZoomValue = Number(zoomValue.replace("%", "")) - 10;
+          document.getElementById("zoom-value").innerText = `${String(
+            decreasedZoomValue
+          )}%`;
+          document.getElementById("main-content").style.zoom =
+            String(decreasedZoomValue) + "%";
         }
       };
-
-      document.addEventListener("DOMContentLoaded", function () {
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll(".nav-link");
-
-        function activateNavLink() {
-          let currentSection = "";
-          sections.forEach((section) => {
-            const sectionTop = section.offsetTop;
-            if (pageYOffset >= sectionTop - 50) {
-              currentSection = section.getAttribute("id");
-            }
-          });
-
-          navLinks.forEach((link) => {
-            const icon = link.querySelector("i");
-            const text = link.querySelector("span");
-
-            link.classList.remove("active");
-            icon.classList.remove("text-white-icon");
-            text.classList.remove("text-white");
-            text.classList.add("text-secondary");
-
-            if (link.getAttribute("data-target") === `#${currentSection}`) {
-              link.classList.add("active");
-              link.classList.add("active");
-              icon.classList.add("text-white-icon");
-              text.classList.add("text-white");
-              text.classList.remove("text-secondary");
-            }
-          });
-        }
-
-        window.addEventListener("scroll", activateNavLink);
-      });
     </script>
   </body>
 </html>
