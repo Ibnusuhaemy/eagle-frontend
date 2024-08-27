@@ -234,10 +234,6 @@ $(document).ready(function () {
         label: "Income",
         data: [0.4, 0.5, 0.55, 0.6, 0.65, 0.7],
       },
-      {
-        label: "Bank Accounts",
-        data: [0.3, 0.45, 0.35, 0.5, 0.4, 0.6],
-      },
     ],
   };
 
@@ -394,7 +390,79 @@ $(document).ready(function () {
     chartData4.labels,
     chartData4.data,
     "K",
-    false,
+    true,
+    true
+  );
+
+  initializeChart(
+    "incomeCostAnalysis2",
+    chartData4.labels,
+    chartData4.data,
+    "K",
+    true,
+    true
+  );
+
+  initializeChart(
+    "profitMargin",
+    chartData2.labels,
+    chartData2.data,
+    "%",
+    true,
+    true
+  );
+
+  initializeChart(
+    "profitMargin2",
+    chartData2.labels,
+    chartData2.data,
+    "%",
+    true,
+    true
+  );
+
+  initializeChart(
+    "majorKpi",
+    chartData2.labels,
+    chartData2.data,
+    "%",
+    true,
+    true
+  );
+
+  initializeChart(
+    "majorKpi2",
+    chartData2.labels,
+    chartData2.data,
+    "%",
+    true,
+    true
+  );
+
+  initializeChart(
+    "majorKpi3",
+    chartData2.labels,
+    chartData2.data,
+    "%",
+    true,
+    true
+  );
+
+  initializeChart(
+    "historicChart2",
+    chartData2.labels,
+    chartData2.data,
+    "%",
+    true,
+    true
+  );
+
+  initializeChart(
+    "totalExpenseVsTotalIncome",
+    chartData4.labels,
+    chartData4.data,
+    "K",
+    true,
     true
   );
 

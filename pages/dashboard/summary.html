@@ -48,7 +48,8 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2 active"
-              href="summary.html"
+              href="#executive-summary"
+              data-target="#executive-summary"
             >
               <i class="icon icon-dashboard text-white-icon icon-size-24px"></i>
               <span class="fw-semibold fs-14px text_sidebar"
@@ -59,7 +60,8 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="cash-balance.html"
+              href="#cash-balance"
+              data-target="#cash-balance"
             >
               <i class="icon icon-finance icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -70,7 +72,8 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="income-cost.html"
+              href="#income-and-cost-analysis"
+              data-target="#income-and-cost-analysis"
             >
               <i class="icon icon-linear-graph icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -81,7 +84,8 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="ar_analysis.html"
+              href="#expense-analysis"
+              data-target="#expense-analysis"
             >
               <i class="icon icon-linear-computing icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -92,7 +96,8 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="profitability_analysis.html"
+              href="#profitability-analysis"
+              data-target="#profitability-analysis"
             >
               <i class="icon icon-linear-chart icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -103,7 +108,8 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#"
+              href="#major-kpis"
+              data-target="#major-kpis"
             >
               <i class="icon icon-linear-chart-2 icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -114,7 +120,8 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#"
+              href="#profit-and-lost"
+              data-target="#profit-and-lost"
             >
               <i class="icon icon-linear-iconoir_group icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -125,7 +132,8 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#"
+              href="#balance-sheet"
+              data-target="#balance-sheet"
             >
               <i class="icon icon-linear-status-up icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -136,7 +144,8 @@
           <li class="nav-item">
             <a
               class="nav-link p-custom-12 rounded-3 d-flex align-items-center gap-2"
-              href="#"
+              href="#accounts-receivables"
+              data-target="#accounts-receivables"
             >
               <i class="icon icon-linear-wallet-add icon-size-24px"></i>
               <span class="fw-semibold fs-14px text-secondary text_sidebar"
@@ -224,7 +233,10 @@
         <!-- <embed src="file.pdf" class="p-2 pdf-container" frameborder="0"></embed> -->
         <main id="main-content" class="mt-dashboard w-100 p-custom-7">
           <div class="row gap-40 h-100">
-            <div class="bg-white cover-image position-relative">
+            <section
+              id="executive-summary"
+              class="bg-white cover-image position-relative"
+            >
               <div class="d-flex flex-column cover-image-container">
                 <h1 class="cover-image-header">Financial Snapshot</h1>
                 <h4 class="cover-image-sub-header">
@@ -237,8 +249,10 @@
                 />
               </div>
               <p class="cover-image-date-text">July 2024</p>
-            </div>
-            <div class="summary">
+            </section>
+
+            <!-- Page 1 -->
+            <section id="executive-summary" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Executive Summary</h1>
@@ -720,7 +734,10 @@
                   <div
                     class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container"
                   >
-                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                    <div
+                      class="d-flex justify-content-center p-3"
+                      style="min-width: 400; min-height: 400px"
+                    >
                       <canvas class="mt-2" id="multiLineChart"></canvas>
                     </div>
 
@@ -729,7 +746,7 @@
                     <div class="mt-4 w-100 overflow-auto">
                       <div
                         id="chart_legend_modal"
-                        class="d-flex gap-4 justify-content-center align-items-center mt-2"
+                        class="d-flex gap-4 justify-content-center flex-wrap align-items-center mt-2"
                       ></div>
                     </div>
                   </div>
@@ -765,8 +782,10 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="summary">
+            </section>
+
+            <!-- Page 2 -->
+            <section id="cash-balance" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Cash Balance</h1>
@@ -776,15 +795,18 @@
                 <div class="col-12">
                   <div class="p-3 rounded-3 border">
                     <div class="tab-financial">
-                      <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
-                        <canvas class="mt-2" id="historicChart"></canvas>
+                      <div
+                        class="d-flex justify-content-center p-3"
+                        style="min-width: 400; min-height: 400px"
+                      >
+                        <canvas class="mt-2" id="historicChart2"></canvas>
                       </div>
                       <!-- <canvas id="historicChart"></canvas> -->
 
                       <div class="col-12 mt-4">
                         <div
-                          id="chart_legend"
-                          class="d-flex gap-4 justify-content-center align-items-center mt-2"
+                          id="chart_legend_cash_balance"
+                          class="d-flex gap-4 justify-content-center flex-wrap align-items-center mt-2"
                         >
                           <!-- Legend will be inserted here -->
                         </div>
@@ -821,8 +843,10 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="summary">
+            </section>
+
+            <!-- Page 3 -->
+            <section id="income-and-cost-analysis" class="summary">
               <div class="summary-title">
                 <div class="blue-box"></div>
                 <h1>Income and Cost Analysis</h1>
@@ -916,7 +940,10 @@
                   <div
                     class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container"
                   >
-                    <div class="d-flex justify-content-center p-3" style="min-width: 400; min-height: 400px;">
+                    <div
+                      class="d-flex justify-content-center p-3"
+                      style="min-width: 400; min-height: 400px"
+                    >
                       <canvas class="mt-2" id="incomeCostAnalysis"></canvas>
                     </div>
                     <!-- <canvas id="incomeCostAnalysis"></canvas> -->
@@ -1003,7 +1030,1910 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
+
+            <!-- Expense Analysis -->
+            <section id="expense-analysis" class="summary">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Expense Analysis</h1>
+              </div>
+              <div class="summary-container">
+                <div>
+                  <h2 class="summary-sub-title">Expense Trend</h2>
+                  <span class="summary-description"
+                    >Your spending has decreased compared to last month.</span
+                  >
+                </div>
+
+                <div class="tab-content" id="pills-tabContent">
+                  <!-- Tabs Profit & Lost  -->
+                  <div
+                    class="tab-pane tab-financial tab-financial fade show active-profit-tabs"
+                    id="pills-profit"
+                    role="tabpanel"
+                    aria-labelledby="pills-profit-tab"
+                    tabindex="0"
+                  >
+                    <table class="table" id="profitLostTab">
+                      <thead>
+                        <tr
+                          class="table-header border-top border-top-2 border-black"
+                        >
+                          <th class=""></th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            May 2024
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            June 2024
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            % Change
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Year-to Last Month
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <!-- Table Neutral -->
+                        <tr class="neutral-table">
+                          <td class="ps-4">Total Expenses</td>
+                          <td>$4,570</td>
+                          <td>$7,071</td>
+                          <td class="change-negative">-35%</td>
+                          <td>$34,537</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <span class="summary-description">
+                  Below is a chart of this month’s spending broken down into
+                  different categories for easier understanding.
+                </span>
+
+                <div class="d-flex justify-content-center">
+                  <div
+                    class="d-flex justify-content-center p-3"
+                    style="min-width: 400; min-height: 400px"
+                  >
+                    <canvas class="mt-2" id="expensesDoughnutChart3"></canvas>
+                  </div>
+                </div>
+
+                <div class="tab-content" id="pills-tabContent">
+                  <!-- Tabs Profit & Lost  -->
+                  <div
+                    class="tab-pane tab-financial tab-financial fade show active-profit-tabs"
+                    id="pills-profit"
+                    role="tabpanel"
+                    aria-labelledby="pills-profit-tab"
+                    tabindex="0"
+                  >
+                    <table class="table" id="profitLostTab">
+                      <thead>
+                        <tr
+                          class="table-header border-top border-top-2 border-black"
+                        >
+                          <th class="text-start text-neutral-400">Account</th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            May 2024
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            June 2024
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Year-to Last Month
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <!-- Table Neutral -->
+                        <tr>
+                          <td>Wages & Salary</td>
+                          <td>$3,279</td>
+                          <td>$3,636</td>
+                          <td>$19,992</td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr>
+                          <td>Rent & Lease</td>
+                          <td>$0</td>
+                          <td>$2,500</td>
+                          <td>$7,500</td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr>
+                          <td>Payroll Taxes</td>
+                          <td>$850</td>
+                          <td>-$850</td>
+                          <td>$5,537</td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr>
+                          <td>Meals & Entertainment</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td>$699</td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr>
+                          <td>Office Supplies</td>
+                          <td>$82</td>
+                          <td>$82</td>
+                          <td>$508</td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr>
+                          <td>Payroll Fees</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td>$490</td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr>
+                          <td>Bank Charges & Fees</td>
+                          <td>$3</td>
+                          <td>$3</td>
+                          <td>$137</td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr>
+                          <td>Automobile Expenses</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td>$25</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <h2 class="summary-sub-title">
+                    Total Expenses vs Total Income
+                  </h2>
+                  <span class="summary-description"
+                    >The graph below shows the historical trends of income and
+                    expenses</span
+                  >
+                </div>
+
+                <div
+                  class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container"
+                >
+                  <div
+                    class="d-flex justify-content-center p-3"
+                    style="min-width: 400; min-height: 400px"
+                  >
+                    <canvas
+                      class="mt-2"
+                      id="totalExpenseVsTotalIncome"
+                    ></canvas>
+                  </div>
+                  <!-- <canvas id="incomeCostAnalysis"></canvas> -->
+
+                  <div class="mt-4 w-100 overflow-auto">
+                    <div
+                      id="chart_legend_additional"
+                      class="d-flex gap-4 justify-content-center align-items-center mt-2"
+                    ></div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-5 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center page-number-container"
+                  >
+                    <img
+                      class="finance-logo-gold"
+                      src="../../assets/images/logo/finance-zoom-logo-gold.svg"
+                      alt="logo-gold"
+                      class="h-10 w-10"
+                    />
+                    <span class="rounded py-1 px-2 fs-12px bg-primary-100"
+                      >Page 4</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Profitability Analysis -->
+            <section id="profitability-analysis" class="summary">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Profitability Analysis</h1>
+              </div>
+              <div class="summary-container">
+                <div>
+                  <h2 class="summary-sub-title">Gross Profit Margin</h2>
+                  <span class="summary-description"
+                    >The gross profit for this month is presented below, along
+                    with a comparison to the gross profit of the previous
+                    month.</span
+                  >
+                </div>
+
+                <div
+                  class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container"
+                >
+                  <div
+                    class="d-flex align-items-center justify-content-center flex-wrap flex-lg-nowrap gap-30 pt-custom-40"
+                  >
+                    <div
+                      class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white border border-1 rounded-12px w-md-100 w-auto"
+                    >
+                      <span class="fs-14px fw-semibold text-neutral-400">
+                        May Gross Profit
+                      </span>
+                      <div
+                        class="d-flex gap-2 justify-content-between align-items-center"
+                      >
+                        <!-- Card Name -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            -$548
+                          </span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="d-flex p-1">
+                            <div
+                              class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                            >
+                              <i
+                                class="icon icon-call-down text-danger-icon"
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- % Change -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            0.68%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- June Gross Profit -->
+                    <div
+                      class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white border border-1 rounded-12px w-md-100 w-auto"
+                    >
+                      <span class="fs-14px fw-semibold text-neutral-400">
+                        June Gross Profit
+                      </span>
+                      <div
+                        class="d-flex gap-2 justify-content-between align-items-center"
+                      >
+                        <!-- Card Name -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            -$24,687
+                          </span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="d-flex p-1">
+                            <div
+                              class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                            >
+                              <i
+                                class="icon icon-call-down text-danger-icon"
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- % Change -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            34.56%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Total Gross Profit -->
+                    <div
+                      class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white border border-1 rounded-12px w-md-100 w-auto"
+                    >
+                      <span class="fs-14px fw-semibold text-neutral-400">
+                        Total Gross Profit
+                      </span>
+                      <div
+                        class="d-flex gap-2 justify-content-between align-items-center"
+                      >
+                        <!-- Card Name -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            $35.547
+                          </span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="d-flex p-1">
+                            <div
+                              class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center"
+                            >
+                              <i
+                                class="icon icon-call-up text-success-icon"
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- % Change -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            6.97%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-center p-3"
+                    style="min-width: 400; min-height: 400px"
+                  >
+                    <canvas class="mt-2" id="grossProfitMargin"></canvas>
+                  </div>
+                  <!-- <canvas id="incomeCostAnalysis"></canvas> -->
+                </div>
+
+                <div class="d-flex justify-content-center w-100 mt-5">
+                  <div
+                    class="p-3 bg-primary-100 d-flex align-items-center gap-3 rounded-3"
+                  >
+                    <i
+                      style="min-width: 24px"
+                      class="icon icon-export icon-size-14px text-success-icon d-none d-md-flex"
+                    ></i>
+                    <span class="badge-text"
+                      >The gross profit margin of 75.00% shows a great
+                      profitability.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <h2 class="summary-sub-title">Net Profit Margin</h2>
+                  <span class="summary-description"
+                    >The gross profit for this month is presented below, along
+                    with a comparison to the gross profit of the previous
+                    month.</span
+                  >
+                </div>
+
+                <div
+                  class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container"
+                >
+                  <div
+                    class="d-flex align-items-center justify-content-center flex-wrap flex-lg-nowrap gap-30 pt-custom-40"
+                  >
+                    <div
+                      class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white border border-1 rounded-12px w-md-100 w-auto"
+                    >
+                      <span class="fs-14px fw-semibold text-neutral-400">
+                        May Net Profit
+                      </span>
+                      <div
+                        class="d-flex gap-2 justify-content-between align-items-center"
+                      >
+                        <!-- Card Name -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            -$548
+                          </span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="d-flex p-1">
+                            <div
+                              class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                            >
+                              <i
+                                class="icon icon-call-down text-danger-icon"
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- % Change -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            0.68%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- June Gross Profit -->
+                    <div
+                      class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white border border-1 rounded-12px w-md-100 w-auto"
+                    >
+                      <span class="fs-14px fw-semibold text-neutral-400">
+                        June Net Profit
+                      </span>
+                      <div
+                        class="d-flex gap-2 justify-content-between align-items-center"
+                      >
+                        <!-- Card Name -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            -$24,687
+                          </span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="d-flex p-1">
+                            <div
+                              class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                            >
+                              <i
+                                class="icon icon-call-down text-danger-icon"
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- % Change -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            34.56%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Total Gross Profit -->
+                    <div
+                      class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white border border-1 rounded-12px w-md-100 w-auto"
+                    >
+                      <span class="fs-14px fw-semibold text-neutral-400">
+                        YTLM Net Profit
+                      </span>
+                      <div
+                        class="d-flex gap-2 justify-content-between align-items-center"
+                      >
+                        <!-- Card Name -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            $35.547
+                          </span>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="d-flex p-1">
+                            <div
+                              class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center"
+                            >
+                              <i
+                                class="icon icon-call-up text-success-icon"
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- % Change -->
+                        <div class="d-flex flex-column">
+                          <span class="fs-12px fw-semibold text-neutral-base">
+                            6.97%
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="d-flex justify-content-center p-3"
+                    style="min-width: 400; min-height: 400px"
+                  >
+                    <canvas class="mt-2" id="netProfitMargin"></canvas>
+                  </div>
+                  <!-- <canvas id="incomeCostAnalysis"></canvas> -->
+                </div>
+
+                <div class="d-flex justify-content-center w-100 mt-5">
+                  <div
+                    class="p-3 bg-primary-100 d-flex align-items-center gap-3 rounded-3"
+                  >
+                    <i
+                      style="min-width: 24px"
+                      class="icon icon-export icon-size-14px text-success-icon d-none d-md-flex"
+                    ></i>
+                    <span class="badge-text"
+                      >An increase in net profit compared to the previous month
+                      is a positive indication of the company's financial
+                      performance.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-5 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center page-number-container"
+                  >
+                    <img
+                      class="finance-logo-gold"
+                      src="../../assets/images/logo/finance-zoom-logo-gold.svg"
+                      alt="logo-gold"
+                      class="h-10 w-10"
+                    />
+                    <span class="rounded py-1 px-2 fs-12px bg-primary-100"
+                      >Page 5</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Major KPIs -->
+            <section id="major-kpis" class="summary">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Major KPIs</h1>
+              </div>
+              <div class="summary-container">
+                <!-- Historic Chart of Selected Accounts Overview of Profit -->
+                <div>
+                  <h1 class="summary-sub-title">Current Ratio</h1>
+                  <p class="summary-description">
+                    The current ratio is a liquidity ratio that measures a
+                    company’s ability to cover its short-term obligations with
+                    its current assets.
+                  </p>
+                </div>
+
+                <div class="mt-4">
+                  <div
+                    class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container_two"
+                  >
+                    <div
+                      class="d-flex align-items-center justify-content-center flex-wrap flex-lg-nowrap gap-30 pt-custom-32"
+                    >
+                      <div
+                        class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white rounded-12px w-md-100 w-auto"
+                      >
+                        <span class="fs-14px fw-semibold text-neutral-400">
+                          May Current Ratio
+                        </span>
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Status -->
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="d-flex p-1">
+                              <div
+                                class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i class="icon icon-minus"></i>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <span class="fs-12px fw-semibold text-neutral-base">
+                              0%
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- June Current Ratio -->
+                      <div
+                        class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white rounded-12px w-md-100 w-auto"
+                      >
+                        <span class="fs-14px fw-semibold text-neutral-400">
+                          June Current Ratio
+                        </span>
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="d-flex p-1">
+                              <div
+                                class="p-1 bg-primary-200 rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i class="icon icon-minus"></i>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <span class="fs-12px fw-semibold text-neutral-base">
+                              0%
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="d-flex justify-content-center p-3"
+                      style="min-width: 400; min-height: 400px"
+                    >
+                      <canvas class="mt-2" id="majorKpi"></canvas>
+                    </div>
+                    <!-- <canvas id="incomeCostAnalysis"></canvas> -->
+
+                    <div class="mt-4 w-100 overflow-auto">
+                      <div
+                        id="chart_legend_additional"
+                        class="d-flex gap-4 justify-content-center flex-wrap align-items-center mt-2"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center w-100 mt-4">
+                  <div
+                    class="p-3 bg-primary-100 d-flex align-items-center gap-3 rounded-3"
+                  >
+                    <i
+                      style="min-width: 24px"
+                      class="icon icon-import icon-size-14px text-danger-icon d-none d-md-flex"
+                    ></i>
+                    <span class="badge-text">
+                      Whereas a ratio below 1 indicates that the company has
+                      more current liabilities than current assets.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <h1 class="summary-sub-title">
+                    Debt to Equity Ratio:
+                    <span class="text-neutral-400"
+                      >Total Liabilities /Total Equity</span
+                    >
+                  </h1>
+                  <p class="summary-description">
+                    The debt-to-equity (D/E) ratio is used to evaluate a
+                    company’s financial leverage and is calculated by dividing a
+                    company’s total liabilities by its shareholder equity.
+                  </p>
+                </div>
+
+                <div class="mt-4">
+                  <div
+                    class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container_two"
+                  >
+                    <div
+                      class="d-flex align-items-center justify-content-center flex-wrap flex-lg-nowrap gap-30 pt-custom-32"
+                    >
+                      <div
+                        class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white rounded-12px w-md-100 w-auto"
+                      >
+                        <span class="fs-14px fw-semibold text-neutral-400">
+                          May (D/E) Ratio
+                        </span>
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Status -->
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="d-flex p-1">
+                              <div
+                                class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up icon-size-24px text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <span class="fs-12px fw-semibold text-neutral-base">
+                              5%
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- June Current Ratio -->
+                      <div
+                        class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white rounded-12px w-md-100 w-auto"
+                      >
+                        <span class="fs-14px fw-semibold text-neutral-400">
+                          June Current Ratio
+                        </span>
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="d-flex p-1">
+                              <div
+                                class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up icon-size-24px text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <span class="fs-12px fw-semibold text-neutral-base">
+                              8%
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="d-flex justify-content-center p-3"
+                      style="min-width: 400; min-height: 400px"
+                    >
+                      <canvas class="mt-2" id="majorKpi2"></canvas>
+                    </div>
+                    <!-- <canvas id="incomeCostAnalysis"></canvas> -->
+
+                    <div class="mt-4 w-100 overflow-auto">
+                      <div
+                        id="chart_legend_additional"
+                        class="d-flex gap-4 justify-content-center flex-wrap align-items-center mt-2"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center w-100 mt-4">
+                  <div
+                    class="p-3 bg-primary-100 d-flex align-items-center gap-3 rounded-3"
+                  >
+                    <i
+                      style="min-width: 24px"
+                      class="icon icon-export icon-size-14px text-success-icon d-none d-md-flex"
+                    ></i>
+                    <span class="badge-text">
+                      A lower (D/E) ratio is generally more favorable, as it
+                      indicates that a company has less debt relative to its
+                      equity, meaning it is potentially less risky.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="mt-5">
+                  <h1 class="summary-sub-title">
+                    Return on Assets (ROA):
+                    <span class="text-neutral-400"
+                      >Net Income/Total Assets</span
+                    >
+                  </h1>
+                  <p class="summary-description">
+                    Return on Assets (ROA) ratio is calculated by dividing Net
+                    Income by Total Assets. It gives an indication of how
+                    effectively a company is using its assets to generate
+                    profit.
+                  </p>
+                </div>
+
+                <div class="mt-4">
+                  <div
+                    class="col-12 col-xl-12 d-flex flex-column gap-4 multi-chart-container_two"
+                  >
+                    <div
+                      class="d-flex align-items-center justify-content-center flex-wrap flex-lg-nowrap gap-30 pt-custom-32"
+                    >
+                      <div
+                        class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white rounded-12px w-md-100 w-auto"
+                      >
+                        <span class="fs-14px fw-semibold text-neutral-400">
+                          May ROA
+                        </span>
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <!-- Status -->
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="d-flex p-1">
+                              <div
+                                class="p-1 bg-success-light rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up icon-size-24px text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <span class="fs-12px fw-semibold text-neutral-base">
+                              9.24%
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- June Current Ratio -->
+                      <div
+                        class="py-3 px-custom-32 d-flex flex-column justify-content-center align-items-center align-items-lg-start bg-white rounded-12px w-md-100 w-auto"
+                      >
+                        <span class="fs-14px fw-semibold text-neutral-400">
+                          June ROA
+                        </span>
+                        <div
+                          class="d-flex gap-2 justify-content-between align-items-center"
+                        >
+                          <div class="d-flex align-items-center gap-2">
+                            <div class="d-flex p-1">
+                              <div
+                                class="p-1 bg-danger-light rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down icon-size-24px text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- % Change -->
+                          <div class="d-flex flex-column">
+                            <span class="fs-12px fw-semibold text-neutral-base">
+                              -1.65%
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="d-flex justify-content-center p-3"
+                      style="min-width: 400; min-height: 400px"
+                    >
+                      <canvas class="mt-2" id="majorKpi3"></canvas>
+                    </div>
+                    <!-- <canvas id="incomeCostAnalysis"></canvas> -->
+
+                    <div class="mt-4 w-100 overflow-auto">
+                      <div
+                        id="chart_legend_additional"
+                        class="d-flex gap-4 justify-content-center flex-wrap align-items-center mt-2"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center w-100 mt-4">
+                  <div
+                    class="p-3 bg-primary-100 d-flex align-items-center gap-3 rounded-3"
+                  >
+                    <i
+                      style="min-width: 24px"
+                      class="icon icon-export icon-size-14px text-danger-icon d-none d-md-flex"
+                    ></i>
+                    <span class="badge-text">
+                      In general, an ROA below 5% is not considered good. A less
+                      ROA is risky, as it indicates that the company can
+                      generate less income from each dollar of assets.
+                    </span>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-5 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center page-number-container"
+                  >
+                    <img
+                      class="finance-logo-gold"
+                      src="../../assets/images/logo/finance-zoom-logo-gold.svg"
+                      alt="logo-gold"
+                    />
+                    <span class="rounded py-1 px-2 fs-12px bg-primary-100"
+                      >Page 6</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Profit and Lost -->
+            <section id="profit-and-lost" class="summary">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Profit and Loss</h1>
+              </div>
+              <div class="summary-container">
+                <div class="tab-content" id="pills-tabContent">
+                  <!-- Tabs Profit & Lost  -->
+                  <div
+                    class="tab-pane tab-financial tab-financial fade show active-profit-tabs"
+                    id="pills-profit"
+                    role="tabpanel"
+                    aria-labelledby="pills-profit-tab"
+                    tabindex="0"
+                  >
+                    <table class="table" id="profitLostTab">
+                      <thead>
+                        <tr class="table-header">
+                          <th
+                            class="icon-cell d-flex align-items-center gap-12"
+                          >
+                            Account
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            May
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            June
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Total
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Change %
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Change $
+                          </th>
+                          <th width="5%" class="text-center"></th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="fw-semibold">Income</td>
+                          <td class="fw-semibold">$71,487</td>
+                          <td class="fw-semibold">$80,279</td>
+                          <td class="fw-semibold">$509,968</td>
+                          <td class="fw-semibold">12.38%</td>
+                          <td class="fw-semibold">$8,434</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32 bg-success-light">
+                            Amazon Sales
+                          </td>
+                          <td class="bg-success-light">$27,042</td>
+                          <td class="bg-success-light">$80,279</td>
+                          <td class="bg-success-light">$485,573</td>
+                          <td class="change-positive bg-success-light">
+                            196.87%
+                          </td>
+                          <td class="change-positive bg-success-light">
+                            $53,238
+                          </td>
+                          <td class="bg-success-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32 bg-danger-light">Sales</td>
+                          <td class="bg-danger-light">$0</td>
+                          <td class="bg-danger-light">$44,394</td>
+                          <td class="bg-danger-light">$44,394</td>
+                          <td class="change-negative bg-danger-light">-100%</td>
+                          <td class="change-negative bg-danger-light">
+                            -$44,394
+                          </td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr class="neutral-table">
+                          <td class="fw-semibold bg-success-light">
+                            Total Income
+                          </td>
+                          <td class="fw-semibold bg-success-light">$71,487</td>
+                          <td class="fw-semibold bg-success-light">$80,279</td>
+                          <td class="fw-semibold bg-success-light">$509,968</td>
+                          <td
+                            class="fw-semibold change-positive bg-success-light"
+                          >
+                            12.38%
+                          </td>
+                          <td
+                            class="fw-semibold change-positive bg-success-light"
+                          >
+                            $8,434
+                          </td>
+                          <td class="bg-success-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="fw-semibold">Cost of Goods Sold</td>
+                          <td class="fw-semibold">$96,123</td>
+                          <td class="fw-semibold">$80,827</td>
+                          <td class="fw-semibold">$474,968</td>
+                          <td class="fw-semibold">-15.91%</td>
+                          <td class="fw-semibold">-$15,296</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32 bg-danger-light">
+                            Cost of Goods Sold
+                          </td>
+                          <td class="bg-danger-light">$96,123</td>
+                          <td class="bg-danger-light">$80,827</td>
+                          <td class="bg-danger-light">$474,968</td>
+                          <td class="change-negative bg-danger-light">
+                            -15.91%
+                          </td>
+                          <td class="change-negative bg-danger-light">
+                            -$15,296
+                          </td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32">Shipping</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td>$3,000</td>
+                          <td>0%</td>
+                          <td>$0</td>
+                          <td></td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="bg-danger-light fw-semibold">
+                            Total Cost of Goods Sold
+                          </td>
+                          <td class="bg-danger-light fw-semibold">$96,123</td>
+                          <td class="bg-danger-light fw-semibold">$80,827</td>
+                          <td class="bg-danger-light fw-semibold">$474,968</td>
+                          <td
+                            class="bg-danger-light fw-semibold change-negative"
+                          >
+                            -15.91%
+                          </td>
+                          <td
+                            class="bg-danger-light fw-semibold change-negative"
+                          >
+                            -$15,296
+                          </td>
+                          <td class="bg-danger-light">
+                            <div class="bg-danger-light d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr class="neutral-table">
+                          <td class="bg-success-light">
+                            <strong>Gross Profit</strong>
+                          </td>
+                          <td class="bg-success-light fw-semibold">-$24,488</td>
+                          <td class="bg-success-light fw-semibold">-$548</td>
+                          <td class="bg-success-light fw-semibold">$35,547</td>
+                          <td
+                            class="bg-success-light fw-semibold change-positive"
+                          >
+                            97.78%
+                          </td>
+                          <td
+                            class="bg-success-light fw-semibold change-positive"
+                          >
+                            $24.139
+                          </td>
+                          <td class="bg-success-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="fw-semibold">Expenses</td>
+                          <td class="fw-semibold">$7,045</td>
+                          <td class="fw-semibold">$4,537</td>
+                          <td class="fw-semibold">$34,968</td>
+                          <td class="fw-semibold">-35.91%</td>
+                          <td class="fw-semibold">-$2.500</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32">Automobile Expense Gas</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td>$25</td>
+                          <td>0%</td>
+                          <td>0%</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32">Bank Charges & Fees</td>
+                          <td>$3</td>
+                          <td>$3</td>
+                          <td>$137</td>
+                          <td>0%</td>
+                          <td>$0</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32">Meals & Entertainment</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td>$699</td>
+                          <td>0%</td>
+                          <td>$0</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32 bg-danger-light">
+                            Office Supplies & Software
+                          </td>
+                          <td class="bg-danger-light">$82</td>
+                          <td class="bg-danger-light">$82</td>
+                          <td class="bg-danger-light">$507</td>
+                          <td class="change-negative bg-danger-light">
+                            -0.05%
+                          </td>
+                          <td class="change-negative bg-danger-light">$0</td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="fw-semibold">Payroll Expenses</td>
+                          <td class="fw-semibold">$4,485</td>
+                          <td class="fw-semibold">$4,485</td>
+                          <td class="fw-semibold">$25,667</td>
+                          <td class="fw-semibold">0%</td>
+                          <td class="fw-semibold">$0</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32">Payroll Fees</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td>$490</td>
+                          <td>0%</td>
+                          <td>$0</td>
+                          <td></td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32 bg-success-light">
+                            Payroll Taxes
+                          </td>
+                          <td class="bg-success-light">$850</td>
+                          <td class="bg-success-light">$850</td>
+                          <td class="bg-success-light">$5,190</td>
+                          <td class="change-positive bg-success-light">0%</td>
+                          <td class="change-positive bg-success-light">$0</td>
+                          <td class="bg-success-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="pl-custom-32 bg-danger-light">
+                            Wages & Salary
+                          </td>
+                          <td class="bg-danger-light">$3,635</td>
+                          <td class="bg-danger-light">$3,635</td>
+                          <td class="bg-danger-light">$19,992</td>
+                          <td class="change-negative bg-danger-light">0%</td>
+                          <td class="change-negative bg-danger-light">$0</td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="pl-custom-32">Total Payroll Expenses</td>
+                          <td>$3,635</td>
+                          <td>$3,635</td>
+                          <td>$19,992</td>
+                          <td>0%</td>
+                          <td>$0</td>
+                          <td></td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr class="neutral-table">
+                          <td class="gap-12 ps-4 bg-danger-light">
+                            <strong>Rent & Lease</strong>
+                          </td>
+                          <td class="fw-semibold bg-danger-light">$2,500</td>
+                          <td class="fw-semibold bg-danger-light">$0</td>
+                          <td class="fw-semibold bg-danger-light">$7,500</td>
+                          <td
+                            class="fw-semibold bg-danger-light change-negative"
+                          >
+                            -100%
+                          </td>
+                          <td
+                            class="fw-semibold bg-danger-light change-negative"
+                          >
+                            -$2,500
+                          </td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr class="neutral-table">
+                          <td class="bg-danger-light">
+                            <strong>Total Expenses</strong>
+                          </td>
+                          <td class="fw-semibold bg-danger-light">-$37,757</td>
+                          <td class="fw-semibold bg-danger-light">-$5,148</td>
+                          <td class="fw-semibold bg-danger-light">$1,010</td>
+                          <td
+                            class="fw-semibold bg-danger-light change-positive"
+                          >
+                            -83.88%
+                          </td>
+                          <td
+                            class="fw-semibold bg-danger-light change-positive"
+                          >
+                            $26.339
+                          </td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr class="neutral-table">
+                          <td class="bg-success-light">
+                            <strong>Net Operating Income</strong>
+                          </td>
+                          <td class="fw-semibold bg-success-light">-$37,757</td>
+                          <td class="fw-semibold bg-success-light">-$5,148</td>
+                          <td class="fw-semibold bg-success-light">$1,010</td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            -83.88%
+                          </td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            $26.339
+                          </td>
+                          <td class="bg-success-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Neutral -->
+                        <tr class="neutral-table">
+                          <td class="bg-success-light">
+                            <strong>Net Income</strong>
+                          </td>
+                          <td class="fw-semibold bg-success-light">-$37,757</td>
+                          <td class="fw-semibold bg-success-light">-$5,148</td>
+                          <td class="fw-semibold bg-success-light">$1,010</td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            -83.88%
+                          </td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            $26.339
+                          </td>
+                          <td class="bg-success-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-5 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center page-number-container"
+                  >
+                    <img
+                      class="finance-logo-gold"
+                      src="../../assets/images/logo/finance-zoom-logo-gold.svg"
+                      alt="logo-gold"
+                      class="h-10 w-10"
+                    />
+                    <span class="rounded py-1 px-2 fs-12px bg-primary-100"
+                      >Page 7</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Balance Sheet -->
+            <section id="balance-sheet" class="summary">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Balance Sheet</h1>
+              </div>
+              <div class="summary-container">
+                <!-- Tabs Balance Sheet -->
+                <div class="tab-content" id="pills-tabContent">
+                  <div
+                    class="tab-pane tab-financial tab-financial fade show active-profit-tabs"
+                    id="pills-balance"
+                    role="tabpanel"
+                    aria-labelledby="pills-balance-tab"
+                    tabindex="0"
+                  >
+                    <table class="table" id="balanceSheetTab">
+                      <thead>
+                        <tr class="table-header">
+                          <th
+                            class="icon-cell d-flex align-items-center gap-12"
+                          >
+                            Account
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            May
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            June
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Change %
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Change $
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="fw-semibold">Assets</td>
+                          <td class="fw-semibold">$71,487</td>
+                          <td class="fw-semibold">$80,279</td>
+                          <td class="fw-semibold">12.38%</td>
+                          <td class="fw-semibold">$8,434</td>
+                          <td></td>
+                        </tr>
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="fw-semibold">Current Assets</td>
+                          <td class="fw-semibold">$96,123</td>
+                          <td class="fw-semibold">$80,827</td>
+                          <td class="fw-semibold">-15.91%</td>
+                          <td class="fw-semibold">-$15.296</td>
+                          <td></td>
+                        </tr>
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="fw-semibold pl-custom-32">Bank Account</td>
+                          <td class="fw-semibold">$27,042</td>
+                          <td class="fw-semibold">$80,279</td>
+                          <td class="fw-semibold">196,87%</td>
+                          <td class="fw-semibold">$53,238</td>
+                          <td></td>
+                        </tr>
+                        <tr class="sub-row">
+                          <td class="pl-custom-40 bg-danger-light">
+                            5/3 Bank Checking
+                          </td>
+                          <td class="bg-danger-light">$0</td>
+                          <td class="bg-danger-light">$0</td>
+                          <td class="change-negative bg-danger-light">0%</td>
+                          <td class="change-negative bg-danger-light">$0</td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="sub-row">
+                          <td class="pl-custom-40">Checking (1146)</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td>0%</td>
+                          <td></td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table bg-success-light">
+                          <td class="fw-semibold bg-success-light">
+                            Total Bank Accounts
+                          </td>
+                          <td class="fw-semibold bg-success-light">$80,279</td>
+                          <td class="fw-semibold bg-success-light">$71,432</td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            12%
+                          </td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            $8,434
+                          </td>
+                          <td class="bg-success-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="sub-row">
+                          <td class="pl-custom-32">Other Current Assets</td>
+                          <td>$96,123</td>
+                          <td>$80,827</td>
+                          <td>196.87%</td>
+                          <td>$53,238</td>
+                          <td></td>
+                        </tr>
+                        <tr class="sub-row">
+                          <td class="pl-custom-32">Inventory</td>
+                          <td>$0</td>
+                          <td>$0</td>
+                          <td class="">0%</td>
+                          <td class="">$0</td>
+                          <td></td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table bg-danger-light">
+                          <td class="fw-semibold bg-danger-light">
+                            Total Current Assets
+                          </td>
+                          <td class="fw-semibold bg-danger-light">$71,487</td>
+                          <td class="fw-semibold bg-danger-light">$80,279</td>
+                          <td
+                            class="fw-semibold bg-danger-light change-positive"
+                          >
+                            12.38%
+                          </td>
+                          <td
+                            class="fw-semibold bg-danger-light change-positive"
+                          >
+                            $8,434
+                          </td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table bg-success-light">
+                          <td class="fw-semibold bg-success-light">
+                            Total Assets
+                          </td>
+                          <td class="fw-semibold bg-success-light">$71,487</td>
+                          <td class="fw-semibold bg-success-light">$80,279</td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            12.38%
+                          </td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            $8,434
+                          </td>
+                          <td class="bg-success-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="fw-semibold">Liabilities & Equity</td>
+                          <td class="fw-semibold">$71,487</td>
+                          <td class="fw-semibold">$80,279</td>
+                          <td class="fw-semibold">12.38%</td>
+                          <td class="fw-semibold">$8,434</td>
+                          <td></td>
+                        </tr>
+                        <tr class="sub-row">
+                          <td class="pl-custom-32">Liabilities</td>
+                          <td>$27,042</td>
+                          <td>$80,279</td>
+                          <td>196.87%</td>
+                          <td>$53,238</td>
+                          <td></td>
+                        </tr>
+                        <tr class="sub-row">
+                          <td class="pl-custom-32">Total Liabilities</td>
+                          <td>$27,042</td>
+                          <td>$80,279</td>
+                          <td>196.87%</td>
+                          <td>$53,238</td>
+                          <td></td>
+                        </tr>
+                        <tr class="sub-row">
+                          <td class="pl-custom-32">Equity</td>
+                          <td>$27,042</td>
+                          <td>$80,279</td>
+                          <td>196.87%</td>
+                          <td>$53,238</td>
+                          <td></td>
+                        </tr>
+                        <tr class="sub-row">
+                          <td class="pl-custom-40">Opening Balance Equity</td>
+                          <td>$27,042</td>
+                          <td>$80,279</td>
+                          <td>196.87%</td>
+                          <td>$53,238</td>
+                          <td></td>
+                        </tr>
+                        <tr class="sub-row">
+                          <td class="pl-custom-40">Retained Earnings</td>
+                          <td>$27,042</td>
+                          <td>$80,279</td>
+                          <td>196.87%</td>
+                          <td>$53,238</td>
+                          <td></td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table bg-danger-light">
+                          <td class="fw-semibold bg-danger-light">
+                            Net Income
+                          </td>
+                          <td class="fw-semibold bg-danger-light">N/A</td>
+                          <td class="fw-semibold bg-danger-light">$80,279</td>
+                          <td
+                            class="fw-semibold bg-danger-light change-positive"
+                          >
+                            12.38%
+                          </td>
+                          <td
+                            class="fw-semibold bg-danger-light change-positive"
+                          >
+                            $8,434
+                          </td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table bg-danger-light">
+                          <td class="fw-semibold bg-danger-light">
+                            Total Equity
+                          </td>
+                          <td class="fw-semibold bg-danger-light">$4,570</td>
+                          <td class="fw-semibold bg-danger-light">$80,279</td>
+                          <td
+                            class="fw-semibold bg-danger-light change-positive"
+                          >
+                            12.38%
+                          </td>
+                          <td
+                            class="fw-semibold bg-danger-light change-positive"
+                          >
+                            $8,434
+                          </td>
+                          <td class="bg-danger-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-down text-danger-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <!-- Table Expand -->
+                        <tr class="neutral-table">
+                          <td class="fw-semibold bg-success-light">
+                            Total Liabilities & Equity
+                          </td>
+                          <td class="fw-semibold bg-success-light">N/A</td>
+                          <td class="fw-semibold bg-success-light">$80,279</td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            12.38%
+                          </td>
+                          <td
+                            class="fw-semibold bg-success-light change-positive"
+                          >
+                            $8,434
+                          </td>
+                          <td class="bg-success-light">
+                            <div class="d-flex">
+                              <div
+                                class="p-1 bg-white rounded-circle d-flex justify-contetn-center align-items-center"
+                              >
+                                <i
+                                  class="icon icon-call-up text-success-icon"
+                                ></i>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-5 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center page-number-container"
+                  >
+                    <img
+                      class="finance-logo-gold"
+                      src="../../assets/images/logo/finance-zoom-logo-gold.svg"
+                      alt="logo-gold"
+                      class="h-10 w-10"
+                    />
+                    <span class="rounded py-1 px-2 fs-12px bg-primary-100"
+                      >Page 8</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Accounts Receivables -->
+            <section id="accounts-receivables" class="summary">
+              <div class="summary-title">
+                <div class="blue-box"></div>
+                <h1>Accounts Receivables</h1>
+              </div>
+              <div
+                class="summary-container d-flex flex-column justify-content-between"
+                style="min-height: 90dvh"
+              >
+                <div class="tab-content mt-4" id="pills-tabContent">
+                  <!-- Tabs Accounts Receivables  -->
+                  <div
+                    class="tab-pane tab-financial tab-financial fade show active-profit-tabs"
+                    id="pills-profit"
+                    role="tabpanel"
+                    aria-labelledby="pills-profit-tab"
+                    tabindex="0"
+                  >
+                    <table class="table" id="profitLostTab">
+                      <thead>
+                        <tr
+                          class="table-header border-top border-top-2 border-black"
+                        >
+                          <th class="">Customer</th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Current ($)
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            1-30 ($)
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            31-60 ($)
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            61-90 ($)
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            91-Over ($)
+                          </th>
+                          <th width="10%" class="text-start text-neutral-400">
+                            Total ($)
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr>
+                          <td class="ps-4 fw-semibold">Over Stock</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$8,434</td>
+                          <td class="fw-semibold">$8,434</td>
+                          <td></td>
+                        </tr>
+
+                        <tr>
+                          <td class="ps-4 fw-semibold">Wayfair</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">-$15.296</td>
+                          <td class="fw-semibold">-$37.296</td>
+                          <td></td>
+                        </tr>
+
+                        <tr>
+                          <td class="ps-4 fw-semibold">Wayfair</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">$0</td>
+                          <td class="fw-semibold">-$4.296</td>
+                          <td class="fw-semibold">-$15.296</td>
+                          <td></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-5 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center page-number-container"
+                  >
+                    <img
+                      class="finance-logo-gold"
+                      src="../../assets/images/logo/finance-zoom-logo-gold.svg"
+                      alt="logo-gold"
+                    />
+                    <span class="rounded py-1 px-2 fs-12px bg-primary-100"
+                      >Page 9</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
         </main>
       </div>
@@ -1035,11 +2965,13 @@
 
     <!-- Chart -->
     <script src="../../assets/js/lineChart.js"></script>
+    <script src="../../assets/js/lineGridChart.js"></script>
     <script src="../../assets/js/doughnutChart.js"></script>
     <script src="../../assets/js/barChart.js"></script>
     <script src="../../assets/js/breakevenChart.js"></script>
     <script src="../../assets/js/multiLineChart.js"></script>
     <script src="../../assets/js/multiLineChart2.js"></script>
+    <script src="../../assets/js/multiLineGridChart.js"></script>
 
     <script>
       function downloadFile() {
@@ -1071,6 +3003,41 @@
           document.getElementById("zoom-value").innerText = increasedZoomValue;
         }
       };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        function activateNavLink() {
+          let currentSection = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 50) {
+              currentSection = section.getAttribute("id");
+            }
+          });
+
+          navLinks.forEach((link) => {
+            const icon = link.querySelector("i");
+            const text = link.querySelector("span");
+
+            link.classList.remove("active");
+            icon.classList.remove("text-white-icon");
+            text.classList.remove("text-white");
+            text.classList.add("text-secondary");
+
+            if (link.getAttribute("data-target") === `#${currentSection}`) {
+              link.classList.add("active");
+              link.classList.add("active");
+              icon.classList.add("text-white-icon");
+              text.classList.add("text-white");
+              text.classList.remove("text-secondary");
+            }
+          });
+        }
+
+        window.addEventListener("scroll", activateNavLink);
+      });
     </script>
   </body>
 </html>

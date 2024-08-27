@@ -80,9 +80,7 @@ $(document).ready(function () {
                 return formatValue(value);
               },
             },
-            grid: {
-              display: gridY,
-            },
+
             border: {
               display: false,
               dash: function (context) {
@@ -95,10 +93,10 @@ $(document).ready(function () {
           },
           x: {
             grid: {
-              display: false,
+              display: true,
             },
             border: {
-              display: false,
+              display: true,
             },
             ticks: {
               autoSkip: false,
@@ -148,6 +146,8 @@ $(document).ready(function () {
           },
         },
       ],
+      responsive: true,
+      maintainAspectRatio: false,
     });
 
     if (linkLegend) {
@@ -165,7 +165,7 @@ $(document).ready(function () {
   }
 
   function createLegend() {
-    const legendContainer = document.getElementById("chart_legend_modal");
+    const legendContainer = document.getElementById("chart_legend");
     legendContainer.innerHTML = ""; // Clear any existing content
     const legendItems = [];
 
@@ -179,56 +179,35 @@ $(document).ready(function () {
     });
   }
 
-  // Example data
-  const chartData = {
+  const incomeCostAnalysisData = {
     labels: [
       "Jan 2024",
       "Feb 2024",
       "Mar 2024",
       "Apr 2024",
       "May 2024",
-      "June 2024",
+      "Jun 2024",
     ],
     data: [
       {
-        label: "Total Sales",
-        data: [30000, 50000, 40000, 70000, 60000, 90000],
+        label: "Total Income",
+        data: [40000, 60000, 70000, 80000, 75000, 95000],
       },
       {
-        label: "Total Cost",
-        data: [20000, 25000, 30000, 35000, 40000, 45000],
-      },
-      {
-        label: "Gross Profit",
-        data: [10000, 25000, 10000, 35000, 20000, 45000],
-      },
-      {
-        label: "Total Expenses",
-        data: [-5000, -10000, 0, 5000, 0, -5000],
-      },
-      {
-        label: "Net Profit",
-        data: [5000, 15000, 10000, 30000, 20000, 40000],
+        label: "Total Cost of Goods Sold",
+        data: [65000, 60000, 70000, 75000, 90000, 100000],
       },
     ],
   };
 
-  // Merge
-  initializeChart(
-    "multiLineChart",
-    chartData.labels,
-    chartData.data,
-    "K",
-    true,
-    true
-  );
+  // Compare Data
 
   initializeChart(
-    "multiLineChart2",
-    chartData.labels,
-    chartData.data,
+    "incomeCostAnalysis",
+    incomeCostAnalysisData.labels,
+    incomeCostAnalysisData.data,
     "K",
-    true,
+    false,
     true
   );
 

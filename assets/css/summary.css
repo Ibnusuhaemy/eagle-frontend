@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.nav-link {
+  transition: color 0.5s ease, background-color 0.5s ease;
+}
+
 .custom-li {
   background-color: var(--primary-base) !important;
   --bs-btn-bg: #ffffff !important;
@@ -54,6 +58,7 @@
 .summary {
   background-color: white;
   padding: 1rem 0;
+  max-height: 100%;
 }
 
 .summary-title {
@@ -109,6 +114,13 @@
 .multi-chart-container {
   margin-top: 1rem;
   border: 1px solid #7c8fac;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.multi-chart-container_two {
+  margin-top: 1rem;
+  background-color: #f2f6fa;
   padding: 10px;
   border-radius: 20px;
 }
@@ -214,6 +226,12 @@
     padding: 20px;
     border-radius: 20px;
   }
+  .multi-chart-container_two {
+    margin-top: 1rem;
+    background-color: #f2f6fa;
+    padding: 20px;
+    border-radius: 20px;
+  }
 
   .page-number-container {
     width: 55%;
@@ -266,9 +284,17 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
+
   .multi-chart-container {
     margin-top: 1rem;
     border: 1px solid #7c8fac;
+    padding: 30px;
+    border-radius: 20px;
+  }
+
+  .multi-chart-container_two {
+    margin-top: 1rem;
+    background-color: #f2f6fa;
     padding: 30px;
     border-radius: 20px;
   }
@@ -322,6 +348,12 @@
   .multi-chart-container {
     margin-top: 1rem;
     border: 1px solid #7c8fac;
+    padding: 40px;
+    border-radius: 20px;
+  }
+  .multi-chart-container_two {
+    margin-top: 1rem;
+    background-color: #f2f6fa;
     padding: 40px;
     border-radius: 20px;
   }
