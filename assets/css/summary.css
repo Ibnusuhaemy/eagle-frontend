@@ -3,10 +3,6 @@
   width: 100%;
 }
 
-.nav-link {
-  transition: color 0.5s ease, background-color 0.5s ease;
-}
-
 .custom-li {
   background-color: var(--primary-base) !important;
   --bs-btn-bg: #ffffff !important;
