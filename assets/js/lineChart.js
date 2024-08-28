@@ -102,7 +102,7 @@ $(document).ready(function () {
         },
         elements: {
           line: {
-            tension: 0.4, // Smooth line curve
+            tension: 0.4,
           },
         },
       },
