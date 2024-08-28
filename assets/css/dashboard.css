@@ -60,7 +60,7 @@ aside > .navbar-nav > .nav-item > .nav-link:not(.active):hover {
   display: flex !important;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  min-height: 400px;
 }
 
 .btn-primary {
